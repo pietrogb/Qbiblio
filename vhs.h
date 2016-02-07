@@ -1,7 +1,9 @@
 #ifndef VHS_H
 #define VHS_H
 
-class VHS : public LibraryItem
+#include "film.h"
+
+class VHS : public Film
 {
 public:
     VHS();

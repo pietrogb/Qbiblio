@@ -16,7 +16,8 @@ SOURCES += \
     cd.cpp \
     dvd.cpp \
     main.cpp \
-    vhs.cpp
+    vhs.cpp \
+    film.cpp
 
 
 HEADERS += \
@@ -25,4 +26,5 @@ HEADERS += \
     libro.h \
     cd.h \
     dvd.h \
-    vhs.h
+    vhs.h \
+    film.h

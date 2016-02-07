@@ -1,7 +1,7 @@
 #ifndef DVD_H
 #define DVD_H
 
-class DVD : public LibraryItem
+class DVD : public Film
 {
 public:
     DVD();
