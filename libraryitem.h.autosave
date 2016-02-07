@@ -2,7 +2,6 @@
 #define LIBRARYITEM_H
 
 #include <iostream>
-
 #include <QString>
 
 class LibraryItem
