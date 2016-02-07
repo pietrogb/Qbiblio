@@ -4,13 +4,25 @@
 	}
 	\subsection{Scopo del progetto}{
 		Il progetto ha come scopo lo sviluppo di un'applicazione per la gestione di una biblioteca. Gli oggetti che compongono la biblioteca sono inseriti in un database che viene utilizzato attraverso una interfaccia grafica.
-		Lo sviluppo è stato fatto con C++ e Qt. 
+		Lo sviluppo è stato fatto utilizzando C++ e Qt. 
 	}
 	\subsection{Specifiche progettuali}{
+		Il progetto è destinato ad immagazzinare i titoli di una biblioteca domestica. Gli oggetti che si possono salvare sono:
+		\begin{itemize}\itemsep0.5pt
+			\item Libri;
+			\item DVD;
+			\item Cd;
+			\item VHS.
+		\end{itemize}
+		Le funzionalità principali che si intende modellare sono la:
+		\begin{itemize}\itemsep0.5pt
+			\item Aggiunta di elementi;
+			\item Ricerca tra i titoli;
+			\item Cancellazione di titoli, tra quelli presenti.
+		\end{itemize}
 		Il progetto è stato sviluppato in un sistema XUbuntu; è stato utilizzato l'IDE Qt Creator nella versione 3.0.1, con le librerie alla versione 5.2.1.	\\
 		Si è provato il progetto sui computer del Laboratorio Informatico Plesso Paolotti (LabP140 - labP036) dove compila ed esegue correttamente.\\
 		Il database che compone l'applicazione viene aperto e salvato usando il formato XML: entrambe le operazioni avvengono in maniera automatica grazie ad un path impostato di default. \\
-		Nello sviluppo è stata curata la separazione tra la parte logica e la parte grafica, senza però ricorrere  ad design parttern MVC.
+		Nello sviluppo è stata curata la separazione tra la parte logica e la parte grafica, senza però ricorrere  al design pattern MVC.	\\
 	}
 }
-
