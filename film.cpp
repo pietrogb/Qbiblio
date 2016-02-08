@@ -1,26 +1,29 @@
 #include "film.h"
-/*
-QString regista;
-int durata; //minuti
-QDate dataUscita;
-QVector<QString> attori;*/
-Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita(), attori() {}
-Film::Film(QString t, QString g, QString r, int d, QDate u, QVector<QString> a): LibraryItem(t, g), regista(r),
-    durata(d), dataUscita(u), attori(a) {}
+
+Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita() {}
+
+Film::Film(QString t, QString g, QString r, int d, QDate u): LibraryItem(t, g), regista(r), durata(d), dataUscita(u){}
 
 Film::~Film() {}
 
 Film::Film* clone() const {return new Film(*this);};
 
-Film::bool operator==(const Film&) const{
-
+bool Film::operator==(const Film& f) const{
+    return (LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
 }
-Film::bool operator!=(const Film&) const;
-Film::QString getRegista() const;
-Film::int getDurata() const;
-Film::QDate getDataUscita() const;
-Film::QVector<QString> getAttori;
 
-Film::Film()
-{
+bool Film::operator!=(const Film& f) const{
+    return !(LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
 }
+
+QString Film::getRegista() const{ return regista;}
+
+int Film::getDurata() const {return durata;}
+
+QDate Film::getDataUscita() const {return dataUscita;}
+
+
+//Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita(), attori() {}
+//Film::Film(QString t, QString g, QString r, int d, QDate u, QVector<QString> a): LibraryItem(t, g), regista(r), durata(d), dataUscita(u), attori(a) {}
+//Film::QVector<QString> getAttori() const;
+

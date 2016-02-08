@@ -2,7 +2,7 @@
 
 LibraryItem::LibraryItem(): titolo(""), genere("") {}
 
-LibraryItem::LibraryItem(QString t ="", QString g =0): titolo(t), genere(g) {}
+LibraryItem::LibraryItem(QString t ="", QString g =""): titolo(t), genere(g) {}
 
 LibraryItem::~LibraryItem(){} //posso anche evitare di scriverlo, visto che è virtuale puro!
 
@@ -18,8 +18,8 @@ QString LibraryItem::getTitolo() const{
     return titolo;
 }
 
-int LibraryItem::getAnno() const{
-    return annoCreazione;
+QString LibraryItem::getGenere() const{
+    return genere;
 }
 
 

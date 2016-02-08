@@ -10,19 +10,32 @@
 		Il progetto è destinato ad immagazzinare i titoli di una biblioteca domestica. Gli oggetti che si possono salvare sono:
 		\begin{itemize}\itemsep0.5pt
 			\item Libri;
-			\item DVD;
-			\item Cd;
-			\item VHS.
+			\item Film, siano questi  VHS o DVD.
+			\item CD;
 		\end{itemize}
-		Le funzionalità principali che si intende modellare sono la:
+		Le funzionalità principali che si intende modellare sono:
 		\begin{itemize}\itemsep0.5pt
-			\item Aggiunta di elementi;
-			\item Ricerca tra i titoli;
+			\item Aggiunta di nuovi elementi;
+			\item Ricerca tra i titoli presenti;
 			\item Cancellazione di titoli, tra quelli presenti.
 		\end{itemize}
+		I vincoli di progetto sono i seguenti:
+		\begin{enumerate}\itemsep0.5pt
+			\item Definizione ed utilizzo di una gerarchia G di tipi di altezza >= 1 e larghezza >= 1.
+			\item Definizione di un opportuno contenitore C, con relativi iteratori, che permetta inserimenti, rimozioni, modifiche.
+			\item Utilizzo del contenitore C per memorizzare oggetti polimorfi della gerarchia G.
+			\item Il front-end dell’applicazione deve essere una GUI sviluppata nel framework Qt.
+		\end{enumerate}
 		Il progetto è stato sviluppato in un sistema XUbuntu; è stato utilizzato l'IDE Qt Creator nella versione 3.0.1, con le librerie alla versione 5.2.1.	\\
 		Si è provato il progetto sui computer del Laboratorio Informatico Plesso Paolotti (LabP140 - labP036) dove compila ed esegue correttamente.\\
 		Il database che compone l'applicazione viene aperto e salvato usando il formato XML: entrambe le operazioni avvengono in maniera automatica grazie ad un path impostato di default. \\
-		Nello sviluppo è stata curata la separazione tra la parte logica e la parte grafica, senza però ricorrere  al design pattern MVC.	\\
+	
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.4\textwidth]{\docsImg modelview-overview.jpg}
+			\caption{Model/View architecture}
+		\end{center}
+	\end{figure}
+		Nello sviluppo è stata curata la separazione tra la parte logica e la parte grafica, senza utilizzare il design pattern MVC. Si e` preferita invece un'architettura Model/View, che rende possibile la separazione del modo in cui sono immagazzinati i dati e la loro presentazione all'utente. %[Questa separazione rende possibili modi diversi di presentare i dati, senza dover cambiare la struttura dati sottostante.]	
 	}
 }

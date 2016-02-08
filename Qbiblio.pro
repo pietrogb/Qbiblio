@@ -17,14 +17,15 @@ SOURCES += \
     dvd.cpp \
     main.cpp \
     vhs.cpp \
-    film.cpp
+    film.cpp \
+    container.cpp
 
 
 HEADERS += \
-    Libraryitem.h \
     libraryitem.h \
     libro.h \
     cd.h \
     dvd.h \
     vhs.h \
-    film.h
+    film.h \
+    container.h

@@ -17,7 +17,7 @@ public:
     virtual bool operator==(const LibraryItem&) const;
     virtual bool operator!=(const LibraryItem&) const;
     QString getTitolo() const;
-    int getAnno() const;
+    int getGenere() const;
 };
 
 #endif // LIBRARYITEM_H

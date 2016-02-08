@@ -7,6 +7,7 @@ class VHS : public Film
 {
 public:
     VHS();
+    ~VHS();
 };
 
 #endif // VHS_H

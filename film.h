@@ -10,10 +10,11 @@ private:
     QString regista;
     int durata; //minuti
     QDate dataUscita;
-    QVector<QString> attori;
+    //QVector<QString> attori;
 public:
     Film();
-    Film(QString, QString, QString, int, QDate, QVector<QString>);
+    //Film(QString, QString, QString, int, QDate, QVector<QString>);
+    Film(QString, QString, QString, int, QDate);
     virtual ~Film();
     virtual Film* clone() const;
     virtual bool operator==(const Film&) const;
@@ -21,7 +22,7 @@ public:
     QString getRegista() const;
     int getDurata() const;
     QDate getDataUscita() const;
-    QVector<QString> getAttori;
+    //QVector<QString> getAttori() const;
 };
 
 #endif // FILM_H
