@@ -7,7 +7,11 @@ class DVD : public Film
 {
 public:
     DVD();
-    ~DVD();
+    DVD(QString, QString, QString, int, QDate);
+    virtual ~DVD();
+    virtual DVD* clone() const;
+    virtual bool operator==(const DVD&) const;
+    virtual bool operator!=(const DVD&) const;
 };
 
 #endif // DVD_H
