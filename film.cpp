@@ -2,7 +2,7 @@
 
 Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita() {}
 
-Film::Film(QString t, QString g, QString r, int d, QDate u): LibraryItem(t, g), regista(r), durata(d), dataUscita(u){}
+Film::Film(QString t ="", QString g ="", QString r ="", int d =0, QDate u =new QDate()): LibraryItem(t, g), regista(r), durata(d), dataUscita(u){}
 
 Film::~Film() {}
 

@@ -1,46 +1,47 @@
 \section{Classi logiche}{
-	La gerarchia sviluppata è composta da 5 classi:
-	\begin{figure}[hb]
+	La gerarchia sviluppata è composta da 5 classi: 
+	
+	\begin{figure}[!ht]
 		\center
 		\includegraphics[width=0.5\textwidth]{\docsImg gerarchia.jpg}
 		\caption{Gerarchia delle classi}
-	\end{figure}
+	\end{figure} 
 	La classe LibraryItem rappresenta un oggetto generico inserito nella libreria, per questo motivo ho scelto di renderla polimorfa ed astratta: non è possibile dichiarare oggetti di questa classe. All'interno di questa classe sono memorizzati gli attributi comuni a tutti gli oggetti della gerarchia: \textit{titolo,genere}, entrambi di tipo QString. \\
 	Per questa classe e per le altre classi nella gerarchia verranno resi disponibili:
 	\begin{itemize}\itemsep=0.5pt
 		\item Un costruttore di defalut ed un costruttore per i campi dati della classe;
 		\item Un distruttore virtuale;
-		\item Un metodo clone che restituisce il puntatore ad un copia all'oggetto su cui viene invocato;
+		\item Un metodo \textit{clone} che restituisce il puntatore ad un copia all'oggetto su cui viene invocato;
 		\item Un operatore di uguaglianza ed uno di disuguaglianza;
 		\item Metodi \textbf{get} che restituiscono una copia dei campi dati, per ogni campo dati richiesto.
 	\end{itemize}
-		Le classi  \textbf{Libro, CD, Film} sono classi derivate direttamente dalla classe base \textbf{Utente}; sono tutte concrete, a differenza di \textbf{Film}, che e` anch'essa polimorfa ed astratta. \\
+		Le classi  \textbf{Libro, CD, Film} sono classi derivate direttamente dalla classe base \textbf{Utente}; sono tutte concrete, a differenza di \textbf{Film},  polimorfa ed astratta come \textbf{LibraryItem}. \\
 		Le classi \textbf{DVD, VHS} sono classi concrete derivate da \textbf{Film}. \\
-		Per quanto riguarda gli attributi:
-		\begin{itemize}
-			\item La classe \textbf{Libro} ha:
-			\begin{itemize}
+		Per quanto riguarda i campi dati:
+		\begin{itemize}\itemsep=0.5pt
+			\item La classe \textbf{Libro} contiene:
+			\begin{itemize}\itemsep=0.5pt
 				\item Un \textit{autore}, memorizzato tramite un QString;
 				\item Un \textit{anno di uscita}, memorizzato tramite un intero;
 				\item Un \textit{editore}, memorizzato tramite un QString.
 			\end{itemize}
-			\item La classe \textbf{Film} ha:
-			\begin{itemize}
+			\item La classe \textbf{Film} contiene:
+			\begin{itemize}\itemsep=0.5pt
 				\item Un \textit{regista}, memorizzato tramite un QString;
 				\item Una \textit{durata} in minuti, memorizzata tramite un intero;
 				\item Una \textit{data d'uscita}, memorizzata tramite un QDate.
 				%\item Un insieme di attori \textit{attori}, memorizzato tramite un QVector di QString.
 			\end{itemize}
-			\item La classe \textbf{CD}  ha:
-			\begin{itemize}
+			\item La classe \textbf{CD}  contiene:
+			\begin{itemize}\itemsep=0.5pt
 				\item Un \textit{artista}, memorizzato tramite un QString;
 				\item Un \textit{anno di uscita}, memorizzato tramite un intero;
 				\item Un \textit{numero di dischi}, memorizzato tramite un intero.
 				%\item Un insieme di \textit{tracce}, memorizzato tramite un QVector di QString;
 			\end{itemize}
-			\item Le classi \textbf{CD, DVD} sono implementazioni di \textbf{Film}; non contengono ulteriori campi dati. Vengono ridefiniti i metodi.
+			\item Le classi \textbf{CD, DVD} sono implementazioni di \textbf{Film}; non contengono ulteriori campi dati. Per ognuna sono resi disponibili i costruttori, un distruttore, il metodo clone, operator == e !=.
+			\end{itemize}
 		\end{itemize}
-		\\
-		\\
-		Per memorizzare gli oggetti della collezione e` stato creata una classe \textbf{Contenitore}. All'interno di questa classe 
+		
+		Per memorizzare gli oggetti della collezione è stata creata una classe \textbf{Contenitore}. All'interno di questa classe.\\
 }

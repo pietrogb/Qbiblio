@@ -13,7 +13,7 @@ private:
     //QVector<QString> attori;
 public:
     Film();
-    //Film(QString, QString, QString, int, QDate, QVector<QString>);
+
     Film(QString, QString, QString, int, QDate);
     virtual ~Film();
     virtual Film* clone() const;
@@ -22,6 +22,9 @@ public:
     QString getRegista() const;
     int getDurata() const;
     QDate getDataUscita() const;
+
+
+    //Film(QString, QString, QString, int, QDate, QVector<QString>);
     //QVector<QString> getAttori() const;
 };
 

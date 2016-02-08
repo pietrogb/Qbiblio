@@ -17,8 +17,7 @@ SOURCES += \
     dvd.cpp \
     main.cpp \
     vhs.cpp \
-    film.cpp \
-    container.cpp
+    film.cpp
 
 
 HEADERS += \
