@@ -11,20 +11,24 @@ QT -= core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
-    libraryitem.cpp \
-    libro.cpp \
-    cd.cpp \
-    dvd.cpp \
+    Model/libraryitem.cpp \
+    Model/libro.cpp \
+    Model/cd.cpp \
+    Model/dvd.cpp \
+    Model/vhs.cpp \
+    Model/film.cpp \
+    Model/smartptr.cpp \
     main.cpp \
-    vhs.cpp \
-    film.cpp
+    View/mywidget.cpp
 
 
 HEADERS += \
-    libraryitem.h \
-    libro.h \
-    cd.h \
-    dvd.h \
-    vhs.h \
-    film.h \
-    container.h
+    Model/libraryitem.h \
+    Model/libro.h \
+    Model/cd.h \
+    Model/dvd.h \
+    Model/vhs.h \
+    Model/film.h \
+    Model/container.h \
+    Model/smartptr.h \
+    View/mywidget.h

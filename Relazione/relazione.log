@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  8 FEB 2016 18:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  9 FEB 2016 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,7 +781,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-(./sezioni/front.tex <./sezioni/img/unipd.jpg, id=28, 943.525pt x 949.5475pt>
+(./sezioni/front.tex <./sezioni/img/unipd.jpg, id=56, 943.525pt x 949.5475pt>
 File: ./sezioni/img/unipd.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/unipd.jpg>
@@ -808,21 +808,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `relazione.toc'.
 
+(./relazione.lof)
+\tf@lof=\write5
+\openout5 = `relazione.lof'.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 \newpage
-              [1] (./relazione.lot)
-\tf@lot=\write5
-\openout5 = `relazione.lot'.
-
- (./relazione.lof)
-\tf@lof=\write6
-\openout6 = `relazione.lof'.
-
- [2]
-(./sezioni/Introduzione.tex
+l.37 \newpage
+              [1] (./sezioni/Introduzione.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -835,27 +830,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--32
 
  []
 
-<./sezioni/img/modelview-overview.jpg, id=67, 239.89626pt x 257.96375pt>
+<./sezioni/img/modelview-overview.jpg, id=97, 239.89626pt x 257.96375pt>
 File: ./sezioni/img/modelview-overview.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/modelview-overview.jpg>
 Package pdftex.def Info: ./sezioni/img/modelview-overview.jpg used on input lin
 e 35.
 (pdftex.def)             Requested size: 204.85672pt x 220.28969pt.
-) [3] (./sezioni/ClassiLogiche.tex
-<./sezioni/img/gerarchia.jpg, id=80, 594.0594pt x 420.6114pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) [2] (./sezioni/ClassiLogiche.tex
+<./sezioni/img/gerarchia.jpg, id=110, 594.0594pt x 420.6114pt>
 File: ./sezioni/img/gerarchia.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/gerarchia.jpg>
-Package pdftex.def Info: ./sezioni/img/gerarchia.jpg used on input line 6.
+Package pdftex.def Info: ./sezioni/img/gerarchia.jpg used on input line 7.
 (pdftex.def)             Requested size: 256.07481pt x 181.31505pt.
- [4 <./sezioni/img/modelview-overview.jpg> <./sezioni/img/gerarchia.jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 45--41
+ [3 <./sezioni/img/modelview-overview.jpg> <./sezioni/img/gerarchia.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
-[5] (./sezioni/ClassiGrafiche.tex) [6] (./sezioni/GestioneMemoria.tex)
+[4] [5]) [6] (./sezioni/ClassiGrafiche.tex
+<./sezioni/img/Operazioni.jpg, id=138, 465.74pt x 242.9075pt>
+File: ./sezioni/img/Operazioni.jpg Graphic file (type jpg)
 
+<use ./sezioni/img/Operazioni.jpg>
+Package pdftex.def Info: ./sezioni/img/Operazioni.jpg used on input line 6.
+(pdftex.def)             Requested size: 372.5925pt x 194.32625pt.
+) [7 <./sezioni/img/Operazioni.jpg>]
+(./sezioni/GestioneMemoria.tex) 
 AED: lastpage setting LastPage
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
@@ -863,16 +869,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 227C34E4E28D3AFEFCE1BDD01090918A;352.
+(rerunfilecheck)             Checksum: 8AB83229B0F0B6C83FA1C04D689DA6A9;843.
  ) 
 Here is how much of TeX's memory you used:
- 11221 strings out of 495017
- 162237 string characters out of 6181021
- 299589 words of memory out of 5000000
- 14194 multiletter control sequences out of 15000+600000
+ 11239 strings out of 495017
+ 162612 string characters out of 6181021
+ 300589 words of memory out of 5000000
+ 14205 multiletter control sequences out of 15000+600000
  15460 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,11n,45p,803b,436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,11n,45p,803b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/
 pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/pietro/.te
 xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/pietro/.texmf-var/fo
@@ -881,10 +887,10 @@ our/jknappen/ec/ectt1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknapp
 en/ec/ecbx2074.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
 1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on relazione.pdf (7 pages, 890513 bytes).
+Output written on relazione.pdf (8 pages, 960818 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 123 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 64 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 167 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,8 +1,15 @@
 \select@language {italian}
 \select@language {italian}
-\contentsline {section}{\numberline {1}Introduzione}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Scopo del documento}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Scopo del progetto}{3}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Specifiche progettuali}{3}{subsection.1.3}
-\contentsline {section}{\numberline {2}Classi logiche}{4}{section.2}
-\contentsline {section}{\numberline {3}Classi Grafiche}{6}{section.3}
+\contentsline {section}{\numberline {1}Introduzione}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Scopo del documento}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Scopo del progetto}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Specifiche progettuali}{2}{subsection.1.3}
+\contentsline {section}{\numberline {2}Classi logiche}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Gerarchia oggetti memorizzati}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Classe contenitore}{4}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}ContainerItem}{4}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Iterator}{5}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}const\_Iterator}{5}{subsubsection.2.2.3}
+\contentsline {subsection}{\numberline {2.3}Classe Puntatore Smart}{6}{subsection.2.3}
+\contentsline {section}{\numberline {3}Classi Grafiche}{7}{section.3}
+\contentsline {subsection}{\numberline {3.1}QWidget}{7}{subsection.3.1}

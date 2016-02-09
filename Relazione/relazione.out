@@ -3,4 +3,11 @@
 \BOOKMARK [2][-]{subsection.1.2}{Scopo del progetto}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{Specifiche progettuali}{section.1}% 4
 \BOOKMARK [1][-]{section.2}{Classi logiche}{}% 5
-\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Gerarchia oggetti memorizzati}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Classe contenitore}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.1}{ContainerItem}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Iterator}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.3}{const\137Iterator}{subsection.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Classe Puntatore Smart}{section.2}% 11
+\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{QWidget}{section.3}% 13

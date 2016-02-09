@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "View/MyWidget.h"
+#include "Gui/MyWidget.h"
 
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
