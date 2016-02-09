@@ -19,7 +19,8 @@ SOURCES += \
     Model/film.cpp \
     Model/smartptr.cpp \
     main.cpp \
-    View/mywidget.cpp
+    View/mywidget.cpp \
+    View/mainwindow.cpp
 
 
 HEADERS += \
@@ -31,4 +32,5 @@ HEADERS += \
     Model/film.h \
     Model/container.h \
     Model/smartptr.h \
-    View/mywidget.h
+    View/mywidget.h \
+    View/mainwindow.h
