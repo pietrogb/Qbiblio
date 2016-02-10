@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  9 FEB 2016 17:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  10 FEB 2016 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -826,7 +826,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
 
@@ -835,7 +835,7 @@ File: ./sezioni/img/modelview-overview.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/modelview-overview.jpg>
 Package pdftex.def Info: ./sezioni/img/modelview-overview.jpg used on input lin
-e 35.
+e 36.
 (pdftex.def)             Requested size: 204.85672pt x 220.28969pt.
 
 
@@ -887,7 +887,7 @@ our/jknappen/ec/ectt1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknapp
 en/ec/ecbx2074.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
 1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on relazione.pdf (8 pages, 960818 bytes).
+Output written on relazione.pdf (8 pages, 960600 bytes).
 PDF statistics:
  425 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams

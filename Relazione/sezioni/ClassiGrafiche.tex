@@ -7,13 +7,16 @@
 				\caption{Operazioni previste}
 			\end{center}
 	\end{figure}
-	\begin{itemize}\itemsep=0.5pt
-		\item Una finestra iniziale da cui sfogliare il catalogo, diviso in sezioni;
-		\item La possibilità di guardare il dettaglio di un singolo elemento;
-        \item Una finestra da cui inserire un nuovo libro, CD, DVD o VHS;
-		\item Una finestra da cui modificare uno degli elementi presenti.
-	\end{itemize}
+	
 	Per questo motivo, è stata creata una classe \textbf{QWidget},
+	\subsection{MainWindow}{
+		Questa è la classe invocata direttamente dal \textbf{main}; al suo interno è presente:
+		\begin{itemize}\itemsep=0.5pt
+			\item Un oggetto \textbf{Contenitore}, con gli elementi della libreria;
+			\item Un metodo 
+		\end{itemize}
+	}
+	
 	\subsection{QWidget}{
 		Un oggetto di \textbf{QWidget} viene creato dal main senza parent, costruendo così un'\textit{indipendent window}. \\
 		Questa classe funge da layout manager, contiene un 

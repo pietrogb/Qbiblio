@@ -34,3 +34,6 @@ HEADERS += \
     Model/smartptr.h \
     View/mywidget.h \
     View/mainwindow.h
+
+FORMS += \
+    View/MainWindow.ui
