@@ -12,8 +12,20 @@
 	\subsection{MainWindow}{
 		Questa è la classe invocata direttamente dal \textbf{main}; al suo interno è presente:
 		\begin{itemize}\itemsep=0.5pt
-			\item Un oggetto \textbf{Contenitore}, con gli elementi della libreria;
-			\item Un metodo 
+			\item Un oggetto \textbf{Contenitore<SmartPtr>}, contenente puntatori agli elementi della libreria, dichiarato \underline{privato};
+			\item Il costruttore della \textbf{MainWindow}, che crea l'oggetto \textbf{Contenitore} nello heap, fa il setup della finestra e istanzia 
+			\item Un metodo \textit{setupView()} che s'occupa di
+			\item I seguenti slot:
+			\begin{itemize}\itemsep=0.5pt
+				\item slotAddItem() per l'inserimento d'un nuovo elemento nella libreria;
+				\item slotMostraCatalogoQDialog()  per vedere il contenuto della libreria;
+				\item slotTrovaQDialog() per effettuare la ricerca d'un elemento all'interno della libreria
+			    \item slotReplaceDVD() per sostituire un film in DVD;
+			    \item slotReplaceVHS() per sostituire un film in videocassetta;
+			    \item slotReplaceCD()
+			    \item slotReplaceLibro()
+			    \item slotAggiornaRisultati() 
+			\end{itemize}
 		\end{itemize}
 	}
 	

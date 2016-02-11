@@ -2,7 +2,7 @@
 
 SmartPtr::SmartPtr() : li(0) {}
 
-SmartPtr::SmartPtr(SmartPtr* p) : li(p->clone()) {}
+SmartPtr::SmartPtr(const SmartPtr* p) : li(p->clone()) {}
 
 SmartPtr::SmartPtr(const SmartPtr& sp) : li( (sp.li)->clone()) {}
 

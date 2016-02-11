@@ -14,12 +14,12 @@ SOURCES += \
     Model/libraryitem.cpp \
     Model/libro.cpp \
     Model/cd.cpp \
+    Model/film.cpp \
     Model/dvd.cpp \
     Model/vhs.cpp \
-    Model/film.cpp \
     Model/smartptr.cpp \
     main.cpp \
-    View/mywidget.cpp \
+   # View/mywidget.cpp \
     View/mainwindow.cpp
 
 
@@ -27,13 +27,14 @@ HEADERS += \
     Model/libraryitem.h \
     Model/libro.h \
     Model/cd.h \
+    Model/film.h \
     Model/dvd.h \
     Model/vhs.h \
-    Model/film.h \
     Model/container.h \
     Model/smartptr.h \
-    View/mywidget.h \
+    #View/mywidget.h \
     View/mainwindow.h
 
-FORMS += \
-    View/MainWindow.ui
+#FORMS += \
+#    View/MainWindow.ui
+#    mainwindow2.ui

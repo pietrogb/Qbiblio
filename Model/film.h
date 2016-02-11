@@ -2,6 +2,7 @@
 #define FILM_H
 
 #include <QTime>
+#include <QDate>
 #include <QVector>
 #include "libraryitem.h"
 

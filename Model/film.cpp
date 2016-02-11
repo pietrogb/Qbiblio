@@ -2,11 +2,11 @@
 
 Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita() {}
 
-Film::Film(QString t ="", QString g ="", QString r ="", int d =0, QDate u =new QDate()): LibraryItem(t, g), regista(r), durata(d), dataUscita(u){}
+Film::Film(QString t ="", QString g ="", QString r ="", int d =0, QDate u =QDate::currentDate()): LibraryItem(t, g), regista(r), durata(d), dataUscita(u){}
 
 Film::~Film() {}
 
-Film::Film* clone() const {return new Film(*this);};
+Film* Film::clone() const {return new Film(*this);};
 
 bool Film::operator==(const Film& f) const{
     return (LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);

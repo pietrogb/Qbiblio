@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  10 FEB 2016 11:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  11 FEB 2016 12:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -781,7 +781,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-(./sezioni/front.tex <./sezioni/img/unipd.jpg, id=56, 943.525pt x 949.5475pt>
+(./sezioni/front.tex <./sezioni/img/unipd.jpg, id=64, 943.525pt x 949.5475pt>
 File: ./sezioni/img/unipd.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/unipd.jpg>
@@ -830,7 +830,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
 
-<./sezioni/img/modelview-overview.jpg, id=97, 239.89626pt x 257.96375pt>
+<./sezioni/img/modelview-overview.jpg, id=107, 239.89626pt x 257.96375pt>
 File: ./sezioni/img/modelview-overview.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/modelview-overview.jpg>
@@ -842,7 +842,7 @@ e 36.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) [2] (./sezioni/ClassiLogiche.tex
-<./sezioni/img/gerarchia.jpg, id=110, 594.0594pt x 420.6114pt>
+<./sezioni/img/gerarchia.jpg, id=120, 594.0594pt x 420.6114pt>
 File: ./sezioni/img/gerarchia.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/gerarchia.jpg>
@@ -854,7 +854,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--50
  []
 
 [4] [5]) [6] (./sezioni/ClassiGrafiche.tex
-<./sezioni/img/Operazioni.jpg, id=138, 465.74pt x 242.9075pt>
+<./sezioni/img/Operazioni.jpg, id=149, 465.74pt x 242.9075pt>
 File: ./sezioni/img/Operazioni.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/Operazioni.jpg>
@@ -863,19 +863,20 @@ Package pdftex.def Info: ./sezioni/img/Operazioni.jpg used on input line 6.
 ) [7 <./sezioni/img/Operazioni.jpg>]
 (./sezioni/GestioneMemoria.tex) 
 AED: lastpage setting LastPage
+[8]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
-(./relazione.aux)
+ (./relazione.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 8AB83229B0F0B6C83FA1C04D689DA6A9;843.
+(rerunfilecheck)             Checksum: 215F736F87E97809CF2F60D85C4A3EB8;961.
  ) 
 Here is how much of TeX's memory you used:
- 11239 strings out of 495017
- 162612 string characters out of 6181021
+ 11244 strings out of 495017
+ 162668 string characters out of 6181021
  300589 words of memory out of 5000000
- 14205 multiletter control sequences out of 15000+600000
+ 14207 multiletter control sequences out of 15000+600000
  15460 words of font info for 42 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  48i,11n,45p,803b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -887,10 +888,10 @@ our/jknappen/ec/ectt1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknapp
 en/ec/ecbx2074.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
 1200.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on relazione.pdf (8 pages, 960600 bytes).
+Output written on relazione.pdf (9 pages, 966033 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 452 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
