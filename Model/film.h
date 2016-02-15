@@ -14,7 +14,6 @@ private:
     //QVector<QString> attori;
 public:
     Film();
-
     Film(QString, QString, QString, int, QDate);
     virtual ~Film();
     virtual Film* clone() const;

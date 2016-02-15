@@ -25,6 +25,7 @@ public:
     QString getautore() const;
     int getannoUscita() const;
     QString getEditore() const;
+    bool search(const QString &) const;
 };
 
 #endif // LIBRO_H
