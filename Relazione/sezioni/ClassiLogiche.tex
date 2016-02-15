@@ -90,7 +90,7 @@
 				\item puntatore al primo \textbf{ContainerItem};
 				\item un metodo dichiarato statico \textit{deepcopy} che fa una copia profonda della lista;
 				\item un metodo dichiarato statico \textit{deepremove} che esegue la distruzione profonda della lista;
-				\item un metodo dichiarato statico \textit{equals} che, dati due puntatori a ContainerItem, l'uguaglianza delle liste puntate.
+				\item un metodo dichiarato statico \textit{equals} che, dati due puntatori a \textbf{ContainerItem}, l'uguaglianza delle liste puntate.
 				\item un metodo dichiarato statico \textit{printcontainer} per effetturare la stampa su ostream.
 			\end{itemize}
 			Sono pubblici:
@@ -106,8 +106,9 @@
 				\item metodo \textit{remove} per rimuovere un elemento;
 				\item metodo \textit{size}, restituisce il numero d'elementi presenti nel contenitore;
 				\item metodo \textit{replace} per sostituire un elemento con un altro;
-				\item operatori d'uguaglianza, disuguaglianza,
-				\item metodo \textit{search} che restituisce un nuovo contenitore dove sono memorizzati gli elementi che corrispondono alla ricerca.
+				\item operatori d'uguaglianza, disuguaglianza;
+				\item metodo \textit{search} che restituisce un nuovo contenitore dove sono memorizzati gli elementi che corrispondono alla ricerca;
+				\item i metodi \textit{load, save} per salvare su file e caricare da file il contenuto della libreria.
 			\end{itemize}
 			}
 		}
@@ -115,5 +116,19 @@
 			È stata definita una classe di puntatori smart, \textbf{SmartPtr}, che ha come campo dati \underline{privato} un puntatore ad un oggetto della superclasse \textbf{LibraryItem}. \\
 			I metodi che sono stati resi disponibili per questa classe sono i metodi d'utilità per una classe di puntatori:
 			\textit{costruttore di default e ad un argomento, costruttore di copia}, overloading degli operatori di: \textit{assegnazione, uguaglianza, disuguaglianza, indicizzazione, indirezione; distruttore} di default. Si è infine definito un metodo \textit{getItem} che restituisce copia dell'oggetto puntato.
+		}
+		\subsection{Classe Biblio}{
+			Questa classe serve a concretizzare la classe templetizzata \textbf{Container} con le classi della gerarchia radicata in \textbf{LibaryItem}, rendendo disponibili metodi di utilità che serviranno all'applicazione. Contiene:
+			\begin{itemize}\itemsep=0.5pt
+				\item Un \textbf{Container} di puntatori a \textbf{LibraryItem};
+				\item Un \textit{distruttore} ed un metodo \textit{isEmpty} che dice se non sono presenti elementi nella biblioteca;
+				\item Un  metodo \textit{addItem}, che aggiunge un nuovo elemento alla biblioteca. Restituisce un booleano che indica la presenza di un'uguale opera all'interno della libreria. Sono permesse più copie d'uno stesso elemento.
+				\item Un metodo \textit{removeItem} per togliere un elemento dalla biblioteca;
+				\item Un metodo \textit{getItem} che data una posizione \textit{i}, restituisce l'i-esimo elemento nel \textbf{Container};
+				\item Un metodo \textit{findItem} che data una \textbf{QString}, restituisce tutti gli elementi all'interno della biblioteca che ..
+				\item Il metodo \textit{load} che carica da file il contenuto della biblioteca.
+				\item Il metodo \textit{save} che su file il contenuto della biblioteca, in formato \textbf{XML}.
+				
+			\end{itemize}
 		}
 	}

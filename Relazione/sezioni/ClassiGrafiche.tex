@@ -10,7 +10,8 @@
 	
 	Per questo motivo, è stata creata una classe \textbf{QWidget},
 	\subsection{MainWindow}{
-		Questa è la classe invocata direttamente dal \textbf{main}; al suo interno è presente:
+		Questa è la classe invocata direttamente dal \textbf{main}. L'obiettivo di questa classe è mostrare le operazioni che è possibile eseguire, raggruppandole in base agli oggetti della libreria in modo da semplificare l'utilizzo dell'applicazione.\\
+		Al suo interno è presente:
 		\begin{itemize}\itemsep=0.5pt
 			\item Un oggetto \textbf{Contenitore<SmartPtr>}, contenente puntatori agli elementi della libreria, dichiarato \underline{privato};
 			\item Il costruttore della \textbf{MainWindow}, che crea l'oggetto \textbf{Contenitore} nello heap, fa il setup della finestra e istanzia 

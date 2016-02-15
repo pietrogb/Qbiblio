@@ -18,7 +18,7 @@ private:
 public:
     Libro();
     Libro(QString, QString, QString, int, QString);
-    virtual ~Libro();
+    ~Libro();
     virtual Libro* clone() const;
     virtual bool operator==(const Libro&) const;
     virtual bool operator!=(const Libro&) const;

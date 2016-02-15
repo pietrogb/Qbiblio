@@ -2,11 +2,12 @@
 #define CONTAINER_H
 
 #include <iostream>
+
 using std::cout; using std::endl; using std::ostream;
 
-template<class T> class Container; //dichiarazione incompleta di classe.
+template <class T> class Container; //dichiarazione incompleta di classe.
 
-template<class T> ostream& operator<<(ostream&, const Container<T>&);
+template <class T> ostream& operator<< (ostream&, const Container<T>&); //dichiarazione incompleta
 
 //class Container
 template<class T>
@@ -14,11 +15,12 @@ class Container {
   //dichiarazioni di amicizia
   friend class Iterator;
   friend class const_Iterator;
-  friend ostream& operator<< (ostream&, const Container<T>&);
+  friend ostream& operator<<(ostream&, const Container<T>&);
 private:
   //class ContainerItem
   class ContainerItem {
-    public:
+  public:
+    int id;
     T info;
     ContainerItem* next;
     //Costruttori
@@ -41,6 +43,7 @@ private:
   static bool equals(const ContainerItem*, const ContainerItem*);
   //stampa contenitore
   static void printContainer(ostream&, const ContainerItem*);
+  int num;
 public:
   //classe Iteratore
   class Iterator {
@@ -59,8 +62,8 @@ public:
     Iterator& operator++();
     //operator ++ postfisso
     Iterator operator++(int);
-    //metodo per ottenere il puntore
-    T operator*() const;
+    //metodo per ottenere il puntatore
+    T& operator*() const;
   };
   //Classe iteratore_costante
   class const_Iterator {
@@ -82,13 +85,20 @@ public:
     //operator ++ postfisso
     const_Iterator operator++(int);
     //metodo per ottenere il puntatore
-    T operator*() const;
+    T& operator*() const;
   };
+  //metodi di Iterator
   //metodi propri di Container:
-  Iterator begin() const;
-  Iterator end() const;
+  Iterator begin();
+  Iterator end();
   //operatore di dereferenziazione/indicizzazione
   T& operator[](Iterator);
+
+  //metodi di const_iterator:
+  const_Iterator begin() const;
+  const_Iterator end() const;
+  const T& operator[](const_Iterator) const;
+
   //costruttore di default di Container
   Container();
   //construttore di copia
@@ -107,7 +117,6 @@ public:
   int size() const;
   //metodo per effettuare la ricerca
   Container<T> search(const T&) const;
-  //
   void replace(const T&, const T&);
   bool operator==(const Container&) const;
   bool operator!=(const Container&) const;
@@ -120,11 +129,11 @@ public:
  */
 //costruttore di default
 template<class T>
-Container<T>::ContainerItem::ContainerItem() : info(0), next(0) {}
+Container<T>::ContainerItem::ContainerItem() : id(0), info(0), next(0) {}
 
 //costruttore a 2 parametri
 template<class T>
-Container<T>::ContainerItem::ContainerItem(const T& ci, ContainerItem* n=0) : info(ci), next(n) {}
+Container<T>::ContainerItem::ContainerItem(const T& ci, ContainerItem* n=0) : info(ci), next(n) {id=num+1; num++;}
 
 //operatore d'uguaglianza
 template<class T>
@@ -144,7 +153,7 @@ bool Container<T>::ContainerItem::operator!=(const ContainerItem& cti) const {
  */
 //costruttore di default
 template<class T>
-Container<T>::Iterator::Iterator(): punt(0){}
+Container<T>::Iterator::Iterator(): ptr(0){}
 
 //operatore d'uguaglianza
 template<class T>
@@ -158,7 +167,7 @@ bool Container<T>::Iterator::operator!=(Iterator it) const {
   return ptr != it.ptr;
 }
 
-//incremento predisso
+//incremento prefisso
 template<class T>
 typename Container<T>::Iterator& Container<T>::Iterator::operator++() {
   if(ptr)
@@ -177,13 +186,13 @@ typename Container<T>::Iterator Container<T>::Iterator::operator++(int) {
 
 //accesso a membro/indirezione
 template<class T>
-T Container<T>::Iterator::operator*() const {
+T& Container<T>::Iterator::operator*() const {
   return (*ptr).info;
 }
 
 //inizio della lista
 template<class T>
-typename Container<T>::Iterator Container<T>::begin() const {
+typename Container<T>::Iterator Container<T>::begin() {
   Iterator aux;
   aux.ptr = first;
   return aux;
@@ -191,7 +200,7 @@ typename Container<T>::Iterator Container<T>::begin() const {
 
 //fine della lista
 template<class T>
-typename Container<T>::Iterator Container<T>::end() const {
+typename Container<T>::Iterator Container<T>::end() {
   Iterator aux;
   aux.ptr = 0;
   return aux;
@@ -243,8 +252,8 @@ typename Container<T>::const_Iterator Container<T>::const_Iterator::operator++(i
 
 //indirezione
 template<class T>
-T Container<T>::const_Iterator::operator*() const {
-  return (*ptr).info;
+T& Container<T>::const_Iterator::operator*() const{
+  return ptr->info;
 }
 
 //inizio della lista
@@ -265,15 +274,17 @@ typename Container<T>::const_Iterator Container<T>::end() const {
 
 //inidicizzazione
 template<class T>
-T& Container<T>::operator[](Container<T>::const_Iterator it) {
+const T& Container<T>::operator[](const Container<T>::const_Iterator it) const{
   return (it.ptr)->info;
 }
 
-//convertitore di tipo
+//Costruttore come convertitore di tipo
 template<class T>
 Container<T>::const_Iterator::const_Iterator(const Iterator & it){
     ptr=it.ptr;
 }
+
+
 
 /*
  ***********************
@@ -282,11 +293,11 @@ Container<T>::const_Iterator::const_Iterator(const Iterator & it){
  */
 //costruttore di default
 template<class T>
-Container<T>::Container() : first(0) {}
+Container<T>::Container() : first(0), num(0) {}
 
 //costruttore di copia profonda
 template<class T>
-Container<T>::Container(const Container<T>& cnt) : first(deepCopy(cnt.first)) { }
+Container<T>::Container(const Container<T>& cnt) : first(deepCopy(cnt.first)), num(cnt.num) { }
 
 //operatore d'assegnazione profonda
 template<class T>
@@ -310,7 +321,7 @@ typename Container<T>::ContainerItem* Container<T>::deepCopy(const ContainerItem
   if(!ci)
     return 0;
   else
-    return new ContainerItem(ci->info, deepCopy(ci->next));
+    return new ContainerItem(ci->id, ci->info, deepCopy(ci->next));
 }
 
 //distruzione profonda
@@ -334,7 +345,7 @@ bool Container<T>::equals(const ContainerItem* a, const ContainerItem* b) {
 template<class T>
 void Container<T>::printContainer(ostream& os, const ContainerItem* cti) {
   if(cti){
-    os << cti->info;
+    os << cti->id<<" "<< cti->info;
     printContainer(os, cti->next);
   }
 }
@@ -348,7 +359,8 @@ bool Container<T>::isEmpty() const {
 //inserimento in testa
 template<class T>
 void Container<T>::insert(const T& value) {
-  first = new ContainerItem(value, first);
+  num++;
+  first = new ContainerItem(num, value, first);
 }
 
 //rimozione elemento
@@ -413,10 +425,11 @@ bool Container<T>::operator!=(const Container<T>& cnt) const {
  Operatore di output
  *******************
 */
-template<class T>
-ostream& operator<<(ostream& os, const Container<T>& cnt) {
+template <class T>
+ostream& operator<<(ostream& os, const Container<T> & cnt) {
   Container<T>::printContainer(os, cnt.first);
   return os;
 }
+
 
 #endif

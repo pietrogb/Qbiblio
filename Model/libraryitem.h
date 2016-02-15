@@ -9,6 +9,7 @@ class LibraryItem
 private:
     QString titolo;
     QString genere;
+
 public:
     LibraryItem();
     LibraryItem(QString, QString);

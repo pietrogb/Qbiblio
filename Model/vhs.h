@@ -8,7 +8,7 @@ class VHS : public Film
 public:
     VHS();
     VHS(QString, QString, QString, int, QDate);
-    virtual ~VHS();
+    ~VHS();
     virtual VHS* clone() const;
     virtual bool operator==(const VHS&) const;
     virtual bool operator!=(const VHS&) const;

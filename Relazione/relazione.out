@@ -9,7 +9,8 @@
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Iterator}{subsection.2.2}% 9
 \BOOKMARK [3][-]{subsubsection.2.2.3}{const\137Iterator}{subsection.2.2}% 10
 \BOOKMARK [2][-]{subsection.2.3}{Classe Puntatore Smart}{section.2}% 11
-\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}% 12
-\BOOKMARK [2][-]{subsection.3.1}{MainWindow}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.2}{QWidget}{section.3}% 14
-\BOOKMARK [1][-]{section.4}{Gestione della memoria}{}% 15
+\BOOKMARK [2][-]{subsection.2.4}{Classe Biblio}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{MainWindow}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{QWidget}{section.3}% 15
+\BOOKMARK [1][-]{section.4}{Gestione della memoria}{}% 16

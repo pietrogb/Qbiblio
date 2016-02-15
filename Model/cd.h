@@ -14,7 +14,7 @@ private:
 public:
     CD();
     CD(QString, QString, QString, int, int);
-    virtual ~CD();
+    ~CD();
     virtual CD* clone() const;
     virtual bool operator==(const CD&) const;
     virtual bool operator!=(const CD&) const;

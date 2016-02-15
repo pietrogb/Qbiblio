@@ -1,17 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QApplication>
-#include <QSize>
-#include <QSpacerItem>
-#include <QMainWindow>
-#include <QVBoxLayout>
-#include <QGroupBox>
-#include <QPushButton>
-#include <QLineEdit>
-#include <QMenuBar>
-#include <QToolBar>
-#include <QStatusBar>
+#include<QMainWindow>
+#include<QVBoxLayout>
+#include<QGroupBox>
+#include<QPushButton>
+#include<QLineEdit>
+#include<QMenuBar>
+#include<QToolBar>
+#include<QStatusBar>
 #include "../Model/container.h"
 #include "../Model/smartptr.h"
 /*
@@ -41,7 +38,7 @@ private:
     QPushButton *nuovoDVD;
     QPushButton *nuovaVHS;
     QLineEdit *lineEdit;
-    QMenuBar *QMenuBar;
+    QMenuBar *menuBar;
     QToolBar *mainToolbar;
     QStatusBar *statusBar;
 

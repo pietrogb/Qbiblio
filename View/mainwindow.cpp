@@ -31,7 +31,7 @@ void MainWindow::setupView() {
 
 }
 
- Container<SmartPtr>* MainWindow::getLib()() const {
+ Container<SmartPtr>* MainWindow::getLib() const() const {
      return lib;
  }
 
