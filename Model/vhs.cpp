@@ -15,3 +15,7 @@ bool VHS::operator==(const VHS& f) const{
 bool VHS::operator!=(const VHS& f) const{
     return !(Film::operator ==(f));
 }
+
+bool VHS::search(const QString & str) const{
+    return Film::search(str);
+}

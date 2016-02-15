@@ -22,5 +22,7 @@ QString LibraryItem::getGenere() const{
     return genere;
 }
 
-
+bool LibraryItem::search(const QString & str) const {
+    return ((titolo == str) || (genere == str));
+}
 

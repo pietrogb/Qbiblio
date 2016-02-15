@@ -15,3 +15,7 @@ bool DVD::operator==(const DVD& f) const{
 bool DVD::operator!=(const DVD& f) const{
     return !(Film::operator ==(f));
 }
+
+bool DVD::search(const QString & str) const{
+    return Film::search(str);
+}

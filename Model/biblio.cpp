@@ -42,15 +42,20 @@ LibraryItem* Biblio::getItem(int n){
     return *it;
 }
 
-LibraryItem* Biblio::findItem(const QString& title) const {
-
+Container<LibraryItem*> Biblio::findItem(const QString& title) const {
+    Container<LibraryItem*> ris;
+    for(Container<LibraryItem*>::Iterator it= b.begin(); it!= b.end(); it++){
+        if(*it->search())
+            ris.insert(*it);
+    }
+    return ris;
 }
 
 void Biblio::save() const;
 
 void Biblio::load();
 
-Container<LibraryItem*> Biblio::getLibrary() const;
+Container<LibraryItem*> Biblio::getLibrary() const{
+    return b;
+}
 
-//private:
-//Container<LibraryItem*> b;

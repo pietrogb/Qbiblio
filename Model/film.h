@@ -23,6 +23,7 @@ public:
     QString getRegista() const;
     int getDurata() const;
     QDate getDataUscita() const;
+    bool search(const QString &) const;
 
 
     //Film(QString, QString, QString, int, QDate, QVector<QString>);

@@ -25,3 +25,6 @@ int Libro::getannoUscita() const {return annoUscita;}
 
 QString Libro::getEditore() const {return editore;}
 
+bool Libro::search(const QString & str) const{
+    return (LibraryItem::search(str) || autore == str);
+}

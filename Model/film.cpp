@@ -27,3 +27,6 @@ QDate Film::getDataUscita() const {return dataUscita;}
 //Film::Film(QString t, QString g, QString r, int d, QDate u, QVector<QString> a): LibraryItem(t, g), regista(r), durata(d), dataUscita(u), attori(a) {}
 //Film::QVector<QString> getAttori() const;
 
+bool Film::search(const QString & str) const{
+    return (LibraryItem::search(str) || regista == str);
+}

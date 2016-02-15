@@ -21,3 +21,7 @@ QString CD::getArtista() const {return artista;}
 int CD::getAnnoUscita() const {return annoUscita;}
 
 int CD::getDischi() const {return nDischi;}
+
+bool CD::search(const QString& str)const{
+    return (LibraryItem::search(str) || artista == str);
+}

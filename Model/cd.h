@@ -21,6 +21,7 @@ public:
     QString getArtista() const;
     int getAnnoUscita() const;
     int getDischi() const;
+    bool search(const QString &) const;
 };
 
 #endif // CD_H
