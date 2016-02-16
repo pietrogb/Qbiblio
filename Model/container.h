@@ -403,7 +403,7 @@ void Container<T>::replace(const T& older, const T& newer) {
 template<class T>
 int Container<T>::size() const{
   int tot = 0;
-  for(Container<T>::Iterator it = begin(); it !=end(); ++it)
+  for(Container<T>::const_Iterator it = begin(); it !=end(); ++it)
     tot++;
   return tot;
 }

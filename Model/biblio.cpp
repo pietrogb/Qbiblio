@@ -44,8 +44,8 @@ LibraryItem* Biblio::getItem(int n){
 
 Container<LibraryItem*> Biblio::findItem(const QString& title) const {
     Container<LibraryItem*> ris;
-    for(Container<LibraryItem*>::Iterator it= b.begin(); it!= b.end(); it++){
-        if(*it->search())
+    for(Container<LibraryItem*>::const_Iterator it= b.begin(); it!= b.end(); it++){
+        if((*it)->search(title))
             ris.insert(*it);
     }
     return ris;
@@ -70,42 +70,46 @@ void Biblio::save() const{
            {
                LibraryItem* li= *it;
                inp->writeStartElement("Elemento");
-               if(dynamic_cast<CD*>(*(it)))
+               if(typeid(li) == typeid(CD*))
                {
-                   inp->writeAttribute("tipo","CD");
-                   inp->writeTextElement("Titolo", QString::fromStdString(li->getTitolo()));
-                   inp->writeTextElement("Genere", QString::fromStdString(li->getGenere()));
-                   inp->writeTextElement("Artista", QString::fromStdString(li->getArtista()));
-                   inp->writeTextElement("AnnoUscita", li->getAnnoUscita());
-                   inp->writeTextElement("Dischi", li->getDischi());
+                  inp->writeAttribute("tipo","CD");
+                  CD* cd=dynamic_cast<CD*>(*(it));
+                  inp->writeTextElement("Titolo", cd->getTitolo());
+                  inp->writeTextElement("Genere", cd->getGenere());
+                  inp->writeTextElement("Artista", cd->getArtista());
+                  inp->writeTextElement("AnnoUscita", QString::number(cd->getAnnoUscita()));
+                  inp->writeTextElement("Dischi", QString::number(cd->getDischi()));
                }
-               else if(dynamic_cast<DVD*>(*(it)))
+               else if(typeid(li) == typeid(DVD*))
                {
-                   inp->writeAttribute("tipo","DVD");
-                   inp->writeTextElement("Titolo", QString::fromStdString(li->getTitolo()));
-                   inp->writeTextElement("Genere", QString::fromStdString(li->getGenere()));
-                   inp->writeTextElement("Regista", QString::fromStdString((li->getRegista())));
-                   inp->writeTextElement("Durata", li->getDurata());
-                   inp->writeTextElement("DataUscita", (li->getDataUscita()).toString("dd.MM.yyyy"));
+                  DVD* dvd=dynamic_cast<DVD*>(*(it));
+                  inp->writeAttribute("tipo","DVD");
+                  inp->writeTextElement("Titolo", dvd->getTitolo());
+                  inp->writeTextElement("Genere", dvd->getGenere());
+                  inp->writeTextElement("Regista", (dvd->getRegista()));
+                  inp->writeTextElement("Durata", QString::number(dvd->getDurata()));
+                  inp->writeTextElement("DataUscita", (dvd->getDataUscita()).toString("dd.MM.yyyy"));
                }
-               else if(dynamic_cast<Libro*>(*(it)))
+               else if(typeid(li) == typeid(Libro*))
                {
-                   inp->writeAttribute("tipo", "Libro");
-                   inp->writeTextElement("Titolo", QString::fromStdString(li->getTitolo()));
-                   inp->writeTextElement("Genere", QString::fromStdString(li->getGenere()));
-                   inp->writeTextElement("Autore", QString::fromStdString(li->getautore()));
-                   inp->writeTextElement("AnnoUscita", li->getAnnoUscita());
-                   inp->writeTextElement("Editore", QString::fromStdString(li->getEditore()));
+                  Libro* lib=dynamic_cast<Libro*>(*(it));
+                  inp->writeAttribute("tipo", "Libro");
+                  inp->writeTextElement("Titolo", lib->getTitolo());
+                  inp->writeTextElement("Genere", lib->getGenere());
+                  inp->writeTextElement("Autore", lib->getAutore());
+                  inp->writeTextElement("AnnoUscita", QString::number(lib->getAnnoUscita()));
+                  inp->writeTextElement("Editore", lib->getEditore());
 
                }
-               else if(dynamic_cast<VHS*>(*(it)))
+               else if(typeid(li) == typeid(VHS*))
                {
-                   inp->writeAttribute("tipo","VHS");
-                   inp->writeTextElement("Titolo", QString::fromStdString(li->getTitolo()));
-                   inp->writeTextElement("Genere", QString::fromStdString(li->getGenere()));
-                   inp->writeTextElement("Regista", QString::fromStdString((li->getRegista())));
-                   inp->writeTextElement("Durata", li->getDurata());
-                   inp->writeTextElement("DataUscita", (li->getDataUscita()).toString("dd.MM.yyyy"));
+                  VHS* vhs=dynamic_cast<VHS*>(*(it));
+                  inp->writeAttribute("tipo","VHS");
+                  inp->writeTextElement("Titolo", vhs->getTitolo());
+                  inp->writeTextElement("Genere", vhs->getGenere());
+                  inp->writeTextElement("Regista", vhs->getRegista());
+                  inp->writeTextElement("Durata", QString::number(vhs->getDurata()));
+                  inp->writeTextElement("DataUscita", (vhs->getDataUscita()).toString("dd.MM.yyyy"));
                }
                inp->writeEndElement();
             }
@@ -117,84 +121,83 @@ void Biblio::save() const{
 
 void Biblio::load(){
   QFile *file=new QFile("/home/pietro/https:/github.com/pit1988/QBiblio/qbiblio.xml");
-    if(file->exists()){
-      if(!file->open(QFile::ReadOnly | QFile::Text)){
-        QMessageBox err;
-        err.setText("Errore nell'apertura del file");
-        err.exec();
+  if(file->exists()){
+    if(!file->open(QFile::ReadOnly | QFile::Text)){
+      QMessageBox err;
+      err.setText("Errore nell'apertura del file");
+      err.exec();
+    }
+    else{
+      QDomDocument doc;
+      if(!doc.setContent(file))
+      {
+        return;
       }
-      else{
-        QDomDocument doc;
-        if(!doc.setContent(file))
-        {
-          return;
+      QDomElement docElem=doc.documentElement();
+      QDomNodeList nodes=docElem.elementsByTagName("Elemento");
+      for(int i=0; i<nodes.count();++i){
+        QDomElement el=nodes.at(i).toElement();
+        QDomNode nodo=el.firstChild();
+        QDomAttr t=el.attributeNode("tipo");
+        QString tipo=t.value();
+        LibraryItem* li;
+        if(tipo=="CD"){
+          QDomAttr t=el.attributeNode("Titolo");
+          QString titolo=t.value();
+          QDomAttr g=el.attributeNode("Genere");
+          QString genere=g.value();
+          QDomAttr a=el.attributeNode("Artista");
+          QString artista=a.value();
+          QDomAttr u=el.attributeNode("AnnoUscita");
+          int annoUscita=u.value().toInt();
+          QDomAttr d=el.attributeNode("Dischi");
+          int nDischi=d.value().toInt();
+          li=new CD(titolo, genere, artista, annoUscita, nDischi);
         }
-        QDomElement docElem=doc.documentElement();
-        QDomNodeList nodes=docElem.elementsByTagName("Elemento");
-        for(int i=0; i<nodes.count();++i){
-          QDomElement el=nodes.at(i).toElement();
-          QDomNode nodo=el.firstChild();
-          QDomAttr t=el.attributeNode("tipo");
-          QString tipo=t.value();
-          LibraryItem* li;
-          if(tipo=="CD"){
-            QDomAttr t=el.attributeNode("Titolo");
-            QString titolo=t.value();
-            QDomAttr g=el.attributeNode("Genere");
-            QString genere=g.value();
-            QDomAttr a=el.attributeNode("Artista");
-            QString artista=a.value();
-            QDomAttr u=el.attributeNode("AnnoUscita");
-            int annoUscita=u.value().toInt();
-            QDomAttr d=el.attributeNode("Dischi");
-            int nDischi=d.value().toInt();
-            li=new CD(titolo.toStdString, genere.toStdString, artista.toStdString, annoUscita, nDischi);
-          }
-          else if(tipo=="DVD"){
-            QDomAttr t=el.attributeNode("Titolo");
-            QString titolo=t.value();
-            QDomAttr g=el.attributeNode("Genere");
-            QString genere=g.value();
-            QDomAttr r=el.attributeNode("Regista");
-            QString regista=.value(r);
-            QDomAttr d=el.attributeNode("Durata");
-            int durata=d.value().toInt();
-            QString aux=el.attributeNode("DataUscita").value();
-            QStringList u=aux.split(".");
-            QDate dataUscita=(u[2].toInt(),u[1].toInt(),u[0].toInt());
-            li=new DVD(titolo.toStdString, genere.toStdString, regista.toStdString, durata, dataUscita);
-          }
-          else if(tipo=="Libro"){
-            QDomAttr t=el.attributeNode("Titolo");
-            QString titolo=t.value();
-            QDomAttr g=el.attributeNode("Genere");
-            QString genere=g.value();
-            QDomAttr a=el.attributeNode("Autore");
-            QString autore=a.value();
-            QDomAttr u=el.attributeNode("AnnoUscita");
-            int annoUscita=u.value().toInt();
-            QDomAttr e=el.attributeNode("Editore");
-            QString editore=e.value();
-            li=new CD(titolo.toStdString, genere.toStdString, autore.toStdString, annoUscita, editore.toString);
-          }
-          else if(tipo=="VHS"){
-            QDomAttr t=el.attributeNode("Titolo");
-            QString titolo=t.value();
-            QDomAttr g=el.attributeNode("Genere");
-            QString genere=g.value();
-            QDomAttr r=el.attributeNode("Regista");
-            QString regista=.value(r);
-            QDomAttr d=el.attributeNode("Durata");
-            int durata=d.value().toInt();
-            QString aux=el.attributeNode("DataUscita").value();
-            QStringList u=aux.split(".");
-            QDate dataUscita=(u[2].toInt(),u[1].toInt(),u[0].toInt());
-            li=new VHS(titolo.toStdString, genere.toStdString, regista.toStdString, durata, dataUscita);
-          }
-          addItem(li); 
-          }
-        file->close();
+        else if(tipo=="DVD"){
+          QDomAttr t=el.attributeNode("Titolo");
+          QString titolo=t.value();
+          QDomAttr g=el.attributeNode("Genere");
+          QString genere=g.value();
+          QDomAttr r=el.attributeNode("Regista");
+          QString regista=r.value();
+          QDomAttr d=el.attributeNode("Durata");
+          int durata=d.value().toInt();
+          QString aux=el.attributeNode("DataUscita").value();
+          QStringList u=aux.split(".");
+          QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
+          li=new DVD(titolo, genere, regista, durata, dataUscita);
+        }
+        else if(tipo=="Libro"){
+          QDomAttr t=el.attributeNode("Titolo");
+          QString titolo=t.value();
+          QDomAttr g=el.attributeNode("Genere");
+          QString genere=g.value();
+          QDomAttr a=el.attributeNode("Autore");
+          QString autore=a.value();
+          QDomAttr u=el.attributeNode("AnnoUscita");
+          int annoUscita=u.value().toInt();
+          QDomAttr e=el.attributeNode("Editore");
+          QString editore=e.value();
+          li=new Libro(titolo, genere, autore, annoUscita, editore);
+        }
+        else if(tipo=="VHS"){
+          QDomAttr t=el.attributeNode("Titolo");
+          QString titolo=t.value();
+          QDomAttr g=el.attributeNode("Genere");
+          QString genere=g.value();
+          QDomAttr r=el.attributeNode("Regista");
+          QString regista=r.value();
+          QDomAttr d=el.attributeNode("Durata");
+          int durata=d.value().toInt();
+          QString aux=el.attributeNode("DataUscita").value();
+          QStringList u=aux.split(".");
+          QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
+          li=new VHS(titolo, genere, regista, durata, dataUscita);
+        }
+        addItem(li); 
       }
+      file->close();
     }
   }
 }

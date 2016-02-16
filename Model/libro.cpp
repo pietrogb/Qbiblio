@@ -19,9 +19,9 @@ bool Libro::operator!=(const Libro& l) const {
     return !( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
 }
 
-QString Libro::getautore() const {return autore;}
+QString Libro::getAutore() const {return autore;}
 
-int Libro::getannoUscita() const {return annoUscita;}
+int Libro::getAnnoUscita() const {return annoUscita;}
 
 QString Libro::getEditore() const {return editore;}
 

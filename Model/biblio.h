@@ -2,6 +2,7 @@
 #define BIBLIO_H
 
 #include<iostream>
+#include<typeinfo>
 
 #include"QFile"
 #include"QXmlStreamReader"

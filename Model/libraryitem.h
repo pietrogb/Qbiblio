@@ -19,7 +19,7 @@ public:
     virtual bool operator!=(const LibraryItem&) const;
     QString getTitolo() const;
     QString getGenere() const;
-    bool search(const QString &) const;
+    virtual bool search(const QString &) const;
 };
 
 #endif // LIBRARYITEM_H

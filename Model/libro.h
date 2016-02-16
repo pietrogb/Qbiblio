@@ -22,8 +22,8 @@ public:
     virtual Libro* clone() const;
     virtual bool operator==(const Libro&) const;
     virtual bool operator!=(const Libro&) const;
-    QString getautore() const;
-    int getannoUscita() const;
+    QString getAutore() const;
+    int getAnnoUscita() const;
     QString getEditore() const;
     bool search(const QString &) const;
 };
