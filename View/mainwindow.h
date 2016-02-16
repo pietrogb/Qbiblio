@@ -27,9 +27,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void setupView();
-    Container<SmartPtr>* getLib() const;
+    Container<LibraryItem*>* getLib() const;
 private:
-    Container<SmartPtr>* lib;
+    Container<LibraryItem*>* lib;
     QWidget* widget;
     QWidget* centralWidget;
     QVBoxLayout *groupLayout;
@@ -48,14 +48,14 @@ signals:
 
 
 public slots:
-    void slotAddItem();
-    void slotMostraCatalogoQDialog();
-    void slotTrovaQDialog();
-    void slotReplaceDVD();
-    void slotReplaceVHS();
-    void slotReplaceCD();
-    void slotReplaceLibro();
-    void slotAggiornaRisultati();
+//    void slotAddItem();
+//    void slotMostraCatalogoQDialog();
+//    void slotTrovaQDialog();
+//    void slotReplaceDVD();
+//    void slotReplaceVHS();
+//    void slotReplaceCD();
+//    void slotReplaceLibro();
+//    void slotAggiornaRisultati();
 
 };
 
