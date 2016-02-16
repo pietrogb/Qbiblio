@@ -2,7 +2,7 @@
 
 SmartPtr::SmartPtr() : li(0) {}
 
-SmartPtr::SmartPtr(const SmartPtr* p) : li(p->clone()) {}
+SmartPtr::SmartPtr(LibraryItem* l) : li(l->clone()) {}
 
 SmartPtr::SmartPtr(const SmartPtr& sp) : li( (sp.li)->clone()) {}
 
@@ -27,8 +27,8 @@ bool SmartPtr::operator!=(const SmartPtr& sp) const {
   return !(*li == *(sp.li));
 }
 
-SmartPtr* SmartPtr::operator->() const {return li;}
+LibraryItem* SmartPtr::operator->() const {return li;}
 
-SmartPtr& SmartPtr::operator*() const {return *li;}
+LibraryItem& SmartPtr::operator*() const {return *li;}
 
-SmartPtr* SmartPtr::getItem() {return li;}
+LibraryItem* SmartPtr::getItem() {return li;}

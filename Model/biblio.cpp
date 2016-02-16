@@ -5,7 +5,7 @@ Biblio::Biblio(const Container<LibraryItem*>& content): b(content){
 }
 
 Biblio::~Biblio(){
-    for(Container<LibraryItem*>::Iterator it=b.begin(); it!=b.end()<; ++it)
+    for(Container<LibraryItem*>::Iterator it=b.begin(); it!=b.end(); ++it)
         delete *it;
 }
 

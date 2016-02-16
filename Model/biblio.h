@@ -37,7 +37,7 @@ public:
 
     LibraryItem* getItem(int);
 
-    LibraryItem* findItem(const QString&) const;
+    Container<LibraryItem*> findItem(const QString&) const;
 
     void save() const;
 

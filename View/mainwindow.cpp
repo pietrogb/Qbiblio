@@ -28,7 +28,6 @@ void MainWindow::setupView() {
     widget->setObjectName(QStringLiteral("widget"));
     groupLayout->setObjectName(QStringLiteral("groupLayout"));
     setWindowTitle("Programmazione ad oggetti - QBiblio - 2016");
-
 }
 
  Container<SmartPtr>* MainWindow::getLib() const() const {

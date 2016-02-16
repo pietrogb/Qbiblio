@@ -15,7 +15,7 @@ class Container {
   //dichiarazioni di amicizia
   friend class Iterator;
   friend class const_Iterator;
-  friend ostream& operator<<(ostream&, const Container<T>&);
+  friend ostream& operator<< <T>(ostream&, const Container<T>&);
 private:
   //class ContainerItem
   class ContainerItem {

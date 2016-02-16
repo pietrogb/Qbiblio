@@ -1,6 +1,6 @@
 #include "libraryitem.h"
 
-LibraryItem::LibraryItem(): id(0), titolo(""), genere("") {}
+LibraryItem::LibraryItem(): titolo(""), genere("") {}
 
 LibraryItem::LibraryItem(QString t ="", QString g =""): titolo(t), genere(g) {}
 
