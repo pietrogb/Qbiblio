@@ -153,6 +153,7 @@ void Biblio::load(){
           QDomAttr d=el.attributeNode("Dischi");
           int nDischi=d.value().toInt();
           li=new CD(titolo, genere, artista, annoUscita, nDischi);
+          addItem(li); 
         }
         else if(tipo=="DVD"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -167,6 +168,7 @@ void Biblio::load(){
           QStringList u=aux.split(".");
           QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
           li=new DVD(titolo, genere, regista, durata, dataUscita);
+          addItem(li); 
         }
         else if(tipo=="Libro"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -180,6 +182,7 @@ void Biblio::load(){
           QDomAttr e=el.attributeNode("Editore");
           QString editore=e.value();
           li=new Libro(titolo, genere, autore, annoUscita, editore);
+          addItem(li); 
         }
         else if(tipo=="VHS"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -194,8 +197,8 @@ void Biblio::load(){
           QStringList u=aux.split(".");
           QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
           li=new VHS(titolo, genere, regista, durata, dataUscita);
+          addItem(li); 
         }
-        addItem(li); 
       }
       file->close();
     }

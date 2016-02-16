@@ -20,7 +20,6 @@ private:
   //class ContainerItem
   class ContainerItem {
   public:
-    int id;
     T info;
     ContainerItem* next;
     //Costruttori
@@ -43,7 +42,6 @@ private:
   static bool equals(const ContainerItem*, const ContainerItem*);
   //stampa contenitore
   static void printContainer(ostream&, const ContainerItem*);
-  int num;
 public:
   //classe Iteratore
   class Iterator {
@@ -129,11 +127,11 @@ public:
  */
 //costruttore di default
 template<class T>
-Container<T>::ContainerItem::ContainerItem() : id(0), info(0), next(0) {}
+Container<T>::ContainerItem::ContainerItem() : info(0), next(0) {}
 
 //costruttore a 2 parametri
 template<class T>
-Container<T>::ContainerItem::ContainerItem(const T& ci, ContainerItem* n=0) : info(ci), next(n) {id=num+1; num++;}
+Container<T>::ContainerItem::ContainerItem(const T& ci, ContainerItem* n=0) : info(ci), next(n) {}
 
 //operatore d'uguaglianza
 template<class T>
@@ -293,11 +291,11 @@ Container<T>::const_Iterator::const_Iterator(const Iterator & it){
  */
 //costruttore di default
 template<class T>
-Container<T>::Container() : first(0), num(0) {}
+Container<T>::Container() : first(0) {}
 
 //costruttore di copia profonda
 template<class T>
-Container<T>::Container(const Container<T>& cnt) : first(deepCopy(cnt.first)), num(cnt.num) { }
+Container<T>::Container(const Container<T>& cnt) : first(deepCopy(cnt.first)) { }
 
 //operatore d'assegnazione profonda
 template<class T>
@@ -321,7 +319,7 @@ typename Container<T>::ContainerItem* Container<T>::deepCopy(const ContainerItem
   if(!ci)
     return 0;
   else
-    return new ContainerItem(ci->id, ci->info, deepCopy(ci->next));
+    return new ContainerItem(ci->info, deepCopy(ci->next));
 }
 
 //distruzione profonda
@@ -345,7 +343,7 @@ bool Container<T>::equals(const ContainerItem* a, const ContainerItem* b) {
 template<class T>
 void Container<T>::printContainer(ostream& os, const ContainerItem* cti) {
   if(cti){
-    os << cti->id<<" "<< cti->info;
+    os <<" "<< cti->info;
     printContainer(os, cti->next);
   }
 }
@@ -359,8 +357,7 @@ bool Container<T>::isEmpty() const {
 //inserimento in testa
 template<class T>
 void Container<T>::insert(const T& value) {
-  num++;
-  first = new ContainerItem(num, value, first);
+  first = new ContainerItem(value, first);
 }
 
 //rimozione elemento
