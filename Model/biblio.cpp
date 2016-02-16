@@ -116,122 +116,87 @@ void Biblio::save() const{
     }
 
 void Biblio::load(){
-    QFile *file=new QFile("/home/pietro/https:/github.com/pit1988/QBiblio/qbiblio.xml");
-        if(file->exists()){
-            if(!file->open(QFile::ReadOnly | QFile::Text)){
-                QMessageBox err;
-                err.setText("Errore nell'apertura del file");
-                err.exec();
-            }
-            else{
-                QDomDocument doc;
-                if(!doc.setContent(file))
-                {
-                    return;
-                }
-                QDomElement docElem=doc.documentElement();
-                QDomNodeList nodes=docElem.elementsByTagName("Elemento");
-                for(int i=0; i<nodes.count();++i){
-                    QDomElement el=nodes.at(i).toElement();
-                    QDomNode nodo=el.firstChild();
-                    QDomAttr t=el.attributeNode("tipo");
-                    QString tipo=t.value();
-                    QString titolo=e;
-
-                    QString u, n, c, d;
-                    QDate data;
-                    Competenze* comp;
-                    Esperienze* esp;
-                    Formazione* form;
-                    Lingue* ling;
-                    Rete* re;
-                    vector<Rete*> rete;
-                    Profilo* p=new Profilo();
-                    while(!nodo.isNull()){
-                        QDomElement elemento = nodo.toElement();
-                        QString tagName = elemento.tagName();
-                        if(tagName == "Username")
-                        {
-                            u=elemento.text();
-                        }
-                        if(tagName == "Nome")
-                        {
-                            n=elemento.text();
-                        }
-                        if(tagName == "Cognome")
-                        {
-                            c=elemento.text();
-                        }
-                        if(tagName == "DataNascita")
-                        {
-                            QString aux=elemento.text();
-                            QStringList l=aux.split(".");
-                            data.setDate(l[2].toInt(),l[1].toInt(),l[0].toInt());
-                        }
-                        if(tagName == "Descrizione")
-                        {
-                            d=elemento.text();
-                        }
-
-                        if(tagName == "Competenze")
-                        {
-                            QString nomeC=elemento.attributeNode("nome").value();
-                            int votoC=elemento.attributeNode("voto").value().toInt();
-                            comp=new Competenze(nomeC.toStdString(), votoC);
-                            p->addInC(*comp);
-                        }
-                        if(tagName == "Esperienze")
-                        {
-                            QString nomeE=elemento.attributeNode("nome").value();
-                            QString inizio=elemento.attributeNode("inizio").value();
-                            QString fine=elemento.attributeNode("fine").value();
-                            QStringList i=inizio.split(".");
-                            QStringList f=fine.split(".");
-                            QDate in(i[2].toInt(),i[1].toInt(),i[0].toInt());
-                            QDate fi(f[2].toInt(),f[1].toInt(),f[0].toInt());
-                            esp=new Esperienze(nomeE.toStdString(), in, fi);
-                            p->addInE(*esp);
-                        }
-                        if(tagName == "Studi")
-                        {
-                            QString nomeS=elemento.attributeNode("percorso").value();
-                            int annoS=elemento.attributeNode("anno").value().toInt();
-                            form=new Formazione(nomeS.toStdString(), annoS);
-                            p->addInF(*form);
-                        }
-                        if(tagName == "Lingue")
-                        {
-                            QString nomeL=elemento.attributeNode("nome").value();
-                            QString livelloL=elemento.attributeNode("livello").value();
-                            ling = new Lingue(nomeL.toStdString(), livelloL.toStdString());
-                            p->addInL(*ling);
-                        }
-                        if(tagName == "Rete")
-                        {
-                            QString nomeUser=elemento.attributeNode("username").value();
-                            re=new Rete(nomeUser.toStdString());
-                            rete.push_back(re);
-                        }
-                        nodo=nodo.nextSibling();
-                    }
-                    Utente* ut = 0;
-                    if(tipo=="Basic")
-                    {
-                        ut=new UtenteBasic(u.toStdString(), n.toStdString(), c.toStdString(), data, d.toStdString(), p, rete);
-                    }
-                    if(tipo=="Executive")
-                    {
-                        ut=new UtenteExecutive(u.toStdString(), n.toStdString(), c.toStdString(), data, d.toStdString(), p, rete);
-                    }
-                    if(tipo=="Business"){
-                        ut=new UtenteBusiness(u.toStdString(), n.toStdString(), c.toStdString(), data, d.toStdString(), p, rete);
-                    }
-                    addUtenti(ut);
-                }
-                file->close();
-            }
+  QFile *file=new QFile("/home/pietro/https:/github.com/pit1988/QBiblio/qbiblio.xml");
+    if(file->exists()){
+      if(!file->open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox err;
+        err.setText("Errore nell'apertura del file");
+        err.exec();
+      }
+      else{
+        QDomDocument doc;
+        if(!doc.setContent(file))
+        {
+          return;
         }
+        QDomElement docElem=doc.documentElement();
+        QDomNodeList nodes=docElem.elementsByTagName("Elemento");
+        for(int i=0; i<nodes.count();++i){
+          QDomElement el=nodes.at(i).toElement();
+          QDomNode nodo=el.firstChild();
+          QDomAttr t=el.attributeNode("tipo");
+          QString tipo=t.value();
+          LibraryItem* li;
+          if(tipo=="CD"){
+            QDomAttr t=el.attributeNode("Titolo");
+            QString titolo=t.value();
+            QDomAttr g=el.attributeNode("Genere");
+            QString genere=g.value();
+            QDomAttr a=el.attributeNode("Artista");
+            QString artista=a.value();
+            QDomAttr u=el.attributeNode("AnnoUscita");
+            int annoUscita=u.value().toInt();
+            QDomAttr d=el.attributeNode("Dischi");
+            int nDischi=d.value().toInt();
+            li=new CD(titolo.toStdString, genere.toStdString, artista.toStdString, annoUscita, nDischi);
+          }
+          else if(tipo=="DVD"){
+            QDomAttr t=el.attributeNode("Titolo");
+            QString titolo=t.value();
+            QDomAttr g=el.attributeNode("Genere");
+            QString genere=g.value();
+            QDomAttr r=el.attributeNode("Regista");
+            QString regista=.value(r);
+            QDomAttr d=el.attributeNode("Durata");
+            int durata=d.value().toInt();
+            QString aux=el.attributeNode("DataUscita").value();
+            QStringList u=aux.split(".");
+            QDate dataUscita=(u[2].toInt(),u[1].toInt(),u[0].toInt());
+            li=new DVD(titolo.toStdString, genere.toStdString, regista.toStdString, durata, dataUscita);
+          }
+          else if(tipo=="Libro"){
+            QDomAttr t=el.attributeNode("Titolo");
+            QString titolo=t.value();
+            QDomAttr g=el.attributeNode("Genere");
+            QString genere=g.value();
+            QDomAttr a=el.attributeNode("Autore");
+            QString autore=a.value();
+            QDomAttr u=el.attributeNode("AnnoUscita");
+            int annoUscita=u.value().toInt();
+            QDomAttr e=el.attributeNode("Editore");
+            QString editore=e.value();
+            li=new CD(titolo.toStdString, genere.toStdString, autore.toStdString, annoUscita, editore.toString);
+          }
+          else if(tipo=="VHS"){
+            QDomAttr t=el.attributeNode("Titolo");
+            QString titolo=t.value();
+            QDomAttr g=el.attributeNode("Genere");
+            QString genere=g.value();
+            QDomAttr r=el.attributeNode("Regista");
+            QString regista=.value(r);
+            QDomAttr d=el.attributeNode("Durata");
+            int durata=d.value().toInt();
+            QString aux=el.attributeNode("DataUscita").value();
+            QStringList u=aux.split(".");
+            QDate dataUscita=(u[2].toInt(),u[1].toInt(),u[0].toInt());
+            li=new VHS(titolo.toStdString, genere.toStdString, regista.toStdString, durata, dataUscita);
+          }
+          addItem(li); 
+          }
+        file->close();
+      }
     }
+  }
 }
 
 Container<LibraryItem*> Biblio::getLibrary() const{
