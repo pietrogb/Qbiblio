@@ -9,7 +9,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
-    lib=new Container<SmartPtr>;
+    lib=new Container<LibraryItem*>;
     centralWidget = new QWidget(this);
     widget = new QWidget(centralWidget);
     groupLayout = new QVBoxLayout(widget);
