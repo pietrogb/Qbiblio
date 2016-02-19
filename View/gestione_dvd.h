@@ -45,8 +45,8 @@ private:
     QLineEdit* qle_regista_r;
     QSpinBox* qsb_durata;
     QSpinBox* qsb_durata_r;
-    QLineEdit* qle_editore;
-    QLineEdit* qle_editore_r;
+    QDateEdit* qde_dataUscita;
+    QDateEdit* qde_dataUscita_r;
 
   DVD* d_new;
   QGridLayout* gLayout;
