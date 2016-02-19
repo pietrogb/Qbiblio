@@ -2,7 +2,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 Gestione_Libro::Gestione_Libro(QWidget* parent) : QDialog(parent) {
-  setWindowTitle(tr("Gestione Statua"));
+  setWindowTitle(tr("Gestione Libri"));
 
   qpb_insert = new QPushButton("Insert");
   qpb_remove = new QPushButton("Remove");
@@ -63,7 +63,7 @@ void Gestione_Libro::slotInsertLibro(){
 }
 
 void Gestione_Libro::slotRemoveLibro(){
-  emit signalRemoveStatua();
+  emit signalRemoveLibro();
 }
 
 void Gestione_Libro::slotReplaceLibro()){
@@ -126,7 +126,7 @@ Libro* Gestione_Libro::slotNewLibro(){
   int u = qsb_annoUscita->value();
   QString e = qle_editore->text();
 
-  Libro* l_new = new Libro(t, a, l, y, m, h);
+  Libro* l_new = new Libro(t, g, a, u, e);
   return l_new;
 }
 
@@ -137,6 +137,6 @@ Libro* Gestione_Libro::slotReplaceLibro(){
   int u_r = qsb_annoUscita->value();
   QString e_r = qle_editore->text();
 
-  Libro* l_new_r = new Libro(t_r, a_r, l_r, y_r, m_r, h_r);
+  Libro* l_new_r = new Libro(t_r, g_r, a_r, u_r, e_r);
   return l_new_r;
 }

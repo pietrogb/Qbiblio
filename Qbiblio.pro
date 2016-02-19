@@ -9,36 +9,40 @@ QT += widgets
 QT += xml
 
 # Input
-HEADERS += Model/cd.h \
-           Model/container.h \
-           Model/dvd.h \
-           Model/film.h \
-           Model/libraryitem.h \
-           Model/libro.h \
-           Model/smartptr.h \
-           Model/vhs.h \
-           Model/biblio.h \
-           View/mainwindow.h \
+HEADERS +=
+    Model/cd.h \
+    Model/container.h \
+    Model/dvd.h \
+    Model/film.h \
+    Model/libraryitem.h \
+    Model/libro.h \
+    Model/smartptr.h \
+    Model/vhs.h \
+    Model/biblio.h \
+    View/mainwindow.h \
     View/mywidget.h \
     View/gestione_libro.h \
     View/gestione_cd.h \
-    View/gestione_dvd.h
+    View/gestione_dvd.h \
+    View/gestione_vhs.h
 
 
 
-SOURCES += main.cpp \
-           Model/cd.cpp \
-           Model/dvd.cpp \
-           Model/film.cpp \
-           Model/libraryitem.cpp \
-           Model/libro.cpp \
-           main.cpp \
-           Model/smartptr.cpp \
-           Model/vhs.cpp \
-           Model/biblio.cpp \
-           View/mainwindow.cpp \
+SOURCES +=
+    main.cpp \
+    Model/cd.cpp \
+    Model/dvd.cpp \
+    Model/film.cpp \
+    Model/libraryitem.cpp \
+    Model/libro.cpp \
+    main.cpp \
+    Model/smartptr.cpp \
+    Model/vhs.cpp \
+    Model/biblio.cpp \
+    View/mainwindow.cpp \
     View/mywidget.cpp \
     View/gestione_libro.cpp \
     View/gestione_cd.cpp \
-    View/gestione_dvd.cpp
+    View/gestione_dvd.cpp \
+    View/gestione_vhs.cpp
 

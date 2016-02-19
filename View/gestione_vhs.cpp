@@ -1,8 +1,8 @@
-#include "gestione_dvd.h"
+#include "gestione_VHS.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-Gestione_DVD::Gestione_DVD(QWidget* parent) : QDialog(parent) {
-  setWindowTitle(tr("Gestione DVD"));
+Gestione_VHS::Gestione_VHS(QWidget* parent) : QDialog(parent) {
+  setWindowTitle(tr("Gestione VHS"));
 
   qpb_insert = new QPushButton("Insert");
   qpb_remove = new QPushButton("Remove");
@@ -50,20 +50,20 @@ Gestione_DVD::Gestione_DVD(QWidget* parent) : QDialog(parent) {
 
   setLayout(mainLayout);
 
-  connect(qpb_insert,SIGNAL(clicked()),this,SLOT(slotInsertDVD()));
-  connect(qpb_remove,SIGNAL(clicked()),this,SLOT(slotRemoveDVD()));
-  connect(qpb_replace,SIGNAL(clicked()),this,SLOT(slotReplaceDVD()));
+  connect(qpb_insert,SIGNAL(clicked()),this,SLOT(slotInsertVHS()));
+  connect(qpb_remove,SIGNAL(clicked()),this,SLOT(slotRemoveVHS()));
+  connect(qpb_replace,SIGNAL(clicked()),this,SLOT(slotReplaceVHS()));
 }
 
-void Gestione_DVD::slotInsertDVD(){
-  emit signalInsertDVD();
+void Gestione_VHS::slotInsertVHS(){
+  emit signalInsertVHS();
 }
 
-void Gestione_DVD::slotRemoveDVD(){
+void Gestione_VHS::slotRemoveVHS(){
   emit signalRemoveStatua();
 }
 
-void Gestione_DVD::slotReplaceDVD()){
+void Gestione_VHS::slotReplaceVHS()){
   ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_regista_r = new QLabel("Regista");
@@ -101,32 +101,32 @@ void Gestione_DVD::slotReplaceDVD()){
   qpb_insert->setEnabled(false);
   qpb_remove->setEnabled(false);
   qpb_replace->setEnabled(false);
-  connect(qpb_replace_confirm,SIGNAL(clicked()),this,SLOT(slotReplaceDVD_c()));
+  connect(qpb_replace_confirm,SIGNAL(clicked()),this,SLOT(slotReplaceVHS_c()));
   connect(qpb_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 
-void Gestione_DVD::slotReplaceDVD_c(){
-  emit signalReplaceDVD();
+void Gestione_VHS::slotReplaceVHS_c(){
+  emit signalReplaceVHS();
 }
 
-DVD* Gestione_DVD::slotNewDVD(){
+VHS* Gestione_VHS::slotNewVHS(){
   QString t = qle_titolo->text();
   QString g = qle_genere->text();
   QString r = qle_regista->text();
   int d = qsb_durata->value();
   QDate u = qde_dataUscita->text();
 
-  DVD* l_new = new DVD(t, g, r, d, u);
+  VHS* l_new = new VHS(t, g, r, d, u);
   return l_new;
 }
 
-DVD* Gestione_DVD::slotReplaceDVD(){
+VHS* Gestione_VHS::slotReplaceVHS(){
   QString t_r = qle_titolo_r->text();
   QString g_r = qle_genere_r->text();
   QString r_r = qle_regista_r->text();
   int d_r = qsb_durata_r->value();
   QDate u_r = qde_dataUscita_r->text();
 
-  DVD* l_new = new DVD(t_r, g_r, r_r, d_r, u_r);
+  VHS* l_new = new VHS(t_r, g_r, r_r, d_r, u_r);
   return l_new;
 }

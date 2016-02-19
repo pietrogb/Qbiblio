@@ -48,7 +48,7 @@ private:
     QLineEdit* qle_editore;
     QLineEdit* qle_editore_r;
 
-  Libro* l_new;
+  //Libro* l_new;
   QGridLayout* gLayout;
 public slots:
   void slotInsertLibro();
