@@ -24,7 +24,7 @@ HEADERS += Model/cd.h \
     View/gestione_cd.h \
     View/gestione_dvd.h \
     View/gestione_vhs.h \
-    View/find_item.h
+    View/trova_elemento.h
 
 
 
@@ -44,5 +44,5 @@ SOURCES += main.cpp \
     View/gestione_cd.cpp \
     View/gestione_dvd.cpp \
     View/gestione_vhs.cpp \
-    View/find_item.cpp
+    View/trova_elemento.cpp
 

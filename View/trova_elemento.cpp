@@ -1,11 +1,11 @@
 #include
-#include "../Gui/Trova_LibraryItem.h"
+#include "../Gui/Trova_Elemento.h"
 
 #include <QVBoxLayout>
 
-Trova_LibraryItem::Trova_LibraryItem(QWidget* parent, Container<SmartAptr>* p) : QDialog(parent) {
-  setWindowTitle("Trova Opera");
-  ctp = p;
+Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
+  setWindowTitle("Trova Elemento");
+  items = b->getLibrary();
 
   gridLayout_main = new QGridLayout();
   gridLayout_main->setSpacing(5);
@@ -17,37 +17,30 @@ Trova_LibraryItem::Trova_LibraryItem(QWidget* parent, Container<SmartAptr>* p) :
   gridLayout_topLeft = new QGridLayout();
   gridLayout_topLeft->setSpacing(5);
 
-  checkBox_tile = new QCheckBox();
-  label_title = new QLabel("Titolo");
-  lineEdit_title = new QLineEdit();
-  label_title->setIndent(5);
+  checkBox_titolo = new QCheckBox();
+  label_titolo = new QLabel("Titolo");
+  lineEdit_titolo = new QLineEdit();
+  label_titolo->setIndent(5);
   gridLayout_topLeft->addWidget(checkBox_tile,0,0,1,1);
   gridLayout_topLeft->addWidget(label_title,0,1,1,1);
   gridLayout_topLeft->addWidget(lineEdit_title,0,2,1,1);
 
-  checkBox_artist = new QCheckBox();
-  label_artist = new QLabel("Artista");
-  lineEdit_artist = new QLineEdit();
-  label_artist->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_artist,1,0,1,1);
-  gridLayout_topLeft->addWidget(label_artist,1,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_artist,1,2,1,1);
+  checkBox_autore = new QCheckBox();
+  label_autore = new QLabel("Autore");
+  lineEdit_autore = new QLineEdit();
+  label_autore->setIndent(5);
+  gridLayout_topLeft->addWidget(checkBox_autore,1,0,1,1);
+  gridLayout_topLeft->addWidget(label_autore,1,1,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_autore,1,2,1,1);
 
-  checkBox_location = new QCheckBox();
-  label_location = new QLabel("Ubicazione");
-  lineEdit_location = new QLineEdit();
-  label_location->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_location,2,0,1,1);
-  gridLayout_topLeft->addWidget(label_location,2,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_location,2,2,1,1);
+  checkBox_genere = new QCheckBox();
+  label_genere = new QLabel("Genere");
+  lineEdit_genere = new QLineEdit();
+  label_genere->setIndent(5);
+  gridLayout_topLeft->addWidget(checkBox_genere,2,0,1,1);
+  gridLayout_topLeft->addWidget(label_genere,2,1,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_genere,2,2,1,1);
 
-  checkBox_yearOfCreation = new QCheckBox();
-  label_yearOfCreation = new QLabel("Anno Creazione");
-  lineEdit_yearOfCreation = new QLineEdit();
-  label_yearOfCreation->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_yearOfCreation,3,0,1,1);
-  gridLayout_topLeft->addWidget(label_yearOfCreation,3,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_yearOfCreation,3,2,1,1);
 
   horizontalLayout_top->addLayout(gridLayout_topLeft);
 
@@ -60,18 +53,24 @@ Trova_LibraryItem::Trova_LibraryItem(QWidget* parent, Container<SmartAptr>* p) :
   label_info_filter = new QLabel("Filtro:");
   gridLayout_topRight->addWidget(label_info_filter,0,0,1,1);
 
-  radioButton_opere = new QRadioButton("Opere");
-  radioButton_opere->setChecked(true);
-  gridLayout_topRight->addWidget(radioButton_opere,1,0,1,1);
+  radioButton_all = new QRadioButton("Tutti");
+  radioButton_all->setChecked(true);
+  gridLayout_topRight->addWidget(radioButton_all,1,0,1,1);
 
-  radioButton_Dipinti = new QRadioButton("Dipinto");
-  gridLayout_topRight->addWidget(radioButton_Dipinti,2,0,1,1);
+  radioButton_Libri = new QRadioButton("Libri");
+  gridLayout_topRight->addWidget(radioButton_Libri,2,0,1,1);
 
-  radioButton_Statue = new QRadioButton("Statua");
-  gridLayout_topRight->addWidget(radioButton_Statue,3,0,1,1);
+  radioButton_CD = new QRadioButton("CD");
+  gridLayout_topRight->addWidget(radioButton_CD,3,0,1,1);
+
+  radioButton_DVD = new QRadioButton("DVD");
+  gridLayout_topRight->addWidget(radioButton_DVD,4,0,1,1);
+
+  radioButton_VHS = new QRadioButton("VHS");
+  gridLayout_topRight->addWidget(radioButton_VHS,5,0,1,1);
 
   verticalSpacer_radioButtonDown = new QSpacerItem(10, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
-  gridLayout_topRight->addItem(verticalSpacer_radioButtonDown,4,0,1,1);
+  gridLayout_topRight->addItem(verticalSpacer_radioButtonDown,6,0,1,1);
 
   horizontalLayout_top->addLayout(gridLayout_topRight);
 
@@ -101,21 +100,20 @@ Trova_LibraryItem::Trova_LibraryItem(QWidget* parent, Container<SmartAptr>* p) :
 }
 
   
-void Trova_LibraryItem::slot_pushButton_search() {
+void Trova_Elemento::slot_pushButton_search() {
   textEdit_resultFilter->clear();
 
   textEdit_resultFilter->setStyleSheet("font-size: 10px");
 
   int num = 0;
 
-  for(Container<SmartAptr>::iterator it = ctp->begin(); it != ctp->end(); ++it) {
+  for(Container<LibraryItem*>::Const_Iterator it = items.begin(); it != items.end(); ++it) {
     bool toPrint = false;
     QString strToPtint;
     
-    QString title(QString::fromStdString((*it).getOpera()->getTitle()));
-    QString artist(QString::fromStdString((*it).getOpera()->getArtist()));
-    QString location(QString::fromStdString((*it).getOpera()->getLocation()));
-    QString yearOfCreation(QString::number((*it).getOpera()->getYearOfCreation()));
+    QString title(QString::fromStdString((*it)->getTitle()));
+    QString autore(QString::fromStdString((*it)->getAutore()));
+    QString genere(QString::fromStdString((*it)->getgenere()));
         
     Statua* st = dynamic_cast<Statua*>((*it).getOpera());
     
@@ -124,13 +122,13 @@ void Trova_LibraryItem::slot_pushButton_search() {
         QString title_f = lineEdit_title->text();
         toPrint = title.contains(title_f, Qt::CaseInsensitive);
       }
-      if(checkBox_artist->isChecked()){
-        QString artist_f = lineEdit_artist->text();
-        toPrint = artist.contains(artist_f, Qt::CaseInsensitive);
+      if(checkBox_autore->isChecked()){
+        QString autore_f = lineEdit_autore->text();
+        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
       }
-      if(checkBox_location->isChecked()){
-        QString location_f = lineEdit_location->text();
-        toPrint = location.contains(location_f, Qt::CaseInsensitive);
+      if(checkBox_genere->isChecked()){
+        QString genere_f = lineEdit_genere->text();
+        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
       }
       if(checkBox_yearOfCreation->isChecked()){
         QString yearOfCreation_f = lineEdit_yearOfCreation->text();
@@ -151,13 +149,13 @@ void Trova_LibraryItem::slot_pushButton_search() {
         QString title_f = lineEdit_title->text();
         toPrint = title.contains(title_f, Qt::CaseInsensitive);
       }
-      if(checkBox_artist->isChecked()){
-        QString artist_f = lineEdit_artist->text();
-        toPrint = artist.contains(artist_f, Qt::CaseInsensitive);
+      if(checkBox_autore->isChecked()){
+        QString autore_f = lineEdit_autore->text();
+        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
       }
-      if(checkBox_location->isChecked()){
-        QString location_f = lineEdit_location->text();
-        toPrint = location.contains(location_f, Qt::CaseInsensitive);
+      if(checkBox_genere->isChecked()){
+        QString genere_f = lineEdit_genere->text();
+        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
       }
       if(checkBox_yearOfCreation->isChecked()){
         QString yearOfCreation_f = lineEdit_yearOfCreation->text();
@@ -175,10 +173,10 @@ void Trova_LibraryItem::slot_pushButton_search() {
     if(toPrint){
       strToPtint.prepend(yearOfCreation.toUpper());
       strToPtint.prepend(" | Anno Creazione: " );
-      strToPtint.prepend(location.toUpper());
+      strToPtint.prepend(genere.toUpper());
       strToPtint.prepend(" | Ubicazione: " );
-      strToPtint.prepend(artist.toUpper());
-      strToPtint.prepend(" | Artista: " );
+      strToPtint.prepend(autore.toUpper());
+      strToPtint.prepend(" | Autore: " );
       strToPtint.prepend(title.toUpper());
       strToPtint.prepend(") Titolo: " );
       strToPtint.prepend(QString::number(++num));

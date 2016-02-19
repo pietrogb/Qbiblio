@@ -15,6 +15,12 @@
 
 #include "../Model/biblio.h"
 
+#include "../View/gestione_libro.h"
+#include "gestione_cd.h"
+#include "gestione_dvd.h"
+#include "gestione_vhs.h"
+#include "trova_elemento.h"
+
 
 class MyWidget : public QWidget {
   Q_OBJECT
@@ -51,20 +57,20 @@ public slots:
 	void slotGestioneDvdQDialog();
 	void slotGestioneVhsQDialog();
 	void slotGestioneLibroQDialog();
-    void slotFindItemQDialog();
-    void slotInsertCD();
-    void slotInsertDVD();
-    void slotInsertVHS();
-    void slotInsertLibro();
-    void slotRemoveCD();
-    void slotRemoveDVD();
-    void slotRemoveVHS();
-    void slotRemoveLibro();
-    void slotReplaceCD();
-    void slotReplaceDVD();
-    void slotReplaceVHS();
-    void slotReplaceLibro();
-    void updateTableResult();
+  void slotFindItemQDialog();
+  void slotInsertCD();
+  void slotInsertDVD();
+  void slotInsertVHS();
+  void slotInsertLibro();
+  void slotRemoveCD();
+  void slotRemoveDVD();
+  void slotRemoveVHS();
+  void slotRemoveLibro();
+  void slotReplaceCD();
+  void slotReplaceDVD();
+  void slotReplaceVHS();
+  void slotReplaceLibro();
+  void updateTableResult();
 };
 
 #endif
