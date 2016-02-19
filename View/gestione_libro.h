@@ -25,7 +25,7 @@ private:
     QPushButton* qpb_replace;
     QPushButton* qpb_replace_confirm;
     QPushButton* qpb_close;
-    //"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
+
     QLabel* ql_titolo;
     QLabel* ql_titolo_r;
     QLabel* ql_genere;
@@ -48,14 +48,13 @@ private:
     QLineEdit* qle_editore;
     QLineEdit* qle_editore_r;
 
-
   Libro* l_new;
   QGridLayout* gLayout;
 public slots:
-  void slotInsertCD();
-  void slotRemoveCD();
-  void slotReplaceCD();
-  void slotReplaceCD_c();
+  void slotInsertLibro();
+  void slotRemoveLibro();
+  void slotReplaceLibro();
+  void slotReplaceLibro_c();
   Libro* slotNewLibro();
   Libro* slotReplaceLibro();
 signals:
