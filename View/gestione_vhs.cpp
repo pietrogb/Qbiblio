@@ -116,8 +116,8 @@ VHS* Gestione_VHS::slotNewVHS(){
   int d = qsb_durata->value();
   QDate u = qde_dataUscita->text();
 
-  VHS* l_new = new VHS(t, g, r, d, u);
-  return l_new;
+  VHS* v_new = new VHS(t, g, r, d, u);
+  return v_new;
 }
 
 VHS* Gestione_VHS::slotReplaceVHS(){
@@ -127,6 +127,6 @@ VHS* Gestione_VHS::slotReplaceVHS(){
   int d_r = qsb_durata_r->value();
   QDate u_r = qde_dataUscita_r->text();
 
-  VHS* l_new = new VHS(t_r, g_r, r_r, d_r, u_r);
-  return l_new;
+  VHS* v_new_r = new VHS(t_r, g_r, r_r, d_r, u_r);
+  return v_new_r;
 }

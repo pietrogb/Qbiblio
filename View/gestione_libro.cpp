@@ -83,7 +83,6 @@ void Gestione_Libro::slotReplaceLibro()){
   qsb_annoUscita_r->setMaximum(2100);
   qsb_annoUscita_r->setValue(2016);
 
-  gLayout->setColumnStretch(1, 2);
   gLayout->addWidget(ql_titolo_r, 5, 0);
   gLayout->addWidget(qle_titolo_r, 5, 1);
   gLayout->addWidget(ql_genere_r, 6, 0);

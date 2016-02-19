@@ -116,8 +116,8 @@ DVD* Gestione_DVD::slotNewDVD(){
   int d = qsb_durata->value();
   QDate u = qde_dataUscita->text();
 
-  DVD* l_new = new DVD(t, g, r, d, u);
-  return l_new;
+  DVD* d_new = new DVD(t, g, r, d, u);
+  return d_new;
 }
 
 DVD* Gestione_DVD::slotReplaceDVD(){
@@ -127,6 +127,6 @@ DVD* Gestione_DVD::slotReplaceDVD(){
   int d_r = qsb_durata_r->value();
   QDate u_r = qde_dataUscita_r->text();
 
-  DVD* l_new = new DVD(t_r, g_r, r_r, d_r, u_r);
-  return l_new;
+  DVD* d_new_r = new DVD(t_r, g_r, r_r, d_r, u_r);
+  return d_new_r;
 }

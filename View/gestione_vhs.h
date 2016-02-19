@@ -48,7 +48,7 @@ private:
     QDateEdit* qde_dataUscita;
     QDateEdit* qde_dataUscita_r;
 
-  VHS* d_new;
+  // VHS* v_new;
   QGridLayout* gLayout;
 public slots:
   void slotInsertVHS();

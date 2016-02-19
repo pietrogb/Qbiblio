@@ -297,11 +297,10 @@ void MyWidget::slotFindItemQDialog(){
 }
 
 
-//Modificare!!
 void MyWidget::updateTableResult(){
   tableWidget->setRowCount(0);
   //Richiama Libreria;
-  for(int i=0; i<bib.size; ++i){
+  for(int i=0; i<bib.size(); ++i){
   //for(Container<LibraryItem*>::Iterator it = b.begin(); it != b.end(); ++it) {
     const int ultm_riga_Libro = tableWidget_Libro->rowCount();
     const int ultm_riga_CD = tableWidget_CD->rowCount();
@@ -339,8 +338,7 @@ void MyWidget::updateTableResult(){
     }
     //catalogo DVD;
     DVD* d = dynamic_cast<DVD*>(bib.getItem(i));
-    if(d){
-//     tableWidgetDvdHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+    if(typeid(bib.getItem(i)) == typeid(DVD*)){
       tableWidget_DVD->insertRow(ultm_riga_DVD);
       tableWidget_DVD->setItem(ultm_riga_DVD, 0, new QTableWidgetItem(QString(d->getTitolo())));
       tableWidget_DVD->setItem(ultm_riga_DVD, 1, new QTableWidgetItem(QString(d->getGenere())));
@@ -354,8 +352,7 @@ void MyWidget::updateTableResult(){
     }
 //catalogo VHS; fare conversione con typeid
     VHS* v = dynamic_cast<VHS*>(bib.getItem(i));
-    if(v){
-//     tableWidgetVHSHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+    if(typeid(bib.getItem(i)) == typeid(VHS*)){
       tableWidget_VHS->insertRow(ultm_riga_VHS);
       tableWidget_VHS->setItem(ultm_riga_VHS, 0, new QTableWidgetItem(QString(v->getTitolo())));
       tableWidget_VHS->setItem(ultm_riga_VHS, 1, new QTableWidgetItem(QString(v->getGenere())));

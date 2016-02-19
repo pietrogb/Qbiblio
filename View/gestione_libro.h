@@ -32,8 +32,8 @@ private:
     QLabel* ql_genere_r;
     QLabel* ql_autore;
     QLabel* ql_autore_r;
-    QLabel* ql_annoUscita;
-    QLabel* ql_annoUscita_r;
+    QSpinBox* ql_annoUscita;
+    QSpinBox* ql_annoUscita_r;
     QLabel* ql_editore;
     QLabel* ql_editore_r;
 
