@@ -13,7 +13,7 @@
 #include"QDomDocument"
 
 #include "../Model/container.h"
-#include "../Model/smartptr.h"
+//#include "../Model/smartptr.h"
 #include "../Model/libraryitem.h"
 #include "../Model/cd.h"
 #include "../Model/dvd.h"

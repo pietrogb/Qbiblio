@@ -18,7 +18,11 @@ HEADERS += Model/cd.h \
            Model/smartptr.h \
            Model/vhs.h \
            Model/biblio.h \
-           View/mainwindow.h
+           View/mainwindow.h \
+    View/mywidget.h \
+    View/gestione_libro.h \
+    View/gestione_cd.h \
+    View/gestione_dvd.h
 
 
 
@@ -32,5 +36,9 @@ SOURCES += main.cpp \
            Model/smartptr.cpp \
            Model/vhs.cpp \
            Model/biblio.cpp \
-           View/mainwindow.cpp
+           View/mainwindow.cpp \
+    View/mywidget.cpp \
+    View/gestione_libro.cpp \
+    View/gestione_cd.cpp \
+    View/gestione_dvd.cpp
 
