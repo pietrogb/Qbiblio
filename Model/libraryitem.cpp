@@ -1,8 +1,8 @@
 #include "libraryitem.h"
 
-LibraryItem::LibraryItem(): titolo(""), genere("") {}
+// LibraryItem::LibraryItem(): titolo(""), genere("") {}
 
-LibraryItem::LibraryItem(QString t ="", QString g =""): titolo(t), genere(g) {}
+LibraryItem::LibraryItem(string t, string g): titolo(t), genere(g) {}
 
 LibraryItem::~LibraryItem(){} //posso anche evitare di scriverlo, visto che è virtuale puro!
 
@@ -14,15 +14,15 @@ bool LibraryItem::operator !=(const LibraryItem& li) const{
     return !(titolo == li.titolo && genere == li.genere);
 }
 
-QString LibraryItem::getTitolo() const{
+string LibraryItem::getTitolo() const{
     return titolo;
 }
 
-QString LibraryItem::getGenere() const{
+string LibraryItem::getGenere() const{
     return genere;
 }
 
-bool LibraryItem::search(const QString & str) const {
+bool LibraryItem::search(const string & str) const {
     return ((titolo == str) || (genere == str));
 }
 

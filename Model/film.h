@@ -1,32 +1,33 @@
 #ifndef FILM_H
 #define FILM_H
 
+#include "libraryitem.h"
 #include <QTime>
 #include <QDate>
-#include <QVector>
-#include "libraryitem.h"
+#include <string>
+using std::string;
 
 class Film : public LibraryItem{
 private:
-    QString regista;
+    string regista;
     int durata; //minuti
     QDate dataUscita;
-    //QVector<QString> attori;
+    //QVector<string> attori;
 public:
-    Film();
-    Film(QString, QString, QString, int, QDate);
+    // Film();
+    Film(string ="", string ="", string ="", int =0, QDate = QDate::currentDate() );
     virtual ~Film();
     virtual Film* clone() const;
     virtual bool operator==(const Film&) const;
     virtual bool operator!=(const Film&) const;
-    QString getRegista() const;
+    string getRegista() const;
     int getDurata() const;
     QDate getDataUscita() const;
-    bool search(const QString &) const;
+    bool search(const string &) const;
 
 
-    //Film(QString, QString, QString, int, QDate, QVector<QString>);
-    //QVector<QString> getAttori() const;
+    //Film(string, string, string, int, QDate, QVector<string>);
+    //QVector<string> getAttori() const;
 };
 
 #endif // FILM_H

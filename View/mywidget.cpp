@@ -1,4 +1,4 @@
-#include "/MyWidget.h"
+#include "MyWidget.h"
 #include <QDesktopWidget>
 #include <QFont>
 #include <QHeaderView>

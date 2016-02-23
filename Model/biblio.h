@@ -4,16 +4,17 @@
 #include<iostream>
 #include<typeinfo>
 
-#include"QFile"
-#include"QXmlStreamReader"
-#include"QXmlStreamWriter"
-#include"QStringList"
-#include"QFileDialog"
-#include"QMessageBox"
-#include"QDomDocument"
+#include <QFile>
+#include <QXmlStreamReader>
+#include <QXmlStreamWriter>
+#include <QStringList>
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QDomDocument>
+
 
 #include "../Model/container.h"
-//#include "../Model/smartptr.h"
+#include "../Model/smartptr.h"
 #include "../Model/libraryitem.h"
 #include "../Model/cd.h"
 #include "../Model/dvd.h"
@@ -24,7 +25,7 @@
 class Biblio
 {
 public:
-    Biblio(const Container<LibraryItem*>& = Container<LibraryItem*>());
+    Biblio(const Container<SmartPtr>& = Container<SmartPtr>());
 
     ~Biblio();
 
@@ -32,22 +33,22 @@ public:
 
     int getSize() const;
 
-    bool addItem(LibraryItem*); //SmartPtr?
+    bool addItem(SmartPtr); //SmartPtr?
 
-    void removeItem(const QString&);
+    void removeItem(const string &);
 
-    LibraryItem* getItem(int);
+    SmartPtr getItem(int);
 
-    Container<LibraryItem*> findItem(const QString&) const;
+    Container<SmartPtr> findItem(const string&) const;
 
     void save() const;
 
     void load();
 
-    Container<LibraryItem*> getLibrary() const;
+    Container<SmartPtr> getLibrary() const;
 
 private:
-    Container<LibraryItem*> b;
+    Container<SmartPtr> b;
 };
 
 #endif // BIBLIO_H

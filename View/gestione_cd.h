@@ -2,7 +2,7 @@
 #define GESTIONE_CD_H
 
 #include "../Model/libraryitem.h"
-#include "../Model/CD.h"
+#include "../Model/cd.h"
 
 #include <QCheckBox>
 #include <QDialog>

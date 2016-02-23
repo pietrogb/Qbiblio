@@ -2,7 +2,7 @@
 #define GESTIONE_VHS_H
 
 #include "../Model/libraryitem.h"
-#include "../Model/VHS.h"
+#include "../Model/vhs.h"
 
 #include <QCheckBox>
 #include <QDialog>

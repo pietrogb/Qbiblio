@@ -1,7 +1,7 @@
 #ifndef TROVA_ELEMENTO_H
 #define TROVA_ELEMENTO_H
 
-#include "../Model/Biblio.h"
+#include "../Model/biblio.h"
 
 #include <QCheckBox>
 #include <QDialog>

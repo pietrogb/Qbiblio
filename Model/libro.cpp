@@ -1,11 +1,8 @@
 #include "libro.h"
-/*
-    QString autore;
-    int annoUscita;
-    QString Editore;*/
-Libro::Libro(): LibraryItem(), autore(""), annoUscita(), editore("") {}
 
-Libro::Libro(QString t ="", QString g ="", QString a ="", int u =0,  QString e =""): LibraryItem(t, g), autore(a), annoUscita(u), editore(e) {}
+// Libro::Libro(): LibraryItem(), autore(""), annoUscita(), editore("") {}
+
+Libro::Libro(string t, string g, string a, int u,  string e): LibraryItem(t, g), autore(a), annoUscita(u), editore(e) {}
 
 Libro::~Libro() {}
 
@@ -19,12 +16,12 @@ bool Libro::operator!=(const Libro& l) const {
     return !( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
 }
 
-QString Libro::getAutore() const {return autore;}
+string Libro::getAutore() const {return autore;}
 
 int Libro::getAnnoUscita() const {return annoUscita;}
 
-QString Libro::getEditore() const {return editore;}
+string Libro::getEditore() const {return editore;}
 
-bool Libro::search(const QString & str) const{
+bool Libro::search(const string & str) const{
     return (LibraryItem::search(str) || autore == str);
 }

@@ -51,10 +51,10 @@ private:
   //Libro* l_new;
   QGridLayout* gLayout;
 public slots:
-  void slotInsertLibro();
-  void slotRemoveLibro();
-  void slotReplaceLibro();
-  void slotReplaceLibro_c();
+  void slotInsertLib();
+  void slotRemoveLib();
+  void slotReplaceLib();
+  void slotReplaceLib_c();
   Libro* slotNewLibro();
   Libro* slotReplaceLibro();
 signals:

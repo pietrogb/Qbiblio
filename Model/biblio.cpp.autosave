@@ -31,7 +31,7 @@ bool Biblio::addItem(SmartPtr li){
 void Biblio::removeItem(const string& title ){
     for(int i=0; i<b.size(); ++i){
         if((getItem(i) -> getTitolo() == title)) {
-            delete getItem(i);
+            b.remove(getItem(i));
         }
     }
 }
