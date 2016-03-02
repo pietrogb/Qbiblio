@@ -114,7 +114,7 @@ void Trova_Elemento::slot_pushButton_search() {
     QString title(QString::fromStdString((*it)->getTitle()));
     QString autore(QString::fromStdString((*it)->getAutore()));
     QString genere(QString::fromStdString((*it)->getgenere()));
-        
+        //************FROM HERE
     Statua* st = dynamic_cast<Statua*>((*it).getOpera());
     
     if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
@@ -169,6 +169,7 @@ void Trova_Elemento::slot_pushButton_search() {
         strToPtint.prepend(QString::number(di->getHeight()));
         strToPtint.prepend(" | Altezza: ");
       }
+      //************TO HERE
     }
     if(toPrint){
       strToPtint.prepend(yearOfCreation.toUpper());

@@ -31,7 +31,7 @@ bool Biblio::addItem(SmartPtr li){
 void Biblio::removeItem(const string& title ){
     for(int i=0; i<b.size(); ++i){
         if((getItem(i) -> getTitolo() == title)) {
-            delete getItem(i);
+            b.remove((getItem(i)).getItem());
         }
     }
 }
@@ -74,7 +74,7 @@ void Biblio::save() const{
                if(typeid(li) == typeid(CD*))
                {
                   inp->writeAttribute("tipo","CD");
-                  CD* cd=dynamic_cast<CD*>(*(it));
+                  CD* cd=dynamic_cast<CD*>(li.getItem());
                   inp->writeTextElement("Titolo", QString::fromStdString(cd->getTitolo()));
                   inp->writeTextElement("Genere", QString::fromStdString(cd->getGenere()));
                   inp->writeTextElement("Artista", QString::fromStdString(cd->getArtista()));
@@ -83,7 +83,7 @@ void Biblio::save() const{
                }
                else if(typeid(li) == typeid(DVD*))
                {
-                  DVD* dvd=dynamic_cast<DVD*>(*(it));
+                  DVD* dvd=dynamic_cast<DVD*>(li.getItem());
                   inp->writeAttribute("tipo","DVD");
                   inp->writeTextElement("Titolo", QString::fromStdString(dvd->getTitolo()));
                   inp->writeTextElement("Genere", QString::fromStdString(dvd->getGenere()));
@@ -93,7 +93,7 @@ void Biblio::save() const{
                }
                else if(typeid(li) == typeid(Libro*))
                {
-                  Libro* lib=dynamic_cast<Libro*>(*(it));
+                  Libro* lib=dynamic_cast<Libro*>(li.getItem());
                   inp->writeAttribute("tipo", "Libro");
                   inp->writeTextElement("Titolo", QString::fromStdString(lib->getTitolo()));
                   inp->writeTextElement("Genere", QString::fromStdString(lib->getGenere()));
@@ -104,11 +104,11 @@ void Biblio::save() const{
                }
                else if(typeid(li) == typeid(VHS*))
                {
-                  VHS* vhs=dynamic_cast<VHS*>(*(it));
+                  VHS* vhs=dynamic_cast<VHS*>(li.getItem());
                   inp->writeAttribute("tipo","VHS");
                   inp->writeTextElement("Titolo", QString::fromStdString(vhs->getTitolo()));
                   inp->writeTextElement("Genere", QString::fromStdString(vhs->getGenere()));
-                  inp->writeTextElement("Regista", QString::fromStdString(vhs->getRegista)());
+                  inp->writeTextElement("Regista", QString::fromStdString(vhs->getRegista()));
                   inp->writeTextElement("Durata", QString::number(vhs->getDurata()));
                   inp->writeTextElement("DataUscita", (vhs->getDataUscita()).toString("dd.MM.yyyy"));
                }

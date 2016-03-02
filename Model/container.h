@@ -53,9 +53,9 @@ public:
     //costruttore di default
     Iterator();
     //operatore di uguaglianza
-    bool operator==(Iterator) const;
+    bool operator==(const Iterator &) const;
     //operatore di disuguaglianza
-    bool operator!=(Iterator) const;
+    bool operator!=(const Iterator &) const;
     //operator ++ prefisso
     Iterator& operator++();
     //operator ++ postfisso
@@ -75,9 +75,9 @@ public:
     //costruttore come convertitore di tipo da Iterator a const_iterator
     const_Iterator(const Iterator&);
     //operatore di uguaglianza
-    bool operator==(const_Iterator) const;
+    bool operator==(const const_Iterator&) const;
     //operatore di disuguaglianza
-    bool operator!=(const_Iterator) const;
+    bool operator!=(const const_Iterator&) const;
     //operator ++ prefisso
     const_Iterator& operator++();
     //operator ++ postfisso
@@ -86,17 +86,17 @@ public:
     T& operator*() const;
   };
   //metodi di Iterator
-  //metodi propri di Container:
   Iterator begin();
   Iterator end();
   //operatore di dereferenziazione/indicizzazione
-  T& operator[](Iterator);
+  T& operator[](const Iterator &);
 
   //metodi di const_iterator:
   const_Iterator begin() const;
   const_Iterator end() const;
-  const T& operator[](const_Iterator) const;
+  const T& operator[](const const_Iterator &) const;
 
+  //metodi propri di Container:
   //costruttore di default di Container
   Container();
   //construttore di copia
@@ -144,6 +144,12 @@ template<class T>
 bool Container<T>::ContainerItem::operator!=(const ContainerItem& cti) const {
   return (info != cti->info);
 }
+template<class T>
+  Container<T>::ContainerItem::~ContainerItem(){
+    if(next){
+      delete next;
+    }
+  }
 /*
  ***********************
  Metodi di Iterator
@@ -155,13 +161,13 @@ Container<T>::Iterator::Iterator(): ptr(0){}
 
 //operatore d'uguaglianza
 template<class T>
-bool Container<T>::Iterator::operator==(Iterator it) const {
+bool Container<T>::Iterator::operator==(const Iterator & it) const {
   return ptr == it.ptr;
 }
 
 //operatore di disuguaglianza
 template<class T>
-bool Container<T>::Iterator::operator!=(Iterator it) const {
+bool Container<T>::Iterator::operator!=(const Iterator & it) const {
   return ptr != it.ptr;
 }
 
@@ -206,7 +212,7 @@ typename Container<T>::Iterator Container<T>::end() {
 
 //indicizzazione
 template<class T>
-T& Container<T>::operator[](Container<T>::Iterator it) {
+T& Container<T>::operator[](const Container<T>::Iterator& it) {
   return (it.ptr)->info;
 }
 /*
@@ -221,13 +227,13 @@ Container<T>::const_Iterator::const_Iterator(): ptr(0) {}
 
 //operatore d'uguaglianza
 template<class T>
-bool Container<T>::const_Iterator::operator==(const_Iterator it) const {
+bool Container<T>::const_Iterator::operator==(const const_Iterator& it) const {
   return ptr == it.ptr;
 }
 
 //operatore di disuguaglianza
 template<class T>
-bool Container<T>::const_Iterator::operator!=(const_Iterator it) const {
+bool Container<T>::const_Iterator::operator!=(const const_Iterator& it) const {
   return ptr != it.ptr;
 }
 
@@ -272,7 +278,7 @@ typename Container<T>::const_Iterator Container<T>::end() const {
 
 //inidicizzazione
 template<class T>
-const T& Container<T>::operator[](const Container<T>::const_Iterator it) const{
+const T& Container<T>::operator[](const Container<T>::const_Iterator& it) const{
   return (it.ptr)->info;
 }
 
@@ -310,7 +316,8 @@ Container<T>& Container<T>::operator=(const Container<T>& cnt) {
 //distruzione profonda
 template<class T>
 Container<T>::~Container() {
-  deepRemove(first);
+  if(first)
+      delete first;
 }
 
 //copia profonda
@@ -327,7 +334,7 @@ template<class T>
 void Container<T>::deepRemove(ContainerItem* ci) {
   if(ci){
     deepRemove(ci->next);
-    delete ci;
+    delete &ci;
   }
 }
 
@@ -375,6 +382,7 @@ void Container<T>::remove(const T & value) {
     else
       prec->next = p->next;
   }
+  p->next=0;
   delete p;
 }
 
