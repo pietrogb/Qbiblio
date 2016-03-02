@@ -1,4 +1,4 @@
-#include "gestione_CD.h"
+#include "gestione_cd.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 Gestione_CD::Gestione_CD(QWidget* parent) : QDialog(parent) {
@@ -68,8 +68,8 @@ Gestione_CD::Gestione_CD(QWidget* parent) : QDialog(parent) {
   gLayout->addWidget(qle_titolo, 0, 1);
   gLayout->addWidget(ql_genere, 1, 0);
   gLayout->addWidget(qle_genere, 1, 1);
-  gLayout->addWidget(qle_autore, 2, 0);
-  gLayout->addWidget(qle_autore, 2, 1);
+  gLayout->addWidget(qle_artista, 2, 0);
+  gLayout->addWidget(qle_artista, 2, 1);
   gLayout->addWidget(ql_annoUscita, 3, 0);
   gLayout->addWidget(qsb_annoUscita, 3, 1);
   gLayout->addWidget(ql_nDischi, 4, 0);
@@ -100,7 +100,7 @@ void Gestione_CD::slotRemoveCD(){
   emit signalRemoveCD();
 }
 
-void Gestione_CD::slotReplaceCD()){
+void Gestione_CD::slotReplaceCD(){
 	ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_artista_r = new QLabel("Artista");
@@ -124,9 +124,9 @@ void Gestione_CD::slotReplaceCD()){
   gLayout->addWidget(qle_titolo_r, 5, 1);
   gLayout->addWidget(ql_genere_r, 6, 0);
   gLayout->addWidget(qle_genere_r, 6, 1);
-  gLayout->addWidget(qle_autore_r, 7, 0);
-  gLayout->addWidget(qle_autore_r, 7, 1);
-  gLayout->addWidget(ql_annoUscita_r_r, 8, 0);
+  gLayout->addWidget(qle_artista_r, 7, 0);
+  gLayout->addWidget(qle_artista_r, 7, 1);
+  gLayout->addWidget(ql_annoUscita_r, 8, 0);
   gLayout->addWidget(qsb_annoUscita_r, 8, 1);
   gLayout->addWidget(ql_nDischi_r, 9, 0);
   gLayout->addWidget(qsb_nDischi_r, 9, 1);
@@ -156,9 +156,9 @@ void Gestione_CD::slotReplaceCD_c(){
 
 
 CD* Gestione_CD::slotNewCD(){
-  QString t = qle_titolo->text();
-  QString g = qle_genere->text();
-  QString a = qle_artista->text();
+  string t = (qle_titolo->text()).toStdString();
+  string g = (qle_genere->text()).toStdString();
+  string a = (qle_artista->text()).toStdString();
   int u = qsb_annoUscita->value();
   int d = qsb_nDischi->value();
 
@@ -166,13 +166,12 @@ CD* Gestione_CD::slotNewCD(){
   return cd_new;
 }
 
-CD* Gestione_CD::slotReplaceCD(){
-  QString t_r = qle_titolo->text();
-  QString g_r = qle_genere->text();
-  QString a_r = qle_autore->text();
-  int u_r = qsb_annoUscita->value();
-  int d_r = qsb_nDischi->value();
-
+CD* Gestione_CD::slotReplaceCompactDisk(){
+  string t_r = (qle_titolo_r->text()).toStdString();
+  string g_r = (qle_genere_r->text()).toStdString();
+  string a_r = (qle_artista_r->text()).toStdString();
+  int u_r = qsb_annoUscita_r->value();
+  int d_r = qsb_nDischi_r->value();
 
   CD* cd_new_r = new CD(t_r, g_r, a_r, u_r, d_r);
   return cd_new_r;

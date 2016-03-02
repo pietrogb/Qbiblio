@@ -1,4 +1,4 @@
-#include "MyWidget.h"
+#include "mywidget.h"
 #include <QDesktopWidget>
 #include <QFont>
 #include <QHeaderView>
@@ -161,7 +161,7 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
   connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
   connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
-  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
+//  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
 }
 
 /////////////CD
@@ -189,7 +189,7 @@ void MyWidget::slotRemoveCD(){
 
 void MyWidget::slotReplaceCD(){
   LibraryItem* older = mCd->slotNewCD();
-  LibraryItem* newer = mCd->slotReplaceCD();
+  LibraryItem* newer = mCd->slotReplaceCompactDisk();
   bib.replace(older, newer);
   updateTableResult();
   mCd->close();
@@ -220,7 +220,7 @@ void MyWidget::slotRemoveDVD(){
 
 void MyWidget::slotReplaceDVD(){
   LibraryItem* older = mDvd->slotNewDVD();
-  LibraryItem* newer = mDvd->slotReplaceDVD();
+  LibraryItem* newer = mDvd->slotReplaceDigitalVersatileDisk();
   bib.replace(older, newer);
   updateTableResult();
   mDvd->close();
@@ -251,7 +251,7 @@ void MyWidget::slotRemoveVHS(){
 
 void MyWidget::slotReplaceVHS(){
   LibraryItem* older = mVHS->slotNewVHS();
-  LibraryItem* newer = mVHS->slotReplaceVHS();
+  LibraryItem* newer = mVHS->slotReplaceVideoCassetta();
   bib.replace(older, newer);
   updateTableResult();
   mVHS->close();
@@ -267,7 +267,7 @@ void MyWidget::slotGestioneLibroQDialog(){
 }
 
 void MyWidget::slotInsertLibro(){
-  LibraryItem* ins = mLibro->slotNewVHS();
+  LibraryItem* ins = mLibro->slotNewLibro();
   bib.insert(ins);
   updateTableResult();
   mLibro->close();
@@ -289,12 +289,12 @@ void MyWidget::slotReplaceLibro(){
 }
 
 
-void MyWidget::slotFindItemQDialog(){
-  fo = new Trova_Elemento(this, &bib);
-  fo->resize(monitorWidth*0.6, monitorHeight*0.5);
-  fo->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, fo->size(), qApp->desktop()->availableGeometry()));
-  fo->exec();
-}
+//void MyWidget::slotFindItemQDialog(){
+//  t_el = new Trova_Elemento(this, &bib);
+//  t_el->resize(monitorWidth*0.6, monitorHeight*0.5);
+//  t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, fo->size(), qApp->desktop()->availableGeometry()));
+//  t_el->exec();
+//}
 
 
 void MyWidget::updateTableResult(){

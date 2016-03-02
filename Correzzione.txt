@@ -1,0 +1,834 @@
+pietro@pietro-Extensa-5220:~/https:/github.com/pit1988/Qbiblio$ make
+Makefile:2095: attenzione: sovrascrittura dei comandi per l'obiettivo "main.o"
+Makefile:1347: attenzione: comandi obsoleti per l'obiettivo "main.o" ignorati
+/usr/lib/x86_64-linux-gnu/qt5/bin/qmake -o Makefile Qbiblio.pro
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I. -IView -IModel -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o mywidget.o View/mywidget.cpp
+View/mywidget.cpp: In constructor ‘MyWidget::MyWidget(QWidget*)’:
+View/mywidget.cpp:25:39: error: ‘class QHeaderView’ has no member named ‘setResizeMode’
+   tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+                                       ^
+View/mywidget.cpp:36:3: error: ‘tableWidgetCdHeader’ was not declared in this scope
+   tableWidgetCdHeader<<"Titolo"<<"Genere"<<"Artista"<<"Anno d'Uscita"<<"Numero Dischi";
+   ^
+View/mywidget.cpp:49:40: error: ‘class QHeaderView’ has no member named ‘setResizeMode’
+   tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+                                        ^
+View/mywidget.cpp:60:3: error: ‘tableWidgetDvdHeader’ was not declared in this scope
+   tableWidgetDvdHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+   ^
+View/mywidget.cpp:73:40: error: ‘class QHeaderView’ has no member named ‘setResizeMode’
+   tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+                                        ^
+View/mywidget.cpp:84:3: error: ‘tableWidgetVhsHeader’ was not declared in this scope
+   tableWidgetVhsHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+   ^
+View/mywidget.cpp:97:42: error: ‘class QHeaderView’ has no member named ‘setResizeMode’
+   tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+                                          ^
+View/mywidget.cpp:108:3: error: ‘tableWidgetLibriHeader’ was not declared in this scope
+   tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
+   ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotInsertCD()’:
+View/mywidget.cpp:178:7: error: ‘class Biblio’ has no member named ‘insert’
+   bib.insert(ins);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotRemoveCD()’:
+View/mywidget.cpp:185:7: error: ‘class Biblio’ has no member named ‘remove’
+   bib.remove(del);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotReplaceCD()’:
+View/mywidget.cpp:193:7: error: ‘class Biblio’ has no member named ‘replace’
+   bib.replace(older, newer);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotInsertDVD()’:
+View/mywidget.cpp:209:7: error: ‘class Biblio’ has no member named ‘insert’
+   bib.insert(ins);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotRemoveDVD()’:
+View/mywidget.cpp:216:7: error: ‘class Biblio’ has no member named ‘remove’
+   bib.remove(del);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotReplaceDVD()’:
+View/mywidget.cpp:224:7: error: ‘class Biblio’ has no member named ‘replace’
+   bib.replace(older, newer);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotInsertVHS()’:
+View/mywidget.cpp:240:7: error: ‘class Biblio’ has no member named ‘insert’
+   bib.insert(ins);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotRemoveVHS()’:
+View/mywidget.cpp:247:7: error: ‘class Biblio’ has no member named ‘remove’
+   bib.remove(del);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotReplaceVHS()’:
+View/mywidget.cpp:255:7: error: ‘class Biblio’ has no member named ‘replace’
+   bib.replace(older, newer);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotInsertLibro()’:
+View/mywidget.cpp:271:7: error: ‘class Biblio’ has no member named ‘insert’
+   bib.insert(ins);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotRemoveLibro()’:
+View/mywidget.cpp:278:7: error: ‘class Biblio’ has no member named ‘remove’
+   bib.remove(del);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::slotReplaceLibro()’:
+View/mywidget.cpp:286:7: error: ‘class Biblio’ has no member named ‘replace’
+   bib.replace(older, newer);
+       ^
+View/mywidget.cpp: In member function ‘void MyWidget::updateTableResult()’:
+View/mywidget.cpp:301:3: error: ‘tableWidget’ was not declared in this scope
+   tableWidget->setRowCount(0);
+   ^
+View/mywidget.cpp:305:33: error: ‘tableWidget_Libro’ was not declared in this scope
+     const int ultm_riga_Libro = tableWidget_Libro->rowCount();
+                                 ^
+View/mywidget.cpp:310:51: error: cannot dynamic_cast ‘Biblio::getItem(int)(i)’ (of type ‘class SmartPtr’) to type ‘class Libro*’ (source is not a pointer)
+     Libro* l = dynamic_cast<Libro*>(bib.getItem(i));
+                                                   ^
+View/mywidget.cpp:314:97: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_Libri->setItem(ultm_riga_Libro, 0, new QTableWidgetItem(QString(l->getTitolo())));
+                                                                                                 ^
+View/mywidget.cpp:314:97: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:315:97: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_Libri->setItem(ultm_riga_Libro, 1, new QTableWidgetItem(QString(l->getGenere())));
+                                                                                                 ^
+View/mywidget.cpp:315:97: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:316:97: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_Libri->setItem(ultm_riga_Libro, 2, new QTableWidgetItem(QString(l->getAutore())));
+                                                                                                 ^
+View/mywidget.cpp:316:97: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:318:98: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_Libri->setItem(ultm_riga_Libro, 4, new QTableWidgetItem(QString(l->getEditore())));
+                                                                                                  ^
+View/mywidget.cpp:318:98: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:325:45: error: cannot dynamic_cast ‘Biblio::getItem(int)(i)’ (of type ‘class SmartPtr’) to type ‘class CD*’ (source is not a pointer)
+     CD* c = dynamic_cast<CD*>(bib.getItem(i));
+                                             ^
+View/mywidget.cpp:329:91: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_CD->setItem(ultm_riga_CD, 0, new QTableWidgetItem(QString(c->getTitolo())));
+                                                                                           ^
+View/mywidget.cpp:329:91: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:330:91: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_CD->setItem(ultm_riga_CD, 1, new QTableWidgetItem(QString(c->getGenere())));
+                                                                                           ^
+View/mywidget.cpp:330:91: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:331:92: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_CD->setItem(ultm_riga_CD, 2, new QTableWidgetItem(QString(c->getArtista())));
+                                                                                            ^
+View/mywidget.cpp:331:92: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:340:47: error: cannot dynamic_cast ‘Biblio::getItem(int)(i)’ (of type ‘class SmartPtr’) to type ‘class DVD*’ (source is not a pointer)
+     DVD* d = dynamic_cast<DVD*>(bib.getItem(i));
+                                               ^
+View/mywidget.cpp:343:93: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_DVD->setItem(ultm_riga_DVD, 0, new QTableWidgetItem(QString(d->getTitolo())));
+                                                                                             ^
+View/mywidget.cpp:343:93: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:344:93: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_DVD->setItem(ultm_riga_DVD, 1, new QTableWidgetItem(QString(d->getGenere())));
+                                                                                             ^
+View/mywidget.cpp:344:93: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:345:94: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_DVD->setItem(ultm_riga_DVD, 2, new QTableWidgetItem(QString(d->getRegista())));
+                                                                                              ^
+View/mywidget.cpp:345:94: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:346:96: error: no matching function for call to ‘QTableWidgetItem::QTableWidgetItem(QDate)’
+       tableWidget_DVD->setItem(ultm_riga_DVD, 3, new QTableWidgetItem(QDate(d->getDataUscita())));
+                                                                                                ^
+View/mywidget.cpp:346:96: note: candidates are:
+In file included from /usr/include/qt5/QtWidgets/QTableWidget:1:0,
+                 from View/mywidget.h:12,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtWidgets/qtablewidget.h:88:5: note: QTableWidgetItem::QTableWidgetItem(const QTableWidgetItem&)
+     QTableWidgetItem(const QTableWidgetItem &other);
+     ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:88:5: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QTableWidgetItem&’
+/usr/include/qt5/QtWidgets/qtablewidget.h:87:14: note: QTableWidgetItem::QTableWidgetItem(const QIcon&, const QString&, int)
+     explicit QTableWidgetItem(const QIcon &icon, const QString &text, int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:87:14: note:   candidate expects 3 arguments, 1 provided
+/usr/include/qt5/QtWidgets/qtablewidget.h:86:14: note: QTableWidgetItem::QTableWidgetItem(const QString&, int)
+     explicit QTableWidgetItem(const QString &text, int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:86:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QString&’
+/usr/include/qt5/QtWidgets/qtablewidget.h:85:14: note: QTableWidgetItem::QTableWidgetItem(int)
+     explicit QTableWidgetItem(int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:85:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘int’
+View/mywidget.cpp:354:47: error: cannot dynamic_cast ‘Biblio::getItem(int)(i)’ (of type ‘class SmartPtr’) to type ‘class VHS*’ (source is not a pointer)
+     VHS* v = dynamic_cast<VHS*>(bib.getItem(i));
+                                               ^
+View/mywidget.cpp:357:93: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_VHS->setItem(ultm_riga_VHS, 0, new QTableWidgetItem(QString(v->getTitolo())));
+                                                                                             ^
+View/mywidget.cpp:357:93: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:358:93: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_VHS->setItem(ultm_riga_VHS, 1, new QTableWidgetItem(QString(v->getGenere())));
+                                                                                             ^
+View/mywidget.cpp:358:93: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:359:94: error: no matching function for call to ‘QString::QString(std::string)’
+       tableWidget_VHS->setItem(ultm_riga_VHS, 2, new QTableWidgetItem(QString(v->getRegista())));
+                                                                                              ^
+View/mywidget.cpp:359:94: note: candidates are:
+In file included from /usr/include/qt5/QtCore/qcoreapplication.h:46:0,
+                 from /usr/include/qt5/QtWidgets/qapplication.h:45,
+                 from /usr/include/qt5/QtWidgets/QApplication:1,
+                 from View/mywidget.h:4,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtCore/qstring.h:687:29: note: QString::QString(QStringDataPtr)
+     Q_DECL_CONSTEXPR inline QString(QStringDataPtr dd) : d(dd.ptr) {}
+                             ^
+/usr/include/qt5/QtCore/qstring.h:687:29: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QStringDataPtr’
+/usr/include/qt5/QtCore/qstring.h:686:5: note: QString::QString(int, Qt::Initialization)
+     QString(int size, Qt::Initialization);
+     ^
+/usr/include/qt5/QtCore/qstring.h:686:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:678:12: note: QString::QString(const QString::Null&)
+     inline QString(const Null &): d(Data::sharedNull()) {}
+            ^
+/usr/include/qt5/QtCore/qstring.h:678:12: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString::Null&’
+/usr/include/qt5/QtCore/qstring.h:581:31: note: QString::QString(const QByteArray&)
+     inline QT_ASCII_CAST_WARN QString(const QByteArray &a)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:581:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QByteArray&’
+/usr/include/qt5/QtCore/qstring.h:578:31: note: QString::QString(const char*)
+     inline QT_ASCII_CAST_WARN QString(const char *ch)
+                               ^
+/usr/include/qt5/QtCore/qstring.h:578:31: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const char*’
+/usr/include/qt5/QtCore/qstring.h:765:8: note: QString::QString(const QString&)
+ inline QString::QString(const QString &other) : d(other.d)
+        ^
+/usr/include/qt5/QtCore/qstring.h:765:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QString&’
+/usr/include/qt5/QtCore/qstring.h:734:8: note: QString::QString(QLatin1String)
+ inline QString::QString(QLatin1String aLatin1) : d(fromLatin1_helper(aLatin1.latin1(), aLatin1.size()))
+        ^
+/usr/include/qt5/QtCore/qstring.h:734:8: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QLatin1String’
+/usr/include/qt5/QtCore/qstring.h:220:5: note: QString::QString(int, QChar)
+     QString(int size, QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:220:5: note:   candidate expects 2 arguments, 1 provided
+/usr/include/qt5/QtCore/qstring.h:219:5: note: QString::QString(QChar)
+     QString(QChar c);
+     ^
+/usr/include/qt5/QtCore/qstring.h:219:5: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘QChar’
+/usr/include/qt5/QtCore/qstring.h:218:14: note: QString::QString(const QChar*, int)
+     explicit QString(const QChar *unicode, int size = -1);
+              ^
+/usr/include/qt5/QtCore/qstring.h:218:14: note:   no known conversion for argument 1 from ‘std::string {aka std::basic_string<char>}’ to ‘const QChar*’
+/usr/include/qt5/QtCore/qstring.h:920:8: note: QString::QString()
+ inline QString::QString() : d(Data::sharedNull()) {}
+        ^
+/usr/include/qt5/QtCore/qstring.h:920:8: note:   candidate expects 0 arguments, 1 provided
+View/mywidget.cpp:360:96: error: no matching function for call to ‘QTableWidgetItem::QTableWidgetItem(QDate)’
+       tableWidget_VHS->setItem(ultm_riga_VHS, 3, new QTableWidgetItem(QDate(v->getDataUscita())));
+                                                                                                ^
+View/mywidget.cpp:360:96: note: candidates are:
+In file included from /usr/include/qt5/QtWidgets/QTableWidget:1:0,
+                 from View/mywidget.h:12,
+                 from View/mywidget.cpp:1:
+/usr/include/qt5/QtWidgets/qtablewidget.h:88:5: note: QTableWidgetItem::QTableWidgetItem(const QTableWidgetItem&)
+     QTableWidgetItem(const QTableWidgetItem &other);
+     ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:88:5: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QTableWidgetItem&’
+/usr/include/qt5/QtWidgets/qtablewidget.h:87:14: note: QTableWidgetItem::QTableWidgetItem(const QIcon&, const QString&, int)
+     explicit QTableWidgetItem(const QIcon &icon, const QString &text, int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:87:14: note:   candidate expects 3 arguments, 1 provided
+/usr/include/qt5/QtWidgets/qtablewidget.h:86:14: note: QTableWidgetItem::QTableWidgetItem(const QString&, int)
+     explicit QTableWidgetItem(const QString &text, int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:86:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘const QString&’
+/usr/include/qt5/QtWidgets/qtablewidget.h:85:14: note: QTableWidgetItem::QTableWidgetItem(int)
+     explicit QTableWidgetItem(int type = Type);
+              ^
+/usr/include/qt5/QtWidgets/qtablewidget.h:85:14: note:   no known conversion for argument 1 from ‘QDate’ to ‘int’
+make: *** [mywidget.o] Errore 1
+pietro@pietro-Extensa-5220:~/https:/github.com/pit1988/Qbiblio$ 

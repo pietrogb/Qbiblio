@@ -53,20 +53,20 @@ Gestione_Libro::Gestione_Libro(QWidget* parent) : QDialog(parent) {
 
   setLayout(mainLayout);
 
-  connect(qpb_insert,SIGNAL(clicked()),this,SLOT(slotInsertLibro()));
-  connect(qpb_remove,SIGNAL(clicked()),this,SLOT(slotRemoveLibro()));
-  connect(qpb_replace,SIGNAL(clicked()),this,SLOT(slotReplaceLibro()));
+  connect(qpb_insert,SIGNAL(clicked()),this,SLOT(slotInsertLib()));
+  connect(qpb_remove,SIGNAL(clicked()),this,SLOT(slotRemoveLib()));
+  connect(qpb_replace,SIGNAL(clicked()),this,SLOT(slotReplaceLib()));
 }
 
-void Gestione_Libro::slotInsertLibro(){
+void Gestione_Libro::slotInsertLib(){
   emit signalInsertLibro();
 }
 
-void Gestione_Libro::slotRemoveLibro(){
+void Gestione_Libro::slotRemoveLib(){
   emit signalRemoveLibro();
 }
 
-void Gestione_Libro::slotReplaceLibro()){
+void Gestione_Libro::slotReplaceLib(){
   ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_autore_r = new QLabel("Autore");
@@ -113,28 +113,28 @@ void Gestione_Libro::slotReplaceLibro()){
   connect(qpb_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 
-void Gestione_Libro::slotReplaceLibro_c(){
+void Gestione_Libro::slotReplaceLib_c(){
   emit signalReplaceLibro();
 }
 
 
 Libro* Gestione_Libro::slotNewLibro(){
-  QString t = qle_titolo->text();
-  QString g = qle_genere->text();
-  QString a = qle_autore->text();
+  string t = (qle_titolo->text()).toStdString();
+  string g = (qle_genere->text()).toStdString();
+  string a = (qle_autore->text()).toStdString();
   int u = qsb_annoUscita->value();
-  QString e = qle_editore->text();
+  string e = (qle_editore->text()).toStdString();
 
   Libro* l_new = new Libro(t, g, a, u, e);
   return l_new;
 }
 
 Libro* Gestione_Libro::slotReplaceLibro(){
-  QString t_r = qle_titolo->text();
-  QString g_r = qle_genere->text();
-  QString a_r = qle_autore->text();
+  string t_r = (qle_titolo->text()).toStdString();
+  string g_r = (qle_genere->text()).toStdString();
+  string a_r = (qle_autore->text()).toStdString();
   int u_r = qsb_annoUscita->value();
-  QString e_r = qle_editore->text();
+  string e_r = (qle_editore->text()).toStdString();
 
   Libro* l_new_r = new Libro(t_r, g_r, a_r, u_r, e_r);
   return l_new_r;

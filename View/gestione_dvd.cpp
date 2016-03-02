@@ -24,6 +24,7 @@ Gestione_DVD::Gestione_DVD(QWidget* parent) : QDialog(parent) {
   qle_regista = new QLineEdit;
   qsb_durata = new QSpinBox;
   qde_dataUscita = new QDateEdit(QDate::currentDate());
+  qde_dataUscita->setDisplayFormat( "dd/MM/yyyy");
 
   gLayout = new QGridLayout;
   gLayout->setColumnStretch(1, 2);
@@ -60,10 +61,10 @@ void Gestione_DVD::slotInsertDVD(){
 }
 
 void Gestione_DVD::slotRemoveDVD(){
-  emit signalRemoveStatua();
+  emit signalRemoveDVD();
 }
 
-void Gestione_DVD::slotReplaceDVD()){
+void Gestione_DVD::slotReplaceDVD(){
   ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_regista_r = new QLabel("Regista");
@@ -110,23 +111,23 @@ void Gestione_DVD::slotReplaceDVD_c(){
 }
 
 DVD* Gestione_DVD::slotNewDVD(){
-  QString t = qle_titolo->text();
-  QString g = qle_genere->text();
-  QString r = qle_regista->text();
+  string t = (qle_titolo->text()).toStdString();
+  string g = (qle_genere->text()).toStdString();
+  string r = (qle_regista->text()).toStdString();
   int d = qsb_durata->value();
-  QDate u = qde_dataUscita->text();
+  QDate u = qde_dataUscita->date();
 
   DVD* d_new = new DVD(t, g, r, d, u);
   return d_new;
 }
 
-DVD* Gestione_DVD::slotReplaceDVD(){
-  QString t_r = qle_titolo_r->text();
-  QString g_r = qle_genere_r->text();
-  QString r_r = qle_regista_r->text();
-  int d_r = qsb_durata_r->value();
-  QDate u_r = qde_dataUscita_r->text();
+DVD* Gestione_DVD::slotReplaceDigitalVersatileDisk(){
 
+  string t_r = (qle_titolo_r->text()).toStdString();
+  string g_r = (qle_genere_r->text()).toStdString();
+  string r_r = (qle_regista_r->text()).toStdString();
+  int d_r = qsb_durata_r->value();
+  QDate u_r = qde_dataUscita_r->date();
   DVD* d_new_r = new DVD(t_r, g_r, r_r, d_r, u_r);
   return d_new_r;
 }

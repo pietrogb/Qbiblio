@@ -13,6 +13,9 @@
 #include <QSpinBox>
 #include <QTextEdit>
 #include <QWidget>
+#include <QDateEdit>
+#include <string>
+using std::string;
 
 class Gestione_DVD : public QDialog {
   Q_OBJECT
@@ -56,7 +59,7 @@ public slots:
   void slotReplaceDVD();
   void slotReplaceDVD_c();
   DVD* slotNewDVD();
-  DVD* slotReplaceDVD();
+  DVD* slotReplaceDigitalVersatileDisk();
 signals:
   void signalInsertDVD();
   void signalRemoveDVD();

@@ -1,4 +1,4 @@
-#include "gestione_VHS.h"
+#include "gestione_vhs.h"
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 Gestione_VHS::Gestione_VHS(QWidget* parent) : QDialog(parent) {
@@ -60,10 +60,10 @@ void Gestione_VHS::slotInsertVHS(){
 }
 
 void Gestione_VHS::slotRemoveVHS(){
-  emit signalRemoveStatua();
+  emit signalRemoveVHS();
 }
 
-void Gestione_VHS::slotReplaceVHS()){
+void Gestione_VHS::slotReplaceVHS(){
   ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_regista_r = new QLabel("Regista");
@@ -110,22 +110,22 @@ void Gestione_VHS::slotReplaceVHS_c(){
 }
 
 VHS* Gestione_VHS::slotNewVHS(){
-  QString t = qle_titolo->text();
-  QString g = qle_genere->text();
-  QString r = qle_regista->text();
+  string t = (qle_titolo->text()).toStdString();
+  string g = (qle_genere->text()).toStdString();
+  string r = (qle_regista->text()).toStdString();
   int d = qsb_durata->value();
-  QDate u = qde_dataUscita->text();
+  QDate u = qde_dataUscita->date();
 
   VHS* v_new = new VHS(t, g, r, d, u);
   return v_new;
 }
 
-VHS* Gestione_VHS::slotReplaceVHS(){
-  QString t_r = qle_titolo_r->text();
-  QString g_r = qle_genere_r->text();
-  QString r_r = qle_regista_r->text();
+VHS* Gestione_VHS::slotReplaceVideoCassetta(){
+  string t_r = (qle_titolo_r->text()).toStdString();
+  string g_r = (qle_genere_r->text()).toStdString();
+  string r_r = (qle_regista_r->text()).toStdString();
   int d_r = qsb_durata_r->value();
-  QDate u_r = qde_dataUscita_r->text();
+  QDate u_r = qde_dataUscita_r->date();
 
   VHS* v_new_r = new VHS(t_r, g_r, r_r, d_r, u_r);
   return v_new_r;

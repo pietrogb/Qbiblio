@@ -31,7 +31,7 @@ public:
 
     bool IsEmpty() const;
 
-    int getSize() const;
+    int size() const;
 
     bool addItem(SmartPtr); //SmartPtr?
 

@@ -13,6 +13,8 @@
 #include <QSpinBox>
 #include <QTextEdit>
 #include <QWidget>
+#include <string>
+using std::string;
 
 class Gestione_CD : public QDialog {
   Q_OBJECT
@@ -57,7 +59,7 @@ public slots:
   void slotReplaceCD();
   void slotReplaceCD_c();
   CD* slotNewCD();
-  CD* slotReplaceCD();
+  CD* slotReplaceCompactDisk();
 signals:
   void signalInsertCD();
   void signalRemoveCD();

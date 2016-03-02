@@ -13,6 +13,9 @@
 #include <QSpinBox>
 #include <QTextEdit>
 #include <QWidget>
+#include <QDateEdit>
+#include <string>
+using std::string;
 
 class Gestione_VHS : public QDialog {
   Q_OBJECT
@@ -56,7 +59,7 @@ public slots:
   void slotReplaceVHS();
   void slotReplaceVHS_c();
   VHS* slotNewVHS();
-  VHS* slotReplaceVHS();
+  VHS* slotReplaceVideoCassetta();
 signals:
   void signalInsertVHS();
   void signalRemoveVHS();

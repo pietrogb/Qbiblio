@@ -5,16 +5,17 @@ Biblio::Biblio(const Container<SmartPtr>& content): b(content){
 }
 
 Biblio::~Biblio(){
-    for(Container<SmartPtr>::Iterator it=b.begin(); it!=b.end(); ++it)
-        delete(&(*(*it)));
-    delete(&b);
+//    for(Container<SmartPtr>::Iterator it=b.begin(); it!=b.end(); ++it)
+//        delete(&(*(*it)));
+//    delete(&b);
+    delete &b;
 }
 
 bool Biblio::IsEmpty() const{
     return b.isEmpty();
 }
 
-int Biblio::getSize() const{
+int Biblio::size() const{
     return b.size();
 }
 
