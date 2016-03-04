@@ -19,7 +19,7 @@
 #include "gestione_cd.h"
 #include "gestione_dvd.h"
 #include "gestione_vhs.h"
-//#include "trova_elemento.h"
+#include "trova_elemento.h"
 
 
 class MyWidget : public QWidget {
@@ -53,14 +53,14 @@ private:
   Gestione_DVD* mDvd;
   Gestione_VHS* mVHS;
   Gestione_Libro* mLibro;
-//  Trova_Elemento* t_el;
+  Trova_Elemento* t_el;
 
 public slots:
 	void slotGestioneCdQDialog();
 	void slotGestioneDvdQDialog();
 	void slotGestioneVhsQDialog();
 	void slotGestioneLibroQDialog();
-//  void slotFindItemQDialog();
+  void slotFindItemQDialog();
   void slotInsertCD();
   void slotInsertDVD();
   void slotInsertVHS();

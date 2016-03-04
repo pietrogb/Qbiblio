@@ -23,9 +23,8 @@ HEADERS += Model/biblio.h \
            View/gestione_dvd.h \
            View/gestione_libro.h \
            View/gestione_vhs.h \
+           View/trova_elemento.h \
            View/mywidget.h
-#\
-#           View/trova_elemento.h
 SOURCES += main.cpp \
            Model/biblio.cpp \
            Model/cd.cpp \
@@ -35,11 +34,9 @@ SOURCES += main.cpp \
            Model/libro.cpp \
            Model/smartptr.cpp \
            Model/vhs.cpp \
-#           test/main.cpp \
            View/gestione_cd.cpp \
            View/gestione_dvd.cpp \
            View/gestione_libro.cpp \
            View/gestione_vhs.cpp \
+           View/trova_elemento.cpp \
            View/mywidget.cpp
-# \
-#           View/trova_elemento.cpp

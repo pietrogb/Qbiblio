@@ -24,7 +24,7 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   tableWidget_CD = new QTableWidget(this);
 
   tableWidget_CD->setColumnCount(5); //prima: 9
-  //tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
 //  tableWidget_CD->horizontalHeader()->ResizeMode(0);
   tableWidget_CD->setColumnWidth(1,w_border/100*30);
   tableWidget_CD->setColumnWidth(2,w_border/100*20);
@@ -167,7 +167,7 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
   connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
   connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
-//  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
+  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
 }
 
 /////////////CD
@@ -307,12 +307,12 @@ void MyWidget::slotReplaceLibro(){
 }
 
 
-//void MyWidget::slotFindItemQDialog(){
-//  t_el = new Trova_Elemento(this, &bib);
-//  t_el->resize(monitorWidth*0.6, monitorHeight*0.5);
-//  t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, fo->size(), qApp->desktop()->availableGeometry()));
-//  t_el->exec();
-//}
+void MyWidget::slotFindItemQDialog(){
+  t_el = new Trova_Elemento(this, &bib);
+  t_el->resize(monitorWidth*0.6, monitorHeight*0.5);
+  t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, fo->size(), qApp->desktop()->availableGeometry()));
+  t_el->exec();
+}
 
 
 void MyWidget::updateTableResult(){

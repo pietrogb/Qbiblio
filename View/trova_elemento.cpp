@@ -1,6 +1,5 @@
-#include
-#include "../Gui/Trova_Elemento.h"
 
+#include "../View/trova_elemento.h"
 #include <QVBoxLayout>
 
 Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
@@ -114,63 +113,63 @@ void Trova_Elemento::slot_pushButton_search() {
     QString title(QString::fromStdString((*it)->getTitle()));
     QString autore(QString::fromStdString((*it)->getAutore()));
     QString genere(QString::fromStdString((*it)->getgenere()));
-        //************FROM HERE
-    Statua* st = dynamic_cast<Statua*>((*it).getOpera());
+//        //************FROM HERE
+//    Statua* st = dynamic_cast<Statua*>((*it).getOpera());
     
-    if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
-      if(checkBox_tile->isChecked()){
-        QString title_f = lineEdit_title->text();
-        toPrint = title.contains(title_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_autore->isChecked()){
-        QString autore_f = lineEdit_autore->text();
-        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_genere->isChecked()){
-        QString genere_f = lineEdit_genere->text();
-        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_yearOfCreation->isChecked()){
-        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
-        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
-      }
-      if(toPrint){
-        strToPtint.prepend(QString::fromStdString(st->getMaterial()));
-        strToPtint.prepend(" | Materiale: ");
-        strToPtint.prepend(QString::number(st->getHeight()));
-        strToPtint.prepend(" | Altezza: ");
-      }
-    }
+//    if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
+//      if(checkBox_tile->isChecked()){
+//        QString title_f = lineEdit_title->text();
+//        toPrint = title.contains(title_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_autore->isChecked()){
+//        QString autore_f = lineEdit_autore->text();
+//        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_genere->isChecked()){
+//        QString genere_f = lineEdit_genere->text();
+//        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_yearOfCreation->isChecked()){
+//        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
+//        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
+//      }
+//      if(toPrint){
+//        strToPtint.prepend(QString::fromStdString(st->getMaterial()));
+//        strToPtint.prepend(" | Materiale: ");
+//        strToPtint.prepend(QString::number(st->getHeight()));
+//        strToPtint.prepend(" | Altezza: ");
+//      }
+//    }
 
-    Dipinto* di = dynamic_cast<Dipinto*>((*it).getOpera());
+//    Dipinto* di = dynamic_cast<Dipinto*>((*it).getOpera());
 
-    if((radioButton_opere->isChecked() || radioButton_Dipinti->isChecked()) && di){
-      if(checkBox_tile->isChecked()){
-        QString title_f = lineEdit_title->text();
-        toPrint = title.contains(title_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_autore->isChecked()){
-        QString autore_f = lineEdit_autore->text();
-        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_genere->isChecked()){
-        QString genere_f = lineEdit_genere->text();
-        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_yearOfCreation->isChecked()){
-        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
-        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
-      }
-      if(toPrint){
-        strToPtint.prepend(QString::fromStdString(di->getType()));
-        strToPtint.prepend(" | Tecnica: ");
-        strToPtint.prepend(QString::number(di->getWidth()));
-        strToPtint.prepend(" | Larghezza: ");
-        strToPtint.prepend(QString::number(di->getHeight()));
-        strToPtint.prepend(" | Altezza: ");
-      }
-      //************TO HERE
-    }
+//    if((radioButton_opere->isChecked() || radioButton_Dipinti->isChecked()) && di){
+//      if(checkBox_tile->isChecked()){
+//        QString title_f = lineEdit_title->text();
+//        toPrint = title.contains(title_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_autore->isChecked()){
+//        QString autore_f = lineEdit_autore->text();
+//        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_genere->isChecked()){
+//        QString genere_f = lineEdit_genere->text();
+//        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
+//      }
+//      if(checkBox_yearOfCreation->isChecked()){
+//        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
+//        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
+//      }
+//      if(toPrint){
+//        strToPtint.prepend(QString::fromStdString(di->getType()));
+//        strToPtint.prepend(" | Tecnica: ");
+//        strToPtint.prepend(QString::number(di->getWidth()));
+//        strToPtint.prepend(" | Larghezza: ");
+//        strToPtint.prepend(QString::number(di->getHeight()));
+//        strToPtint.prepend(" | Altezza: ");
+//      }
+//      //************TO HERE
+//    }
     if(toPrint){
       strToPtint.prepend(yearOfCreation.toUpper());
       strToPtint.prepend(" | Anno Creazione: " );

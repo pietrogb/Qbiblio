@@ -1,7 +1,7 @@
 #include "biblio.h"
 
 Biblio::Biblio(const Container<SmartPtr>& content): b(content){
-//    load();
+    load();
 }
 
 Biblio::~Biblio(){
@@ -130,49 +130,6 @@ void Biblio::save() const{
                 }
               }
            }
-           /* /////////////OLD
-           if(typeid(li) == typeid(CD*))
-           {
-              inp->writeAttribute("tipo","CD");
-              CD* cd=dynamic_cast<CD*>(li.getItem());
-              inp->writeTextElement("Titolo", QString::fromStdString(cd->getTitolo()));
-              inp->writeTextElement("Genere", QString::fromStdString(cd->getGenere()));
-              inp->writeTextElement("Artista", QString::fromStdString(cd->getArtista()));
-              inp->writeTextElement("AnnoUscita", QString::number(cd->getAnnoUscita()));
-              inp->writeTextElement("Dischi", QString::number(cd->getDischi()));
-           }
-           else if(typeid(li) == typeid(DVD*))
-           {
-              DVD* dvd=dynamic_cast<DVD*>(li.getItem());
-              inp->writeAttribute("tipo","DVD");
-              inp->writeTextElement("Titolo", QString::fromStdString(dvd->getTitolo()));
-              inp->writeTextElement("Genere", QString::fromStdString(dvd->getGenere()));
-              inp->writeTextElement("Regista", QString::fromStdString(dvd->getRegista()));
-              inp->writeTextElement("Durata", QString::number(dvd->getDurata()));
-              inp->writeTextElement("DataUscita", (dvd->getDataUscita()).toString("dd.MM.yyyy"));
-           }
-           else if(typeid(li) == typeid(Libro*))
-           {
-              Libro* lib=dynamic_cast<Libro*>(li.getItem());
-              inp->writeAttribute("tipo", "Libro");
-              inp->writeTextElement("Titolo", QString::fromStdString(lib->getTitolo()));
-              inp->writeTextElement("Genere", QString::fromStdString(lib->getGenere()));
-              inp->writeTextElement("Autore", QString::fromStdString(lib->getAutore()));
-              inp->writeTextElement("AnnoUscita", QString::number(lib->getAnnoUscita()));
-              inp->writeTextElement("Editore", QString::fromStdString(lib->getEditore()));
-
-           }
-           else if(typeid(li) == typeid(VHS*))
-           {
-              VHS* vhs=dynamic_cast<VHS*>(li.getItem());
-              inp->writeAttribute("tipo","VHS");
-              inp->writeTextElement("Titolo", QString::fromStdString(vhs->getTitolo()));
-              inp->writeTextElement("Genere", QString::fromStdString(vhs->getGenere()));
-              inp->writeTextElement("Regista", QString::fromStdString(vhs->getRegista()));
-              inp->writeTextElement("Durata", QString::number(vhs->getDurata()));
-              inp->writeTextElement("DataUscita", (vhs->getDataUscita()).toString("dd.MM.yyyy"));
-           }
-           */
            inp->writeEndElement();
         }
         inp->writeEndElement();
@@ -304,6 +261,3 @@ void Biblio::load(){
 Container<SmartPtr> Biblio::getLibrary() const{
     return b;
 }
-
-
-
