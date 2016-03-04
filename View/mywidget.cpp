@@ -8,6 +8,7 @@
 #include <QString>
 
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
+//  bib.load();
   setWindowTitle("Programmazione ad Oggetti - Progetto qDB - 2014");
   monitorWidth = QApplication::desktop()->width();
   monitorHeight = QApplication::desktop()->height();
@@ -181,6 +182,7 @@ void MyWidget::slotGestioneCdQDialog(){
 void MyWidget::slotInsertCD(){
   SmartPtr ins = mCd->slotNewCD();
   bib.Insert(ins);
+  bib.save();
   updateTableResult();
   mCd->close();
 }
@@ -188,6 +190,7 @@ void MyWidget::slotInsertCD(){
 void MyWidget::slotRemoveCD(){
   SmartPtr del = mCd->slotNewCD();
   bib.Remove(del);
+  bib.save();
   updateTableResult();
   mCd->close();
 }
@@ -196,6 +199,7 @@ void MyWidget::slotReplaceCD(){
   SmartPtr older = mCd->slotNewCD();
   SmartPtr newer = mCd->slotReplaceCompactDisk();
   bib.Replace(older, newer);
+  bib.save();
   updateTableResult();
   mCd->close();
 }
@@ -212,6 +216,7 @@ void MyWidget::slotGestioneDvdQDialog(){
 void MyWidget::slotInsertDVD(){
   SmartPtr ins = mDvd->slotNewDVD();
   bib.Insert(ins);
+  bib.save();
   updateTableResult();
   mDvd->close();
 }
@@ -219,6 +224,7 @@ void MyWidget::slotInsertDVD(){
 void MyWidget::slotRemoveDVD(){
   SmartPtr del = mDvd->slotNewDVD();
   bib.Remove(del);
+  bib.save();
   updateTableResult();
   mDvd->close();
 }
@@ -227,6 +233,7 @@ void MyWidget::slotReplaceDVD(){
   LibraryItem* older = mDvd->slotNewDVD();
   LibraryItem* newer = mDvd->slotReplaceDigitalVersatileDisk();
   bib.Replace(older, newer);
+  bib.save();
   updateTableResult();
   mDvd->close();
 }
@@ -243,6 +250,7 @@ void MyWidget::slotGestioneVhsQDialog(){
 void MyWidget::slotInsertVHS(){
   SmartPtr ins = mVHS->slotNewVHS();
   bib.Insert(ins);
+  bib.save();
   updateTableResult();
   mVHS->close();
 }
@@ -250,6 +258,7 @@ void MyWidget::slotInsertVHS(){
 void MyWidget::slotRemoveVHS(){
   SmartPtr del = mVHS->slotNewVHS();
   bib.Remove(del);
+  bib.save();
   updateTableResult();
   mVHS->close();
 }
@@ -258,6 +267,7 @@ void MyWidget::slotReplaceVHS(){
   SmartPtr older = mVHS->slotNewVHS();
   SmartPtr newer = mVHS->slotReplaceVideoCassetta();
   bib.Replace(older, newer);
+  bib.save();
   updateTableResult();
   mVHS->close();
 }
@@ -274,6 +284,7 @@ void MyWidget::slotGestioneLibroQDialog(){
 void MyWidget::slotInsertLibro(){
   SmartPtr ins = mLibro->slotNewLibro();
   bib.Insert(ins);
+  bib.save();
   updateTableResult();
   mLibro->close();
 }
@@ -281,6 +292,7 @@ void MyWidget::slotInsertLibro(){
 void MyWidget::slotRemoveLibro(){
   SmartPtr del = mLibro->slotNewLibro();
   bib.Remove(del);
+  bib.save();
   updateTableResult();
   mLibro->close();
 }
@@ -289,6 +301,7 @@ void MyWidget::slotReplaceLibro(){
   SmartPtr older = mLibro->slotNewLibro();
   SmartPtr newer = mLibro->slotReplaceLibro();
   bib.Replace(older, newer);
+  bib.save();
   updateTableResult();
   mLibro->close();
 }

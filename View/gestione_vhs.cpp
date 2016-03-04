@@ -23,6 +23,8 @@ Gestione_VHS::Gestione_VHS(QWidget* parent) : QDialog(parent) {
   qle_genere = new QLineEdit;
   qle_regista = new QLineEdit;
   qsb_durata = new QSpinBox;
+  qsb_durata->setRange(0,10000);
+  qsb_durata->setValue(100);
   qde_dataUscita = new QDateEdit(QDate::currentDate());
 
   gLayout = new QGridLayout;
@@ -74,6 +76,8 @@ void Gestione_VHS::slotReplaceVHS(){
   qle_genere_r = new QLineEdit;
   qle_regista_r = new QLineEdit;
   qsb_durata_r = new QSpinBox;
+  qsb_durata_r->setRange(0,10000);
+  qsb_durata_r->setValue(100);
   qde_dataUscita_r = new QDateEdit(QDate::currentDate());
 
   gLayout->addWidget(ql_titolo_r, 5, 0);
