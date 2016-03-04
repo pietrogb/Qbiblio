@@ -60,7 +60,7 @@ Gestione_CD::Gestione_CD(QWidget* parent) : QDialog(parent) {
   qsb_annoUscita->setValue(2016);
 
   qsb_nDischi->setMinimum(0);
-  qsb_nDischi->setValue(2016);
+  qsb_nDischi->setValue(1);
 
   gLayout = new QGridLayout;
   gLayout->setColumnStretch(1, 2);
@@ -68,7 +68,7 @@ Gestione_CD::Gestione_CD(QWidget* parent) : QDialog(parent) {
   gLayout->addWidget(qle_titolo, 0, 1);
   gLayout->addWidget(ql_genere, 1, 0);
   gLayout->addWidget(qle_genere, 1, 1);
-  gLayout->addWidget(qle_artista, 2, 0);
+  gLayout->addWidget(ql_artista, 2, 0);
   gLayout->addWidget(qle_artista, 2, 1);
   gLayout->addWidget(ql_annoUscita, 3, 0);
   gLayout->addWidget(qsb_annoUscita, 3, 1);
@@ -101,7 +101,7 @@ void Gestione_CD::slotRemoveCD(){
 }
 
 void Gestione_CD::slotReplaceCD(){
-	ql_titolo_r = new QLabel("Titolo");
+  ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_artista_r = new QLabel("Artista");
   ql_annoUscita_r = new QLabel("Anno d'uscita");
@@ -117,14 +117,14 @@ void Gestione_CD::slotReplaceCD(){
   qsb_annoUscita_r->setMaximum(2100);
   qsb_annoUscita_r->setValue(2016);
 
-  qsb_nDischi_r->setMinimum(0);
-  qsb_nDischi_r->setValue(2016);
+  qsb_nDischi_r->setMinimum(1);
+  qsb_nDischi_r->setValue(1);
 
   gLayout->addWidget(ql_titolo_r, 5, 0);
   gLayout->addWidget(qle_titolo_r, 5, 1);
   gLayout->addWidget(ql_genere_r, 6, 0);
   gLayout->addWidget(qle_genere_r, 6, 1);
-  gLayout->addWidget(qle_artista_r, 7, 0);
+  gLayout->addWidget(ql_artista_r, 7, 0);
   gLayout->addWidget(qle_artista_r, 7, 1);
   gLayout->addWidget(ql_annoUscita_r, 8, 0);
   gLayout->addWidget(qsb_annoUscita_r, 8, 1);

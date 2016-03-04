@@ -1,3 +1,4 @@
+
 #include "mywidget.h"
 #include <QDesktopWidget>
 #include <QFont>
@@ -22,7 +23,8 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   tableWidget_CD = new QTableWidget(this);
 
   tableWidget_CD->setColumnCount(5); //prima: 9
-  tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+  //tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_CD->horizontalHeader()->ResizeMode(0);
   tableWidget_CD->setColumnWidth(1,w_border/100*30);
   tableWidget_CD->setColumnWidth(2,w_border/100*20);
   tableWidget_CD->setColumnWidth(3,w_border/100*30);
@@ -46,7 +48,8 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   tableWidget_DVD = new QTableWidget(this);
 
   tableWidget_DVD->setColumnCount(5);
-  tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_DVD->horizontalHeader()->ResizeMode(0);
   tableWidget_DVD->setColumnWidth(1,w_border/100*30);
   tableWidget_DVD->setColumnWidth(2,w_border/100*20);
   tableWidget_DVD->setColumnWidth(3,w_border/100*30);
@@ -70,7 +73,8 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   tableWidget_VHS = new QTableWidget(this);
 
   tableWidget_VHS->setColumnCount(5);
-  tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_VHS->horizontalHeader()->ResizeMode(0);
   tableWidget_VHS->setColumnWidth(1,w_border/100*30);
   tableWidget_VHS->setColumnWidth(2,w_border/100*20);
   tableWidget_VHS->setColumnWidth(3,w_border/100*30);
@@ -94,7 +98,8 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   tableWidget_Libri = new QTableWidget(this);
 
   tableWidget_Libri->setColumnCount(5);
-  tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_Libri->horizontalHeader()->ResizeMode(0);
   tableWidget_Libri->setColumnWidth(1,w_border/100*30);
   tableWidget_Libri->setColumnWidth(2,w_border/100*20);
   tableWidget_Libri->setColumnWidth(3,w_border/100*30);
@@ -116,10 +121,10 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
 
   updateTableResult();
 
-  qpb_gestisci_CD = new QPushButton("Inserisci CD");
-  qpb_gestisci_DVD = new QPushButton("Inserisci DVD");
-  qpb_gestisci_VHS = new QPushButton("Inserisci VHS");
-  qpb_gestisci_Libro = new QPushButton("Inserisci Libro");
+  qpb_gestisci_CD = new QPushButton("Gestione CD");
+  qpb_gestisci_DVD = new QPushButton("Gestione DVD");
+  qpb_gestisci_VHS = new QPushButton("Gestione VHS");
+  qpb_gestisci_Libro = new QPushButton("Gestione Libro");
   qpb_find_e = new QPushButton("Trova Elemento");
   qpb_quit = new QPushButton("Chiudi");
 
@@ -174,23 +179,23 @@ void MyWidget::slotGestioneCdQDialog(){
 }
 
 void MyWidget::slotInsertCD(){
-  LibraryItem* ins = mCd->slotNewCD();
-  bib.insert(ins);
+  SmartPtr ins = mCd->slotNewCD();
+  bib.Insert(ins);
   updateTableResult();
   mCd->close();
 }
 
 void MyWidget::slotRemoveCD(){
-  LibraryItem* del = mCd->slotNewCD();
-  bib.remove(del);
+  SmartPtr del = mCd->slotNewCD();
+  bib.Remove(del);
   updateTableResult();
   mCd->close();
 }
 
 void MyWidget::slotReplaceCD(){
-  LibraryItem* older = mCd->slotNewCD();
-  LibraryItem* newer = mCd->slotReplaceCompactDisk();
-  bib.replace(older, newer);
+  SmartPtr older = mCd->slotNewCD();
+  SmartPtr newer = mCd->slotReplaceCompactDisk();
+  bib.Replace(older, newer);
   updateTableResult();
   mCd->close();
 }
@@ -205,15 +210,15 @@ void MyWidget::slotGestioneDvdQDialog(){
 }
 
 void MyWidget::slotInsertDVD(){
-  LibraryItem* ins = mDvd->slotNewDVD();
-  bib.insert(ins);
+  SmartPtr ins = mDvd->slotNewDVD();
+  bib.Insert(ins);
   updateTableResult();
   mDvd->close();
 }
 
 void MyWidget::slotRemoveDVD(){
-  LibraryItem* del = mDvd->slotNewDVD();
-  bib.remove(del);
+  SmartPtr del = mDvd->slotNewDVD();
+  bib.Remove(del);
   updateTableResult();
   mDvd->close();
 }
@@ -221,7 +226,7 @@ void MyWidget::slotRemoveDVD(){
 void MyWidget::slotReplaceDVD(){
   LibraryItem* older = mDvd->slotNewDVD();
   LibraryItem* newer = mDvd->slotReplaceDigitalVersatileDisk();
-  bib.replace(older, newer);
+  bib.Replace(older, newer);
   updateTableResult();
   mDvd->close();
 }
@@ -236,23 +241,23 @@ void MyWidget::slotGestioneVhsQDialog(){
 }
 
 void MyWidget::slotInsertVHS(){
-  LibraryItem* ins = mVHS->slotNewVHS();
-  bib.insert(ins);
+  SmartPtr ins = mVHS->slotNewVHS();
+  bib.Insert(ins);
   updateTableResult();
   mVHS->close();
 }
 
 void MyWidget::slotRemoveVHS(){
-  LibraryItem* del = mVHS->slotNewVHS();
-  bib.remove(del);
+  SmartPtr del = mVHS->slotNewVHS();
+  bib.Remove(del);
   updateTableResult();
   mVHS->close();
 }
 
 void MyWidget::slotReplaceVHS(){
-  LibraryItem* older = mVHS->slotNewVHS();
-  LibraryItem* newer = mVHS->slotReplaceVideoCassetta();
-  bib.replace(older, newer);
+  SmartPtr older = mVHS->slotNewVHS();
+  SmartPtr newer = mVHS->slotReplaceVideoCassetta();
+  bib.Replace(older, newer);
   updateTableResult();
   mVHS->close();
 }
@@ -267,23 +272,23 @@ void MyWidget::slotGestioneLibroQDialog(){
 }
 
 void MyWidget::slotInsertLibro(){
-  LibraryItem* ins = mLibro->slotNewLibro();
-  bib.insert(ins);
+  SmartPtr ins = mLibro->slotNewLibro();
+  bib.Insert(ins);
   updateTableResult();
   mLibro->close();
 }
 
 void MyWidget::slotRemoveLibro(){
-  LibraryItem* del = mLibro->slotNewLibro();
-  bib.remove(del);
+  SmartPtr del = mLibro->slotNewLibro();
+  bib.Remove(del);
   updateTableResult();
   mLibro->close();
 }
 
 void MyWidget::slotReplaceLibro(){
-  LibraryItem* older = mLibro->slotNewLibro();
-  LibraryItem* newer = mLibro->slotReplaceLibro();
-  bib.replace(older, newer);
+  SmartPtr older = mLibro->slotNewLibro();
+  SmartPtr newer = mLibro->slotReplaceLibro();
+  bib.Replace(older, newer);
   updateTableResult();
   mLibro->close();
 }
@@ -298,11 +303,14 @@ void MyWidget::slotReplaceLibro(){
 
 
 void MyWidget::updateTableResult(){
-  tableWidget->setRowCount(0);
+  tableWidget_Libri->setRowCount(0);
+  tableWidget_CD->setRowCount(0);
+  tableWidget_DVD->setRowCount(0);
+  tableWidget_VHS->setRowCount(0);
   //Richiama Libreria;
   for(int i=0; i<bib.size(); ++i){
   //for(Container<LibraryItem*>::Iterator it = b.begin(); it != b.end(); ++it) {
-    const int ultm_riga_Libro = tableWidget_Libro->rowCount();
+    const int ultm_riga_Libro = tableWidget_Libri->rowCount();
     const int ultm_riga_CD = tableWidget_CD->rowCount();
     const int ultm_riga_DVD = tableWidget_DVD->rowCount();
     const int ultm_riga_VHS = tableWidget_VHS->rowCount();
@@ -311,11 +319,11 @@ void MyWidget::updateTableResult(){
     if(l){
         //tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
       tableWidget_Libri->insertRow(ultm_riga_Libro);
-      tableWidget_Libri->setItem(ultm_riga_Libro, 0, new QTableWidgetItem(QString(l->getTitolo())));
-      tableWidget_Libri->setItem(ultm_riga_Libro, 1, new QTableWidgetItem(QString(l->getGenere())));
-      tableWidget_Libri->setItem(ultm_riga_Libro, 2, new QTableWidgetItem(QString(l->getAutore())));
+      tableWidget_Libri->setItem(ultm_riga_Libro, 0, new QTableWidgetItem(QString::fromStdString(l->getTitolo())));
+      tableWidget_Libri->setItem(ultm_riga_Libro, 1, new QTableWidgetItem(QString::fromStdString(l->getGenere())));
+      tableWidget_Libri->setItem(ultm_riga_Libro, 2, new QTableWidgetItem(QString::fromStdString(l->getAutore())));
       tableWidget_Libri->setItem(ultm_riga_Libro, 3, new QTableWidgetItem(QString::number(l->getAnnoUscita())));
-      tableWidget_Libri->setItem(ultm_riga_Libro, 4, new QTableWidgetItem(QString(l->getEditore())));
+      tableWidget_Libri->setItem(ultm_riga_Libro, 4, new QTableWidgetItem(QString::fromStdString(l->getEditore())));
 
       for(int j=0; j<5; j++){
           tableWidget_Libri->item(ultm_riga_Libro,j)->setTextAlignment(Qt::AlignCenter);
@@ -326,9 +334,9 @@ void MyWidget::updateTableResult(){
     if(c){
 //     tableWidgetCdHeader<<"Titolo"<<"Genere"<<"Artista"<<"Anno d'Uscita"<<"Numero Dischi";
       tableWidget_CD->insertRow(ultm_riga_CD);
-      tableWidget_CD->setItem(ultm_riga_CD, 0, new QTableWidgetItem(QString(c->getTitolo())));
-      tableWidget_CD->setItem(ultm_riga_CD, 1, new QTableWidgetItem(QString(c->getGenere())));
-      tableWidget_CD->setItem(ultm_riga_CD, 2, new QTableWidgetItem(QString(c->getArtista())));
+      tableWidget_CD->setItem(ultm_riga_CD, 0, new QTableWidgetItem(QString::fromStdString(c->getTitolo())));
+      tableWidget_CD->setItem(ultm_riga_CD, 1, new QTableWidgetItem(QString::fromStdString(c->getGenere())));
+      tableWidget_CD->setItem(ultm_riga_CD, 2, new QTableWidgetItem(QString::fromStdString(c->getArtista())));
       tableWidget_CD->setItem(ultm_riga_CD, 3, new QTableWidgetItem(QString::number(c->getAnnoUscita())));
       tableWidget_CD->setItem(ultm_riga_CD, 4, new QTableWidgetItem(QString::number(c->getDischi())));
 
@@ -338,13 +346,14 @@ void MyWidget::updateTableResult(){
     }
     //catalogo DVD;
     DVD* d = dynamic_cast<DVD*>(bib.getItem(i));
-    if(typeid(bib.getItem(i)) == typeid(DVD*)){
+//    if(typeid(bib.getItem(i)) == typeid(DVD*)){
+    if(d){
       tableWidget_DVD->insertRow(ultm_riga_DVD);
-      tableWidget_DVD->setItem(ultm_riga_DVD, 0, new QTableWidgetItem(QString(d->getTitolo())));
-      tableWidget_DVD->setItem(ultm_riga_DVD, 1, new QTableWidgetItem(QString(d->getGenere())));
-      tableWidget_DVD->setItem(ultm_riga_DVD, 2, new QTableWidgetItem(QString(d->getRegista())));
-      tableWidget_DVD->setItem(ultm_riga_DVD, 3, new QTableWidgetItem(QDate(d->getDataUscita())));
-      tableWidget_DVD->setItem(ultm_riga_DVD, 4, new QTableWidgetItem(QString(d->getDurata())));
+      tableWidget_DVD->setItem(ultm_riga_DVD, 0, new QTableWidgetItem(QString::fromStdString(d->getTitolo())));
+      tableWidget_DVD->setItem(ultm_riga_DVD, 1, new QTableWidgetItem(QString::fromStdString(d->getGenere())));
+      tableWidget_DVD->setItem(ultm_riga_DVD, 2, new QTableWidgetItem(QString::fromStdString(d->getRegista())));
+      tableWidget_DVD->setItem(ultm_riga_DVD, 3, new QTableWidgetItem((d->getDataUscita()).toString("yyyy.MM.dd")));
+      tableWidget_DVD->setItem(ultm_riga_DVD, 4, new QTableWidgetItem(QString::number(d->getDurata())));
 
       for(int j=0; j<5; j++){
           tableWidget_DVD->item(ultm_riga_DVD,j)->setTextAlignment(Qt::AlignCenter);
@@ -352,13 +361,14 @@ void MyWidget::updateTableResult(){
     }
 //catalogo VHS; fare conversione con typeid
     VHS* v = dynamic_cast<VHS*>(bib.getItem(i));
-    if(typeid(bib.getItem(i)) == typeid(VHS*)){
+//    if(typeid(bib.getItem(i)) == typeid(VHS*)){
+    if(v){
       tableWidget_VHS->insertRow(ultm_riga_VHS);
-      tableWidget_VHS->setItem(ultm_riga_VHS, 0, new QTableWidgetItem(QString(v->getTitolo())));
-      tableWidget_VHS->setItem(ultm_riga_VHS, 1, new QTableWidgetItem(QString(v->getGenere())));
-      tableWidget_VHS->setItem(ultm_riga_VHS, 2, new QTableWidgetItem(QString(v->getRegista())));
-      tableWidget_VHS->setItem(ultm_riga_VHS, 3, new QTableWidgetItem(QDate(v->getDataUscita())));
-      tableWidget_VHS->setItem(ultm_riga_VHS, 4, new QTableWidgetItem(QString(v->getDurata())));
+      tableWidget_VHS->setItem(ultm_riga_VHS, 0, new QTableWidgetItem(QString::fromStdString(v->getTitolo())));
+      tableWidget_VHS->setItem(ultm_riga_VHS, 1, new QTableWidgetItem(QString::fromStdString(v->getGenere())));
+      tableWidget_VHS->setItem(ultm_riga_VHS, 2, new QTableWidgetItem(QString::fromStdString(v->getRegista())));
+      tableWidget_VHS->setItem(ultm_riga_VHS, 3, new QTableWidgetItem((v->getDataUscita()).toString("yyyy.MM.dd")));
+      tableWidget_VHS->setItem(ultm_riga_VHS, 4, new QTableWidgetItem(QString::number(v->getDurata())));
 
       for(int j=0; j<5; j++){
           tableWidget_VHS->item(ultm_riga_VHS,j)->setTextAlignment(Qt::AlignCenter);

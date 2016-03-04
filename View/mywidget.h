@@ -33,7 +33,10 @@ private:
   QTableWidget* tableWidget_DVD;
   QTableWidget* tableWidget_VHS;
   QTableWidget* tableWidget_Libri;
-  QStringList tableWidgetHeader;
+  QStringList tableWidgetCdHeader;
+  QStringList tableWidgetDvdHeader;
+  QStringList tableWidgetVhsHeader;
+  QStringList tableWidgetLibriHeader;
   int monitorWidth;
   int monitorHeight;
   QPushButton* qpb_gestisci_CD;

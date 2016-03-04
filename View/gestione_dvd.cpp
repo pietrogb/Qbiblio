@@ -16,7 +16,7 @@ Gestione_DVD::Gestione_DVD(QWidget* parent) : QDialog(parent) {
   ql_titolo = new QLabel("Titolo");
   ql_genere = new QLabel("Genere");
   ql_regista = new QLabel("Regista");
-  ql_durata = new QLabel("Durata");
+  ql_durata = new QLabel("Durata(minuti)");
   ql_dataUscita = new QLabel("Data Uscita");
 
   qle_titolo = new QLineEdit;
@@ -68,7 +68,7 @@ void Gestione_DVD::slotReplaceDVD(){
   ql_titolo_r = new QLabel("Titolo");
   ql_genere_r = new QLabel("Genere");
   ql_regista_r = new QLabel("Regista");
-  ql_durata_r = new QLabel("Durata");
+  ql_durata_r = new QLabel("Durata(minuti)");
   ql_dataUscita_r = new QLabel("Data Uscita");
 
   qle_titolo_r = new QLineEdit;

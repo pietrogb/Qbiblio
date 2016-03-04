@@ -19,29 +19,41 @@ int Biblio::size() const{
     return b.size();
 }
 
-bool Biblio::addItem(SmartPtr li){
-    bool presente=false;
-    for(Container<SmartPtr>::const_Iterator it=b.begin(); !presente && it!=b.end(); ++it){
-        if(*(*it) == *li)
-            presente=true;
-    }
-    b.insert(li);
-    return presente;
+void Biblio::Insert(const SmartPtr& ins){
+    b.insert(ins);
 }
 
-void Biblio::removeItem(const string& title ){
-    for(int i=0; i<b.size(); ++i){
-        if((getItem(i) -> getTitolo() == title)) {
-            b.remove((getItem(i)).getItem());
-        }
-    }
+void Biblio::Remove(const SmartPtr& rmv){
+    b.remove(rmv);
 }
 
-SmartPtr Biblio::getItem(int n){
+void Biblio::Replace(const SmartPtr & older, const SmartPtr & newer){
+    b.replace(older, newer);
+}
+
+//bool Biblio::addItem(SmartPtr li){
+//    bool presente=false;
+//    for(Container<SmartPtr>::const_Iterator it=b.begin(); !presente && it!=b.end(); ++it){
+//        if(*(*it) == *li)
+//            presente=true;
+//    }
+//    b.insert(li);
+//    return presente;
+//}
+
+//void Biblio::removeItem(const string& title ){
+//    for(int i=0; i<b.size(); ++i){
+//        if((getItem(i) -> getTitolo() == title)) {
+//            b.remove((getItem(i)).getItem());
+//        }
+//    }
+//}
+
+LibraryItem* Biblio::getItem(int n){
     Container<SmartPtr>::Iterator it = b.begin();
     for(int i=0; i<n; ++i)
         it++;
-    return *it;
+    return (*it).getItem();
 }
 
 Container<SmartPtr> Biblio::findItem(const string& title) const {
@@ -155,7 +167,7 @@ void Biblio::load(){
           QDomAttr d=el.attributeNode("Dischi");
           int nDischi=d.value().toInt();
           li=new CD(titolo.toStdString(), genere.toStdString(), artista.toStdString(), annoUscita, nDischi);
-          addItem(li); 
+          Insert(li);
         }
         else if(tipo=="DVD"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -170,7 +182,7 @@ void Biblio::load(){
           QStringList u=aux.split(".");
           QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
           li=new DVD(titolo.toStdString(), genere.toStdString(), regista.toStdString(), durata, dataUscita);
-          addItem(li); 
+          Insert(li);
         }
         else if(tipo=="Libro"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -184,7 +196,7 @@ void Biblio::load(){
           QDomAttr e=el.attributeNode("Editore");
           QString editore=e.value();
           li=new Libro(titolo.toStdString(), genere.toStdString(), autore.toStdString(), annoUscita, editore.toStdString());
-          addItem(li); 
+          Insert(li);
         }
         else if(tipo=="VHS"){
           QDomAttr t=el.attributeNode("Titolo");
@@ -199,7 +211,7 @@ void Biblio::load(){
           QStringList u=aux.split(".");
           QDate dataUscita(u[2].toInt(),u[1].toInt(),u[0].toInt());
           li=new VHS(titolo.toStdString(), genere.toStdString(), regista.toStdString(), durata, dataUscita);
-          addItem(li); 
+          Insert(li);
         }
       }
       file->close();

@@ -33,11 +33,17 @@ public:
 
     int size() const;
 
-    bool addItem(SmartPtr); //SmartPtr?
+//    bool addItem(SmartPtr); //SmartPtr?
 
-    void removeItem(const string &);
+//    void removeItem(const string &);
 
-    SmartPtr getItem(int);
+    void Insert(const SmartPtr &);
+
+    void Remove(const SmartPtr&);
+
+    void Replace(const SmartPtr&, const SmartPtr&);
+
+    LibraryItem* getItem(int);
 
     Container<SmartPtr> findItem(const string&) const;
 
