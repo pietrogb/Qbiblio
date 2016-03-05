@@ -310,7 +310,7 @@ void MyWidget::slotReplaceLibro(){
 void MyWidget::slotFindItemQDialog(){
   t_el = new Trova_Elemento(this, &bib);
   t_el->resize(monitorWidth*0.6, monitorHeight*0.5);
-  t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, fo->size(), qApp->desktop()->availableGeometry()));
+  t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, t_el->size(), qApp->desktop()->availableGeometry()));
   t_el->exec();
 }
 
