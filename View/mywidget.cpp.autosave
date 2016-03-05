@@ -9,7 +9,7 @@
 #include <QString>
 
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
-//  bib.load();
+
   setWindowTitle("Programmazione ad Oggetti - Progetto qBiblio - 2016");
   monitorWidth = QApplication::desktop()->width();
   monitorHeight = QApplication::desktop()->height();
