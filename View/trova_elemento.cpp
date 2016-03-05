@@ -109,7 +109,7 @@ void Trova_Elemento::slot_pushButton_search() {
   for(Container<SmartPtr>::const_Iterator it = items.begin(); it != items.end(); ++it) {
     bool toPrint = false;
     QString strRisultato;
-    
+    QString type;
     QString titolo(QString::fromStdString((*it).getItem()->getTitolo()));
     QString genere(QString::fromStdString((*it).getItem()->getGenere()));
     CD* cd=dynamic_cast<CD*>((*it).getItem());
@@ -128,6 +128,7 @@ void Trova_Elemento::slot_pushButton_search() {
             toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){
+            type="CD";
             strRisultato.prepend(QString::number(cd->getAnnoUscita()));
             strRisultato.prepend(" | AnnoUscita: ");
             strRisultato.prepend(QString::number(cd->getDischi()));
@@ -152,6 +153,7 @@ void Trova_Elemento::slot_pushButton_search() {
             toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
+            type="Libro";
             strRisultato.prepend(QString::fromStdString(lib->getEditore()));
             strRisultato.prepend(" | Editore: ");
             strRisultato.prepend(QString::number(lib->getAnnoUscita()));
@@ -176,6 +178,7 @@ void Trova_Elemento::slot_pushButton_search() {
             toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
+            type="DVD";
             strRisultato.prepend((dvd->getDataUscita()).toString("dd.MM.yyyy"));
             strRisultato.prepend(" | DataUscita: ");
             strRisultato.prepend(QString::number(dvd->getDurata()));
@@ -200,6 +203,7 @@ void Trova_Elemento::slot_pushButton_search() {
             toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
+            type="VHS";
             strRisultato.prepend((vhs->getDataUscita()).toString("dd.MM.yyyy"));
             strRisultato.prepend(" | DataUscita: ");
             strRisultato.prepend(QString::number(vhs->getDurata()));
@@ -208,69 +212,13 @@ void Trova_Elemento::slot_pushButton_search() {
             strRisultato.prepend(" | Regista: ");
         }
     }
-/*        ************FROM HERE
-    Statua* st = dynamic_cast<Statua*>((*it).getOpera());
-
-        if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
-          if(checkBox_tile->isChecked()){
-            QString titolo_f = lineEdit_titolo->text();
-            toPrint = titolo.contains(titolo_f, Qt::CaseInsensitive);
-          }
-      if(checkBox_autore->isChecked()){
-        QString autore_f = lineEdit_autore->text();
-        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_genere->isChecked()){
-        QString genere_f = lineEdit_genere->text();
-        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_yearOfCreation->isChecked()){
-        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
-        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
-      }
-      if(toPrint){
-        strRisultato.prepend(QString::fromStdString(st->getMaterial()));
-        strRisultato.prepend(" | Materiale: ");
-        strRisultato.prepend(QString::number(st->getHeight()));
-        strRisultato.prepend(" | Altezza: ");
-      }
-    }
-
-    Dipinto* di = dynamic_cast<Dipinto*>((*it).getOpera());
-
-    if((radioButton_opere->isChecked() || radioButton_Dipinti->isChecked()) && di){
-      if(checkBox_tile->isChecked()){
-        QString titolo_f = lineEdit_titolo->text();
-        toPrint = titolo.contains(titolo_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_autore->isChecked()){
-        QString autore_f = lineEdit_autore->text();
-        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_genere->isChecked()){
-        QString genere_f = lineEdit_genere->text();
-        toPrint = genere.contains(genere_f, Qt::CaseInsensitive);
-      }
-      if(checkBox_yearOfCreation->isChecked()){
-        QString yearOfCreation_f = lineEdit_yearOfCreation->text();
-        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
-      }
-      if(toPrint){
-        strRisultato.prepend(QString::fromStdString(di->getType()));
-        strRisultato.prepend(" | Tecnica: ");
-        strRisultato.prepend(QString::number(di->getWidth()));
-        strRisultato.prepend(" | Larghezza: ");
-        strRisultato.prepend(QString::number(di->getHeight()));
-        strRisultato.prepend(" | Altezza: ");
-      }
-      //************TO HERE
-    }
-*/
     if(toPrint){ //solo Titolo e Genere (in ordine inverso)
       strRisultato.prepend(genere.toUpper());
       strRisultato.prepend(" | Genere: " );
       strRisultato.prepend(titolo.toUpper());
-      strRisultato.prepend(") Titolo: " );
+      strRisultato.prepend(" | Titolo: " );
+      strRisultato.prepend(type.toUpper());
+      strRisultato.prepend(") Tipo: ");
       strRisultato.prepend(QString::number(++num));
       textEdit_resultFilter->append(strRisultato);
       textEdit_resultFilter->show();
