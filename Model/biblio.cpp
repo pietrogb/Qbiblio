@@ -23,11 +23,11 @@ void Biblio::Insert(const SmartPtr& ins){
     b.insert(ins);
 }
 
-void Biblio::Remove(const SmartPtr& rmv){
+bool Biblio::Remove(const SmartPtr& rmv){
     b.remove(rmv);
 }
 
-void Biblio::Replace(const SmartPtr & older, const SmartPtr & newer){
+bool Biblio::Replace(const SmartPtr & older, const SmartPtr & newer){
     b.replace(older, newer);
 }
 

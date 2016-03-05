@@ -39,9 +39,9 @@ public:
 
     void Insert(const SmartPtr &);
 
-    void Remove(const SmartPtr&);
+    bool Remove(const SmartPtr&);
 
-    void Replace(const SmartPtr&, const SmartPtr&);
+    bool Replace(const SmartPtr&, const SmartPtr&);
 
     LibraryItem* getItem(int);
 

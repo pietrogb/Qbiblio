@@ -110,12 +110,12 @@ public:
   //metodo che aggiunge in testa un elemento
   void insert(const T&);
   //medoto che rimuove un elemento dalla lista
-  void remove(const T&);
+  bool remove(const T&);
   //metodo che restituisce il numero di oggetti contenuti
   int size() const;
   //metodo per effettuare la ricerca
   Container<T> search(const T&) const;
-  void replace(const T&, const T&);
+  bool replace(const T&, const T&);
   bool operator==(const Container&) const;
   bool operator!=(const Container&) const;
 };
@@ -369,7 +369,8 @@ void Container<T>::insert(const T& value) {
 
 //rimozione elemento
 template<class T>
-void Container<T>::remove(const T & value) {
+bool Container<T>::remove(const T & value) {
+  bool presente=false;
   ContainerItem* p = first;
   ContainerItem* prec = 0;
   while(p && (p->info != value)){
@@ -384,6 +385,7 @@ void Container<T>::remove(const T & value) {
   }
   p->next=0;
   delete p;
+  return presente;
 }
 
 //ricerca elemento
@@ -398,10 +400,14 @@ Container<T> Container<T>::search(const T& item) const {
 
 //sostituzione elemento
 template<class T>
-void Container<T>::replace(const T& older, const T& newer) {
+bool Container<T>::replace(const T& older, const T& newer) {
+  bool presente=false;
   for(Container<T>::Iterator it = begin(); it !=end(); ++it)
-    if(it.ptr->info == older)
+    if(it.ptr->info == older){
       it.ptr->info = newer;
+      presente=true;
+    }
+  return presente;
 }
 
 //numero elementi presenti nel contenitore
