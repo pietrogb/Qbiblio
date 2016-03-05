@@ -4,7 +4,7 @@
 
 Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   setWindowTitle("Trova Elemento");
-  items = b->getLibrary();
+  items = (b)->getLibrary();
 
   gridLayout_main = new QGridLayout();
   gridLayout_main->setSpacing(5);
@@ -20,9 +20,9 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   label_titolo = new QLabel("Titolo");
   lineEdit_titolo = new QLineEdit();
   label_titolo->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_tile,0,0,1,1);
-  gridLayout_topLeft->addWidget(label_title,0,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_title,0,2,1,1);
+  gridLayout_topLeft->addWidget(checkBox_titolo,0,0,1,1);
+  gridLayout_topLeft->addWidget(label_titolo,0,1,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_autore,0,2,1,1);
 
   checkBox_autore = new QCheckBox();
   label_autore = new QLabel("Autore");
@@ -106,21 +106,116 @@ void Trova_Elemento::slot_pushButton_search() {
 
   int num = 0;
 
-  for(Container<LibraryItem*>::Const_Iterator it = items.begin(); it != items.end(); ++it) {
+  for(Container<SmartPtr>::const_Iterator it = items->begin(); it != items->end(); ++it) {
     bool toPrint = false;
-    QString strToPtint;
+    QString strRisultato;
     
-    QString title(QString::fromStdString((*it)->getTitle()));
-    QString autore(QString::fromStdString((*it)->getAutore()));
-    QString genere(QString::fromStdString((*it)->getgenere()));
+    QString title(QString::fromStdString((*it).getItem()->getTitle())); //controllare
+    QString genere(QString::fromStdString((*it).getItem()->getgenere())); //controllare
+    CD* cd=dynamic_cast<CD*>((*it).getItem());
+    if((radioButton_all->isChecked() || radioButton_CD->isChecked()) && cd){
+        if(checkBox_titolo->isChecked()){
+            QString title_f=lineEdit_titolo->text();
+            toPrint=title.contains(title_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_autore->isChecked()){
+            QString artista(QString::fromStdString(cd->getArtista()));
+            QString autore_f=lineEdit_autore->text();
+            toPrint = artista.contains(autore_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_genere->isChecked()){
+            QString genere_f=lineEdit_genere_f->text();
+            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+        }
+        if(toPrint){
+            strRisultato.prepend(QString::number(cd->getAnnoUscita()));
+            strRisultato.prepend(" | AnnoUscita: ");
+            strRisultato.prepend(QString::number(cd->getDischi()));
+            strRisultato.prepend(" | Dischi: ");
+            strRisultato.prepend(QString::fromStdString(cd->getArtista()));
+            strRisultato.prepend(" | Artista: ");
+        }
+    }
+    Libro* lib=dynamic_cast<Libro*>((*it).getItem());
+    if((radioButton_all->isChecked() || radioButton_Libri->isChecked()) && lib){
+        if(checkBox_titolo->isChecked()){
+            QString title_f=lineEdit_titolo->text();
+            toPrint=title.contains(title_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_autore->isChecked()){
+            QString autore(QString::fromStdString(lib->getArtista()));
+            QString autore_f=lineEdit_autore->text();
+            toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_genere->isChecked()){
+            QString genere_f=lineEdit_genere_f->text();
+            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+        }
+        if(toPrint){ //in ordine inverso
+            strRisultato.prepend(QString::fromStdString(lib->getEditore()));
+            strRisultato.prepend(" | Editore: ");
+            strRisultato.prepend(QString::number(lib->getAnnoUscita()));
+            strRisultato.prepend(" | AnnoUscita: ");
+            strRisultato.prepend(QString::fromStdString(lib->getAutore()));
+            strRisultato.prepend(" | Autore: ");
+        }
+    }
+    DVD* dvd=dynamic_cast<DVD*>((*it).getItem());
+    if((radioButton_all->isChecked() || radioButton_DVD->isChecked()) && dvd){
+        if(checkBox_titolo->isChecked()){
+            QString title_f=lineEdit_titolo->text();
+            toPrint=title.contains(title_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_autore->isChecked()){
+            QString regista(QString::fromStdString(dvd->getRegista()));
+            QString autore_f=lineEdit_autore->text();
+            toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_genere->isChecked()){
+            QString genere_f=lineEdit_genere_f->text();
+            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+        }
+        if(toPrint){ //in ordine inverso
+            strRisultato.prepend((dvd->getDataUscita()).toString("dd.MM.yyyy"));
+            strRisultato.prepend(" | DataUscita: ");
+            strRisultato.prepend(QString::number(dvd->getDurata()));
+            strRisultato.prepend(" | Durata: ");
+            strRisultato.prepend(QString::fromStdString(dvd->getRegista()));
+            strRisultato.prepend(" | Regista: ");
+        }
+    }
+    VHS* vhs=dynamic_cast<VHS*>((*it).getItem());
+    if((radioButton_all->isChecked() || radioButton_DVD->isChecked()) && vhs){
+        if(checkBox_titolo->isChecked()){
+            QString title_f=lineEdit_titolo->text();
+            toPrint=title.contains(title_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_autore->isChecked()){
+            QString regista(QString::fromStdString(vhs->getRegista()));
+            QString autore_f=lineEdit_autore->text();
+            toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
+        }
+        if(checkBox_genere->isChecked()){
+            QString genere_f=lineEdit_genere_f->text();
+            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+        }
+        if(toPrint){ //in ordine inverso
+            strRisultato.prepend((vhs->getDataUscita()).toString("dd.MM.yyyy"));
+            strRisultato.prepend(" | DataUscita: ");
+            strRisultato.prepend(QString::number(vhs->getDurata()));
+            strRisultato.prepend(" | Durata: ");
+            strRisultato.prepend(QString::fromStdString(vhs->getRegista()));
+            strRisultato.prepend(" | Regista: ");
+        }
+    }
 //        //************FROM HERE
 //    Statua* st = dynamic_cast<Statua*>((*it).getOpera());
-    
-//    if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
-//      if(checkBox_tile->isChecked()){
-//        QString title_f = lineEdit_title->text();
-//        toPrint = title.contains(title_f, Qt::CaseInsensitive);
-//      }
+
+    //    if((radioButton_opere->isChecked() || radioButton_Statue->isChecked()) && st){
+    //      if(checkBox_tile->isChecked()){
+    //        QString title_f = lineEdit_title->text();
+    //        toPrint = title.contains(title_f, Qt::CaseInsensitive);
+    //      }
 //      if(checkBox_autore->isChecked()){
 //        QString autore_f = lineEdit_autore->text();
 //        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
@@ -134,10 +229,10 @@ void Trova_Elemento::slot_pushButton_search() {
 //        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
 //      }
 //      if(toPrint){
-//        strToPtint.prepend(QString::fromStdString(st->getMaterial()));
-//        strToPtint.prepend(" | Materiale: ");
-//        strToPtint.prepend(QString::number(st->getHeight()));
-//        strToPtint.prepend(" | Altezza: ");
+//        strRisultato.prepend(QString::fromStdString(st->getMaterial()));
+//        strRisultato.prepend(" | Materiale: ");
+//        strRisultato.prepend(QString::number(st->getHeight()));
+//        strRisultato.prepend(" | Altezza: ");
 //      }
 //    }
 
@@ -161,26 +256,22 @@ void Trova_Elemento::slot_pushButton_search() {
 //        toPrint = yearOfCreation.contains(yearOfCreation_f, Qt::CaseInsensitive);
 //      }
 //      if(toPrint){
-//        strToPtint.prepend(QString::fromStdString(di->getType()));
-//        strToPtint.prepend(" | Tecnica: ");
-//        strToPtint.prepend(QString::number(di->getWidth()));
-//        strToPtint.prepend(" | Larghezza: ");
-//        strToPtint.prepend(QString::number(di->getHeight()));
-//        strToPtint.prepend(" | Altezza: ");
+//        strRisultato.prepend(QString::fromStdString(di->getType()));
+//        strRisultato.prepend(" | Tecnica: ");
+//        strRisultato.prepend(QString::number(di->getWidth()));
+//        strRisultato.prepend(" | Larghezza: ");
+//        strRisultato.prepend(QString::number(di->getHeight()));
+//        strRisultato.prepend(" | Altezza: ");
 //      }
 //      //************TO HERE
 //    }
-    if(toPrint){
-      strToPtint.prepend(yearOfCreation.toUpper());
-      strToPtint.prepend(" | Anno Creazione: " );
-      strToPtint.prepend(genere.toUpper());
-      strToPtint.prepend(" | Ubicazione: " );
-      strToPtint.prepend(autore.toUpper());
-      strToPtint.prepend(" | Autore: " );
-      strToPtint.prepend(title.toUpper());
-      strToPtint.prepend(") Titolo: " );
-      strToPtint.prepend(QString::number(++num));
-      textEdit_resultFilter->append(strToPtint);
+    if(toPrint){ //solo Titolo e Genere (in ordine inverso)
+      strRisultato.prepend(genere.toUpper());
+      strRisultato.prepend(" | Genere: " );
+      strRisultato.prepend(titolo.toUpper());
+      strRisultato.prepend(") Titolo: " );
+      strRisultato.prepend(QString::number(++num));
+      textEdit_resultFilter->append(strRisultato);
       textEdit_resultFilter->show();
     }
   }

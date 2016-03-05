@@ -22,7 +22,7 @@ public:
   Trova_Elemento(QWidget*, Biblio* );
   ~Trova_Elemento() {}
 private:
-  Container<LibraryItem*>* items;
+  Container<SmartPtr> items;
 
   QGridLayout* gridLayout_main;
   QGridLayout* gridLayout_topLeft;
