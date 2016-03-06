@@ -39,6 +39,7 @@ private:
   QLabel* label_autore;
   QLabel* label_genere;
   QLabel* label_info_filter;
+  QLabel* label_cerca;
   
   QLineEdit* lineEdit_titolo;
   QLineEdit* lineEdit_autore;

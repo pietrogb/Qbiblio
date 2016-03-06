@@ -16,29 +16,41 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   gridLayout_topLeft = new QGridLayout();
   gridLayout_topLeft->setSpacing(5);
 
+  label_cerca = new QLabel("Cerca");
+  label_cerca->setIndent(10);
+
   checkBox_titolo = new QCheckBox();
   label_titolo = new QLabel("Titolo");
   lineEdit_titolo = new QLineEdit();
   label_titolo->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_titolo,0,0,1,1);
-  gridLayout_topLeft->addWidget(label_titolo,0,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_titolo,0,2,1,1);
+  gridLayout_topLeft->addWidget(label_titolo,0,0,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_titolo,0,1,1,1);
+  gridLayout_topLeft->addWidget(label_cerca,0,2,1,1);
+  gridLayout_topLeft->addWidget(checkBox_titolo,0,3,1,1);
+
+  label_cerca = new QLabel("Cerca");
+  label_cerca->setIndent(10);
 
   checkBox_autore = new QCheckBox();
   label_autore = new QLabel("Autore");
   lineEdit_autore = new QLineEdit();
   label_autore->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_autore,1,0,1,1);
-  gridLayout_topLeft->addWidget(label_autore,1,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_autore,1,2,1,1);
+  gridLayout_topLeft->addWidget(label_autore,1,0,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_autore,1,1,1,1);
+  gridLayout_topLeft->addWidget(label_cerca,1,2,1,1);
+  gridLayout_topLeft->addWidget(checkBox_autore,1,3,1,1);
+
+  label_cerca = new QLabel("Cerca");
+  label_cerca->setIndent(10);
 
   checkBox_genere = new QCheckBox();
   label_genere = new QLabel("Genere");
   lineEdit_genere = new QLineEdit();
   label_genere->setIndent(5);
-  gridLayout_topLeft->addWidget(checkBox_genere,2,0,1,1);
-  gridLayout_topLeft->addWidget(label_genere,2,1,1,1);
-  gridLayout_topLeft->addWidget(lineEdit_genere,2,2,1,1);
+  gridLayout_topLeft->addWidget(label_genere,2,0,1,1);
+  gridLayout_topLeft->addWidget(lineEdit_genere,2,1,1,1);
+  gridLayout_topLeft->addWidget(label_cerca,2,2,1,1);
+  gridLayout_topLeft->addWidget(checkBox_genere,2,3,1,1);
 
 
   horizontalLayout_top->addLayout(gridLayout_topLeft);
@@ -47,7 +59,7 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   horizontalLayout_top->addItem(horizontalSpacer_top);
 
   gridLayout_topRight = new QGridLayout();
-  gridLayout_topRight->setSpacing(5);
+  gridLayout_topRight->setSpacing(2);
 
   label_info_filter = new QLabel("Filtro:");
   gridLayout_topRight->addWidget(label_info_filter,0,0,1,1);
@@ -68,7 +80,7 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   radioButton_VHS = new QRadioButton("VHS");
   gridLayout_topRight->addWidget(radioButton_VHS,5,0,1,1);
 
-  verticalSpacer_radioButtonDown = new QSpacerItem(10, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
+  verticalSpacer_radioButtonDown = new QSpacerItem(10, 10, QSizePolicy::Maximum, QSizePolicy::Maximum);
   gridLayout_topRight->addItem(verticalSpacer_radioButtonDown,6,0,1,1);
 
   horizontalLayout_top->addLayout(gridLayout_topRight);

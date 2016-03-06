@@ -4,9 +4,9 @@
 Gestione_DVD::Gestione_DVD(QWidget* parent) : QDialog(parent) {
   setWindowTitle(tr("Gestione DVD"));
 
-  qpb_insert = new QPushButton("Insert");
-  qpb_remove = new QPushButton("Remove");
-  qpb_replace = new QPushButton("Replace");
+  qpb_insert = new QPushButton("Inserisci");
+  qpb_remove = new QPushButton("Rimuovi");
+  qpb_replace = new QPushButton("Sostituisci");
 
   qpb_insert->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
   qpb_remove->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
@@ -92,10 +92,10 @@ void Gestione_DVD::slotReplaceDVD(){
   gLayout->addWidget(ql_dataUscita_r, 9, 0);
   gLayout->addWidget(qde_dataUscita_r, 9, 1);
 
-  qpb_replace_confirm = new QPushButton("Confirm Replace");
+  qpb_replace_confirm = new QPushButton("Conferma");
 
   qpb_replace_confirm->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
-  qpb_close = new QPushButton("Close");
+  qpb_close = new QPushButton("Chiudi");
 
   qpb_close->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
 
