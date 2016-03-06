@@ -200,7 +200,7 @@ void MyWidget::slotInsertCD(){
 
 void MyWidget::slotRemoveCD(){
   SmartPtr del = mCd->slotNewCD();
-  bool pres=bib.Remove(del);
+  bool pres = bib.Remove(del);
   if(!pres){
       QMessageBox err;
       err.setText("Il CD richiesto non è presente");
@@ -214,7 +214,12 @@ void MyWidget::slotRemoveCD(){
 void MyWidget::slotReplaceCD(){
   SmartPtr older = mCd->slotNewCD();
   SmartPtr newer = mCd->slotReplaceCompactDisk();
-  bib.Replace(older, newer);
+  bool pres = bib.Replace(older, newer);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il CD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mCd->close();
@@ -242,7 +247,7 @@ void MyWidget::slotRemoveDVD(){
   bool pres=bib.Remove(del);
   if(!pres){
       QMessageBox err;
-      err.setText("Il CD richiesto non è presente");
+      err.setText("Il DVD richiesto non è presente");
       err.exec();
   }
   bib.save();
@@ -253,7 +258,12 @@ void MyWidget::slotRemoveDVD(){
 void MyWidget::slotReplaceDVD(){
   LibraryItem* older = mDvd->slotNewDVD();
   LibraryItem* newer = mDvd->slotReplaceDigitalVersatileDisk();
-  bib.Replace(older, newer);
+  bool pres = bib.Replace(older, newer);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il DVD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mDvd->close();
@@ -281,7 +291,7 @@ void MyWidget::slotRemoveVHS(){
   bool pres = bib.Remove(del);
   if(!pres){
       QMessageBox err;
-      err.setText("Il CD richiesto non è presente");
+      err.setText("La VHS richiesta non è presente");
       err.exec();
   }
   bib.save();
@@ -292,7 +302,12 @@ void MyWidget::slotRemoveVHS(){
 void MyWidget::slotReplaceVHS(){
   SmartPtr older = mVHS->slotNewVHS();
   SmartPtr newer = mVHS->slotReplaceVideoCassetta();
-  bib.Replace(older, newer);
+  bool pres = bib.Replace(older, newer);
+  if(!pres){
+      QMessageBox err;
+      err.setText("La VHS richiesta non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mVHS->close();
@@ -317,10 +332,10 @@ void MyWidget::slotInsertLibro(){
 
 void MyWidget::slotRemoveLibro(){
   SmartPtr del = mLibro->slotNewLibro();
-  bool pres=bib.Remove(del);
+  bool pres = bib.Remove(del);
   if(!pres){
       QMessageBox err;
-      err.setText("Il CD richiesto non è presente");
+      err.setText("Il libro richiesto non è presente");
       err.exec();
   }
   bib.save();
@@ -331,7 +346,12 @@ void MyWidget::slotRemoveLibro(){
 void MyWidget::slotReplaceLibro(){
   SmartPtr older = mLibro->slotNewLibro();
   SmartPtr newer = mLibro->slotReplaceLibro();
-  bib.Replace(older, newer);
+  bool pres = bib.Replace(older, newer);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il libro richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mLibro->close();

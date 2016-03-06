@@ -109,7 +109,7 @@ void Gestione_Libro::slotReplaceLib(){
   qpb_insert->setEnabled(false);
   qpb_remove->setEnabled(false);
   qpb_replace->setEnabled(false);
-  connect(qpb_replace_confirm,SIGNAL(clicked()),this,SLOT(slotReplaceLibro_c()));
+  connect(qpb_replace_confirm,SIGNAL(clicked()),this,SLOT(slotReplaceLib_c()));
   connect(qpb_close,SIGNAL(clicked()),this,SLOT(close()));
 }
 

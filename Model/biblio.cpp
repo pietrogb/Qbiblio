@@ -6,9 +6,7 @@ Biblio::Biblio(const Container<SmartPtr>& content): b(content){
 
 Biblio::~Biblio(){
 //    for(Container<SmartPtr>::Iterator it=b.begin(); it!=b.end(); ++it)
-//        delete(&(*(*it)));
-//    delete(&b);
-    delete &b;
+//        b.remove((*it).getItem());
 }
 
 bool Biblio::IsEmpty() const{
@@ -162,7 +160,7 @@ void Biblio::load(){
         SmartPtr li;
         if(tipo=="CD"){
           QString titolo, genere, artista;
-          int annoUscita, nDischi;
+          int annoUscita=2000, nDischi=1;
           while(!nodo.isNull()){
               QDomElement elemento = nodo.toElement();
               QString tagName = elemento.tagName();
@@ -183,7 +181,7 @@ void Biblio::load(){
         }
         else if(tipo=="DVD"){
           QString titolo, genere, regista;
-          int durata;
+          int durata=0;
           QDate dataUscita;
           while(!nodo.isNull()){
               QDomElement elemento = nodo.toElement();
@@ -208,7 +206,7 @@ void Biblio::load(){
         }
         else if(tipo=="Libro"){
             QString titolo, genere, autore, editore;
-            int annoUscita;
+            int annoUscita=2000;
             while(!nodo.isNull()){
                 QDomElement elemento = nodo.toElement();
                 QString tagName = elemento.tagName();
@@ -229,7 +227,7 @@ void Biblio::load(){
         }
         else if(tipo=="VHS"){
             QString titolo, genere, regista;
-            int durata;
+            int durata=100;
             QDate dataUscita;
             while(!nodo.isNull()){
                 QDomElement elemento = nodo.toElement();

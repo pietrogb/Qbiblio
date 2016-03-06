@@ -126,7 +126,6 @@ DVD* Gestione_DVD::slotNewDVD(){
 }
 
 DVD* Gestione_DVD::slotReplaceDigitalVersatileDisk(){
-
   string t_r = (qle_titolo_r->text()).toStdString();
   string g_r = (qle_genere_r->text()).toStdString();
   string r_r = (qle_regista_r->text()).toStdString();

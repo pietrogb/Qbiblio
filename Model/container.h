@@ -26,7 +26,7 @@ private:
     ContainerItem();
     ContainerItem(const T&, ContainerItem*);
     //Distruttore
-    ~ContainerItem();
+//    ~ContainerItem();
     //Operatore d'uguaglianza
     bool operator==(const ContainerItem&) const;
     //Operatore di disuguaglianza
@@ -144,12 +144,12 @@ template<class T>
 bool Container<T>::ContainerItem::operator!=(const ContainerItem& cti) const {
   return (info != cti->info);
 }
-template<class T>
-  Container<T>::ContainerItem::~ContainerItem(){
-    if(next){
-      delete next;
-    }
-  }
+//template<class T>
+//  Container<T>::ContainerItem::~ContainerItem(){
+//    if(next){
+//      delete next;
+//    }
+//  }
 /*
  ***********************
  Metodi di Iterator
@@ -316,8 +316,7 @@ Container<T>& Container<T>::operator=(const Container<T>& cnt) {
 //distruzione profonda
 template<class T>
 Container<T>::~Container() {
-  if(first)
-      delete first;
+  deepRemove(first);
 }
 
 //copia profonda
@@ -334,7 +333,7 @@ template<class T>
 void Container<T>::deepRemove(ContainerItem* ci) {
   if(ci){
     deepRemove(ci->next);
-    delete &ci;
+    delete ci;
   }
 }
 
