@@ -24,11 +24,11 @@ void Biblio::Insert(const SmartPtr& ins){
 }
 
 bool Biblio::Remove(const SmartPtr& rmv){
-    b.remove(rmv);
+    return b.remove(rmv);
 }
 
 bool Biblio::Replace(const SmartPtr & older, const SmartPtr & newer){
-    b.replace(older, newer);
+    return b.replace(older, newer);
 }
 
 //bool Biblio::addItem(SmartPtr li){
@@ -49,8 +49,8 @@ bool Biblio::Replace(const SmartPtr & older, const SmartPtr & newer){
 //    }
 //}
 
-LibraryItem* Biblio::getItem(int n){
-    Container<SmartPtr>::Iterator it = b.begin();
+LibraryItem* Biblio::getItem(int n) const{
+    Container<SmartPtr>::const_Iterator it = b.begin();
     for(int i=0; i<n; ++i)
         it++;
     return (*it).getItem();
@@ -84,7 +84,7 @@ void Biblio::save() const{
        {
            SmartPtr li= *it;
            inp->writeStartElement("Elemento");
-           CD* cd=dynamic_cast<CD*>((*it).getItem());
+           const CD* cd=dynamic_cast<const CD*>((*it).getItem());
            if(cd)
            {
               inp->writeAttribute("tipo","CD");
@@ -96,7 +96,7 @@ void Biblio::save() const{
            }
            else
            {
-              DVD* dvd=dynamic_cast<DVD*>((*it).getItem());
+              const DVD* dvd=dynamic_cast<const DVD*>((*it).getItem());
               if(dvd){
                   inp->writeAttribute("tipo","DVD");
                   inp->writeTextElement("Titolo", QString::fromStdString(dvd->getTitolo()));
@@ -107,7 +107,7 @@ void Biblio::save() const{
               }
               else
               {
-                Libro* lib=dynamic_cast<Libro*>((*it).getItem());
+                const Libro* lib=dynamic_cast<const Libro*>((*it).getItem());
                 if(lib){
                   inp->writeAttribute("tipo", "Libro");
                   inp->writeTextElement("Titolo", QString::fromStdString(lib->getTitolo()));
@@ -118,7 +118,7 @@ void Biblio::save() const{
                 }
                 else
                 {
-                    VHS* vhs=dynamic_cast<VHS*>((*it).getItem());
+                    const VHS* vhs=dynamic_cast<const VHS*>((*it).getItem());
                     if(vhs){
                         inp->writeAttribute("tipo","VHS");
                         inp->writeTextElement("Titolo", QString::fromStdString(vhs->getTitolo()));

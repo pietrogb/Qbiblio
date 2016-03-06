@@ -19,6 +19,7 @@ public:
   LibraryItem* operator->() const;
   LibraryItem& operator*() const;
   LibraryItem* getItem();
+  LibraryItem* getItem() const;
 };
 
 #endif

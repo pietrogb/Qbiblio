@@ -2,9 +2,9 @@ g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB
 View/trova_elemento.cpp: In constructor ‘Trova_Elemento::Trova_Elemento(QWidget*, Biblio*)’:
 
 
-Model/container.h: /Biblio.h: /Biblio.cpp: Cambiare il metodo 'remove' in Container, Biblio; aggiornare myWidget in modo che dia un messaggio d'errore se l'oggetto non viene cancellato - copiare dal metodo save() o load()
+Model/mywidget.cpp: Cambiare il metodo 'remove' in ; aggiornare myWidget in modo che dia un messaggio d'errore se l'oggetto non viene cancellato - copiare dal metodo save() o load()
 per il messaggio;
 
-View/trova_elemento.cpp: spostare la lettura della stringa dell'autore/artista/regista nelle sezioni appropriate.
-
 View/mywidget.cpp: inserire sezioni per CD, DVD, VHS, Libri in modo da rappresentare la libreria in maniera ordinata! [wrap con qualche cosa]
+
+View/mywidget.cpp: Spostare i tasti in alto

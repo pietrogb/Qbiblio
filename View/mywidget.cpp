@@ -9,7 +9,6 @@
 #include <QString>
 
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
-
   setWindowTitle("Programmazione ad Oggetti - Progetto qBiblio - 2016");
   monitorWidth = QApplication::desktop()->width();
   monitorHeight = QApplication::desktop()->height();
@@ -22,6 +21,7 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   int w_border = monitorWidth*0.9 - 100;
 
   //Catalogo CD
+  qgb_CD = new QGroupBox(this);
   tableWidget_CD = new QTableWidget(this);
 
   tableWidget_CD->setColumnCount(5); //prima: 9
@@ -139,29 +139,39 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
 
   QVBoxLayout* verticalLayout = new QVBoxLayout(this);
 
-  verticalLayout->setSpacing(5); //old: 3
+  verticalLayout->setSpacing(2); //old: 3
   verticalLayout->setContentsMargins(5, 5, 5, 5);
 
-  verticalLayout->addWidget(tableWidget_Libri);
-  verticalLayout->addWidget(tableWidget_CD);
-  verticalLayout->addWidget(tableWidget_DVD);
-  verticalLayout->addWidget(tableWidget_VHS);
+//  verticalLayout->addWidget(tableWidget_Libri);
+//  verticalLayout->addWidget(tableWidget_CD);
+//  verticalLayout->addWidget(tableWidget_DVD);
+//  verticalLayout->addWidget(tableWidget_VHS);
 
   gridLayout = new QGridLayout();
   gridLayout->setSpacing(5);
 
-  gridLayout->addWidget(qpb_gestisci_CD,0, 0, 1, 1);
+  gridLayout->addWidget(qpb_gestisci_CD, 0, 0, 1, 1);
   gridLayout->addWidget(qpb_gestisci_DVD,0, 1, 1, 1);
   gridLayout->addWidget(qpb_gestisci_VHS,0, 2, 1, 1);
   gridLayout->addWidget(qpb_gestisci_Libro,0, 3, 1, 1);
-  gridLayout->addWidget(qpb_find_e, 0, 4, 0, 1);
+  gridLayout->addWidget(qpb_find_e, 0, 4, 1, 1);
 
   horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
   gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
 
-  gridLayout->addWidget(qpb_quit, 1, 5, 1, 1);
+  gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
 
-  verticalLayout->addLayout(gridLayout);
+  verticalLayout->addSpacing(5);
+  verticalLayout->addLayout(gridLayout, 0); //prec=0;
+  verticalLayout->addSpacing(5);
+
+  verticalLayout->addWidget(tableWidget_Libri,1);
+  verticalLayout->addSpacing(2);
+  verticalLayout->addWidget(tableWidget_CD,1);
+  verticalLayout->addSpacing(2);
+  verticalLayout->addWidget(tableWidget_DVD,1);
+  verticalLayout->addSpacing(2);
+  verticalLayout->addWidget(tableWidget_VHS,1);
 
   connect(qpb_quit, SIGNAL(clicked()), qApp, SLOT(quit()));
   connect(qpb_gestisci_CD, SIGNAL(clicked()), this, SLOT(slotGestioneCdQDialog()));
@@ -190,7 +200,12 @@ void MyWidget::slotInsertCD(){
 
 void MyWidget::slotRemoveCD(){
   SmartPtr del = mCd->slotNewCD();
-  bib.Remove(del);
+  bool pres=bib.Remove(del);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il CD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mCd->close();
@@ -224,7 +239,12 @@ void MyWidget::slotInsertDVD(){
 
 void MyWidget::slotRemoveDVD(){
   SmartPtr del = mDvd->slotNewDVD();
-  bib.Remove(del);
+  bool pres=bib.Remove(del);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il CD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mDvd->close();
@@ -258,7 +278,12 @@ void MyWidget::slotInsertVHS(){
 
 void MyWidget::slotRemoveVHS(){
   SmartPtr del = mVHS->slotNewVHS();
-  bib.Remove(del);
+  bool pres = bib.Remove(del);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il CD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mVHS->close();
@@ -292,7 +317,12 @@ void MyWidget::slotInsertLibro(){
 
 void MyWidget::slotRemoveLibro(){
   SmartPtr del = mLibro->slotNewLibro();
-  bib.Remove(del);
+  bool pres=bib.Remove(del);
+  if(!pres){
+      QMessageBox err;
+      err.setText("Il CD richiesto non è presente");
+      err.exec();
+  }
   bib.save();
   updateTableResult();
   mLibro->close();

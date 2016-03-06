@@ -43,7 +43,7 @@ public:
 
     bool Replace(const SmartPtr&, const SmartPtr&);
 
-    LibraryItem* getItem(int);
+    LibraryItem* getItem(int) const;
 
     Container<SmartPtr> findItem(const string&) const;
 

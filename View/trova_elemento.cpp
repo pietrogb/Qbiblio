@@ -112,7 +112,7 @@ void Trova_Elemento::slot_pushButton_search() {
     QString type;
     QString titolo(QString::fromStdString((*it).getItem()->getTitolo()));
     QString genere(QString::fromStdString((*it).getItem()->getGenere()));
-    CD* cd=dynamic_cast<CD*>((*it).getItem());
+    const CD* cd=dynamic_cast<const CD*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_CD->isChecked()) && cd){
         if(checkBox_titolo->isChecked()){
             QString titolo_f=lineEdit_titolo->text();
@@ -125,7 +125,7 @@ void Trova_Elemento::slot_pushButton_search() {
         }
         if(checkBox_genere->isChecked()){
             QString genere_f=lineEdit_genere->text();
-            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){
             type="CD";
@@ -137,7 +137,7 @@ void Trova_Elemento::slot_pushButton_search() {
             strRisultato.prepend(" | Artista: ");
         }
     }
-    Libro* lib=dynamic_cast<Libro*>((*it).getItem());
+    const Libro* lib=dynamic_cast<const Libro*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_Libri->isChecked()) && lib){
         if(checkBox_titolo->isChecked()){
             QString titolo_f=lineEdit_titolo->text();
@@ -150,7 +150,7 @@ void Trova_Elemento::slot_pushButton_search() {
         }
         if(checkBox_genere->isChecked()){
             QString genere_f=lineEdit_genere->text();
-            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
             type="Libro";
@@ -162,7 +162,7 @@ void Trova_Elemento::slot_pushButton_search() {
             strRisultato.prepend(" | Autore: ");
         }
     }
-    DVD* dvd=dynamic_cast<DVD*>((*it).getItem());
+    const DVD* dvd=dynamic_cast<const DVD*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_DVD->isChecked()) && dvd){
         if(checkBox_titolo->isChecked()){
             QString titolo_f=lineEdit_titolo->text();
@@ -175,7 +175,7 @@ void Trova_Elemento::slot_pushButton_search() {
         }
         if(checkBox_genere->isChecked()){
             QString genere_f=lineEdit_genere->text();
-            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
             type="DVD";
@@ -187,8 +187,8 @@ void Trova_Elemento::slot_pushButton_search() {
             strRisultato.prepend(" | Regista: ");
         }
     }
-    VHS* vhs=dynamic_cast<VHS*>((*it).getItem());
-    if((radioButton_all->isChecked() || radioButton_DVD->isChecked()) && vhs){
+    const VHS* vhs=dynamic_cast<const VHS*>((*it).getItem());
+    if((radioButton_all->isChecked() || radioButton_VHS->isChecked()) && vhs){
         if(checkBox_titolo->isChecked()){
             QString titolo_f=lineEdit_titolo->text();
             toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
@@ -200,7 +200,7 @@ void Trova_Elemento::slot_pushButton_search() {
         }
         if(checkBox_genere->isChecked()){
             QString genere_f=lineEdit_genere->text();
-            toPrint=genere_f.contains(genere_f, Qt::CaseInsensitive);
+            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
         }
         if(toPrint){ //in ordine inverso
             type="VHS";

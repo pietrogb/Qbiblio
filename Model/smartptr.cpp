@@ -32,3 +32,5 @@ LibraryItem* SmartPtr::operator->() const {return li;}
 LibraryItem& SmartPtr::operator*() const {return *li;}
 
 LibraryItem* SmartPtr::getItem() {return li;}
+
+LibraryItem* SmartPtr::getItem() const {return li->clone();}

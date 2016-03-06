@@ -67,6 +67,7 @@
 					\item operatore d'uguaglianza e disuguaglianza;
 					\item operatori d'indirezione ed indicizzazione;
 					\item operator ++ prefisso, postfisso;
+					\item operator* per ottenere il riferimento all'oggetto puntato.
 					%\item metodo \textit{getPunt} per ottenere il puntatore all'oggetto \textbf{ContainerItem}.
 				\end{itemize}
 			}
@@ -80,6 +81,7 @@
 					\item operator ++ prefisso, postfisso;
 					\item operatori d'indirezione ed indicizzazione;
 					\item convertitore a \textbf{Iterator};
+					\item operator* per ottenere un riferimento costante all'oggetto puntato.
 					%\item metodo \textit{getPunt} per ottenere il puntatore all'oggetto \textbf{ContainerItem}.
 				\end{itemize}
 			}
@@ -95,8 +97,8 @@
 			\end{itemize}
 			Sono pubblici:
 			\begin{itemize}\itemsep=0.3pt
-				\item metodi \textit{begin}, \textit{end}, che rispettivamente ritornano l'iteratore al primo nodo della lista ed un iteratore che punta ad un nodo vuoto (come quando si sta scorrendo la lista e non si è ancora arrivati al past-the-end);
-				\item l'operatore di dereferenziazione che restituisce un riferimento all'oggetto puntato da un'iteratore;
+				\item metodi \textit{begin}, \textit{end}, che rispettivamente ritornano l'iteratore al primo nodo della lista ed un iteratore che punta ad un nodo vuoto (come quando si sta scorrendo la lista e non si è ancora arrivati al past-the-end); sono disponibili metodi equivalenti per ritornare gli equivalenti iteratori costanti;
+				\item l'operatore di dereferenziazione che restituisce un riferimento all'oggetto puntato da un iteratore o iteratore costante;
 				\item un costruttore di default;
 				\item il costruttore di copia (profonda);
 				\item l'operatore d'assegnazione (profonda);

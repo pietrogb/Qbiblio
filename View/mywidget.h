@@ -12,6 +12,7 @@
 #include <QTableWidget>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QGroupBox>
 
 #include "../Model/biblio.h"
 
@@ -48,6 +49,10 @@ private:
   QSpacerItem* horizontalSpacer;
   QVBoxLayout* verticalLayout;
   QGridLayout* gridLayout;
+  QGroupBox* qgb_CD;
+  QGroupBox* qgb_DVD;
+  QGroupBox* qgb_VHS;
+  QGroupBox* qgb_Libri;
 
   Gestione_CD* mCd;
   Gestione_DVD* mDvd;
@@ -56,24 +61,24 @@ private:
   Trova_Elemento* t_el;
 
 public slots:
-	void slotGestioneCdQDialog();
-	void slotGestioneDvdQDialog();
-	void slotGestioneVhsQDialog();
-	void slotGestioneLibroQDialog();
-  void slotFindItemQDialog();
-  void slotInsertCD();
-  void slotInsertDVD();
-  void slotInsertVHS();
-  void slotInsertLibro();
-  void slotRemoveCD();
-  void slotRemoveDVD();
-  void slotRemoveVHS();
-  void slotRemoveLibro();
-  void slotReplaceCD();
-  void slotReplaceDVD();
-  void slotReplaceVHS();
-  void slotReplaceLibro();
-  void updateTableResult();
+    void slotGestioneCdQDialog();
+    void slotGestioneDvdQDialog();
+    void slotGestioneVhsQDialog();
+    void slotGestioneLibroQDialog();
+    void slotFindItemQDialog();
+    void slotInsertCD();
+    void slotInsertDVD();
+    void slotInsertVHS();
+    void slotInsertLibro();
+    void slotRemoveCD();
+    void slotRemoveDVD();
+    void slotRemoveVHS();
+    void slotRemoveLibro();
+    void slotReplaceCD();
+    void slotReplaceDVD();
+    void slotReplaceVHS();
+    void slotReplaceLibro();
+    void updateTableResult();
 };
 
 #endif

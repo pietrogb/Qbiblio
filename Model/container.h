@@ -68,7 +68,7 @@ public:
     //dichiarazione di amicizia
     friend class Container<T>;
   private:
-    Container<T>::ContainerItem* ptr; //ContainerItem puntato dal const_iterator
+    const Container<T>::ContainerItem* ptr; //ContainerItem puntato dal const_iterator
   public:
     //costruttore di default
     const_Iterator();
@@ -83,7 +83,7 @@ public:
     //operator ++ postfisso
     const_Iterator operator++(int);
     //metodo per ottenere il puntatore
-    T& operator*() const;
+    const T& operator*() const;
   };
   //metodi di Iterator
   Iterator begin();
@@ -256,7 +256,7 @@ typename Container<T>::const_Iterator Container<T>::const_Iterator::operator++(i
 
 //indirezione
 template<class T>
-T& Container<T>::const_Iterator::operator*() const{
+const T& Container<T>::const_Iterator::operator*() const{
   return ptr->info;
 }
 
@@ -369,22 +369,28 @@ void Container<T>::insert(const T& value) {
 
 //rimozione elemento
 template<class T>
-bool Container<T>::remove(const T & value) {
+bool Container<T>::remove(const T & t){
   bool presente=false;
-  ContainerItem* p = first;
-  ContainerItem* prec = 0;
-  while(p && (p->info != value)){
-    prec = p;
-    p = p->next;
+  ContainerItem* aux=first;
+  ContainerItem* prec=0;
+  while(aux && !(aux->info ==t)){
+    prec=aux;
+    aux=aux->next;
   }
-  if(p){
-    if(!prec)
-      first = p->next;
-    else
-      prec->next = p->next;
+  if(aux){
+    {
+      if(!prec){
+        first=aux->next;
+        aux->next=0;
+      }
+      else{
+        prec->next=aux->next;
+        aux->next=0;
+      }
+    }
+    delete aux;
+    presente=true;
   }
-  p->next=0;
-  delete p;
   return presente;
 }
 
