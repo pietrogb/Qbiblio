@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}ContainerItem}{4}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Iterator}{5}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}const\_Iterator}{5}{subsubsection.2.2.3}
-\contentsline {subsection}{\numberline {2.3}Classe Puntatore Smart}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}Classe SmartPtr}{6}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Classe Biblio}{6}{subsection.2.4}
 \contentsline {section}{\numberline {3}Classi Grafiche}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}MainWindow}{7}{subsection.3.1}

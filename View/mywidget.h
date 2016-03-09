@@ -16,7 +16,7 @@
 
 #include "../Model/biblio.h"
 
-#include "../View/gestione_libro.h"
+#include "gestione_libro.h"
 #include "gestione_cd.h"
 #include "gestione_dvd.h"
 #include "gestione_vhs.h"
@@ -49,6 +49,7 @@ private:
   QSpacerItem* horizontalSpacer;
   QVBoxLayout* verticalLayout;
   QGridLayout* gridLayout;
+  QGroupBox* qgb_Menu;
   QGroupBox* qgb_CD;
   QGroupBox* qgb_DVD;
   QGroupBox* qgb_VHS;
@@ -59,6 +60,13 @@ private:
   Gestione_VHS* mVHS;
   Gestione_Libro* mLibro;
   Trova_Elemento* t_el;
+
+  void createMenuGroupBox();
+  void createLibriGroupBox();
+  void createCdGroupBox();
+  void createDvdGroupBox();
+  void createVhsGroupBox();
+  void setWidget();
 
 public slots:
     void slotGestioneCdQDialog();

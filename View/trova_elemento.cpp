@@ -61,7 +61,7 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
   gridLayout_topRight = new QGridLayout();
   gridLayout_topRight->setSpacing(2);
 
-  label_info_filter = new QLabel("Filtro:");
+  label_info_filter = new QLabel("Tipo di materiale:");
   gridLayout_topRight->addWidget(label_info_filter,0,0,1,1);
 
   radioButton_all = new QRadioButton("Tutti");

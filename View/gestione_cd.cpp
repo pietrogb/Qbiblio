@@ -8,40 +8,9 @@ Gestione_CD::Gestione_CD(QWidget* parent) : QDialog(parent) {
   qpb_remove = new QPushButton("Rimuovi");
   qpb_replace = new QPushButton("Sostituisci");
 
-  qpb_insert->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
-  qpb_remove->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
-  qpb_replace->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
-
-/*
-    QPushButton* qpb_insert;
-    QPushButton* qpb_remove;
-    QPushButton* qpb_replace;
-    QPushButton* qpb_replace_confirm;
-    QPushButton* qpb_close;
-
-    QLabel* ql_titolo;
-    QLabel* ql_titolo_r;
-    QLabel* ql_genere;
-    QLabel* ql_genere_r;
-    QLabel* ql_artista;
-    QLabel* ql_artista_r;
-    QLabel* ql_annoUscita;
-    QLabel* ql_annoUscita_r;
-    QLabel* ql_nDischi;
-    QLabel* ql_nDischi_r;
-
-    QLineEdit* qle_titolo;
-    QLineEdit* qle_titolo_r;
-    QLineEdit* qle_genere;
-    QLineEdit* qle_genere_r;
-    QLineEdit* qle_artista;
-    QLineEdit* qle_artista_r;
-    QSpinBox* qsb_annoUscita;
-    QSpinBox* qsb_annoUscita_r;
-    QLineEdit* qle_nDischi;
-    QLineEdit* qle_nDischi_r;
-*/
-
+  qpb_insert->setStyleSheet("text-align: center;");
+  qpb_remove->setStyleSheet("text-align: center;");
+  qpb_replace->setStyleSheet("text-align: center;");
 
   ql_titolo = new QLabel("Titolo");
   ql_genere = new QLabel("Genere");
@@ -116,7 +85,6 @@ void Gestione_CD::slotReplaceCD(){
   qsb_annoUscita_r->setMinimum(0);
   qsb_annoUscita_r->setMaximum(2100);
   qsb_annoUscita_r->setValue(2016);
-
   qsb_nDischi_r->setMinimum(1);
   qsb_nDischi_r->setValue(1);
 
@@ -133,11 +101,10 @@ void Gestione_CD::slotReplaceCD(){
 
 
   qpb_replace_confirm = new QPushButton("Conferma");
+  qpb_replace_confirm->setStyleSheet("text-align: center;");
 
-  qpb_replace_confirm->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
   qpb_close = new QPushButton("Chiudi");
-
-  qpb_close->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
+  qpb_close->setStyleSheet("text-align: center;");
 
   QHBoxLayout* buttonLayout_control = new QHBoxLayout;
   buttonLayout_control->addWidget(qpb_replace_confirm);

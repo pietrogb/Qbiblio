@@ -11,44 +11,6 @@
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   setWidget();
 
-  /*
-  qpb_gestisci_CD = new QPushButton("Gestione CD");
-  qpb_gestisci_DVD = new QPushButton("Gestione DVD");
-  qpb_gestisci_VHS = new QPushButton("Gestione VHS");
-  qpb_gestisci_Libro = new QPushButton("Gestione Libro");
-  qpb_find_e = new QPushButton("Cerca Elemento");
-  qpb_quit = new QPushButton("Chiudi");
-
-  qpb_gestisci_CD->setStyleSheet("text-align: center; padding-left: 10px; padding-right: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_DVD->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_VHS->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_Libro->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_find_e->setStyleSheet("text-align: center; padding-left: 10px; width: 140px; height: 25px;");
-  qpb_quit->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-
-
-  gridLayout = new QGridLayout();
-  gridLayout->setSpacing(5);
-  gridLayout->addWidget(qpb_gestisci_CD, 0, 0, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_DVD,0, 1, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_VHS,0, 2, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_Libro,0, 3, 1, 1);
-  gridLayout->addWidget(qpb_find_e, 0, 4, 1, 1);
-
-  horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum); //Spacer pulsante Trova
-//  horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-  gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
-
-  gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
-
-  connect(qpb_quit, SIGNAL(clicked()), qApp, SLOT(quit()));
-  connect(qpb_gestisci_CD, SIGNAL(clicked()), this, SLOT(slotGestioneCdQDialog()));
-  connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
-  connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
-  connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
-  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));*/
-
   //Creazione tabelle
   createMenuGroupBox();
   createCdGroupBox();
@@ -75,7 +37,7 @@ void MyWidget::setWidget(){
     monitorHeight = QApplication::desktop()->height();
 
     resize(monitorWidth*0.97, monitorHeight*0.95);
-
+    
     adjustSize();
     this->move(QApplication::desktop()->screen()->rect().center() - this->rect().center());
 }
@@ -83,7 +45,6 @@ void MyWidget::setWidget(){
 /////////////Menu
 void MyWidget::createMenuGroupBox(){
     qgb_Menu = new QGroupBox(tr("Operazioni"));
-
 
     qpb_gestisci_CD = new QPushButton("Gestisci CD");
     qpb_gestisci_DVD = new QPushButton("Gestisci DVD");

@@ -1,6 +1,0 @@
-g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I. -IView -IModel -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtXml -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o trova_elemento.o View/trova_elemento.cpp
-View/trova_elemento.cpp: In constructor ‘Trova_Elemento::Trova_Elemento(QWidget*, Biblio*)’:
-
-View/mywidget.cpp: inserire sezioni per CD, DVD, VHS, Libri in modo da rappresentare la libreria in maniera ordinata! [wrap con qualche cosa]
-
-Distruttori: Controllare

@@ -8,9 +8,9 @@ Gestione_VHS::Gestione_VHS(QWidget* parent) : QDialog(parent) {
   qpb_remove = new QPushButton("Rimuovi");
   qpb_replace = new QPushButton("Sostituisci");
 
-  qpb_insert->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
-  qpb_remove->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
-  qpb_replace->setStyleSheet("text-align: left; padding-left: 5px; width: 80px; height: 25px;");
+  qpb_insert->setStyleSheet("text-align: center;");
+  qpb_remove->setStyleSheet("text-align: center;");
+  qpb_replace->setStyleSheet("text-align: center;");
 
 
   ql_titolo = new QLabel("Titolo");
@@ -92,11 +92,10 @@ void Gestione_VHS::slotReplaceVHS(){
   gLayout->addWidget(qde_dataUscita_r, 9, 1);
 
   qpb_replace_confirm = new QPushButton("Conferma");
+  qpb_replace_confirm->setStyleSheet("text-align: center;");
 
-  qpb_replace_confirm->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
   qpb_close = new QPushButton("Chiudi");
-
-  qpb_close->setStyleSheet("text-align: left; padding-left: 5px; width: 70px; height: 25px;");
+  qpb_close->setStyleSheet("text-align: center;");
 
   QHBoxLayout* buttonLayout_control = new QHBoxLayout;
   buttonLayout_control->addWidget(qpb_replace_confirm);
