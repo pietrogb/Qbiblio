@@ -34,10 +34,11 @@
 		Un oggetto di \textbf{QWidget} viene creato dal main senza parent, costruendo così un'\textit{indipendent window}. \\
 		Questa classe funge da layout manager, contiene 5 groupbox al cui interno sono contenute le principali operazioni e funzionalita` disponibili, divise nel modo seguente:
 	\begin{itemize}\itemsep=0.5pt
-		\item \textit{qgb_menu} rappresenta la groupbox in cui sono racchiusi i pulsanti:
-			\textit{Gestione CD, Gestione DVD, Gestione Libri, Gestione VHS, Trova Elemento, Chiudi}; viene generata dalla funzione \textit{createMenuGroupBox()}
-		\item \textit{qgb_CD}
+		\item \textit{qgb\_menu} rappresenta la groupbox in cui sono racchiusi i pulsanti:
+			\textit{Gestione CD, Gestione DVD, Gestione Libri, Gestione VHS, Trova Elemento, Chiudi}.
+		\item \textit{qgb\_CD, qgb\_Libri, qgb\_DVD, qgb\_VHS}, in cui sono racchiuse le tabelle che rappresentano - rispettivamente - i CD, Libri, DVD e VHS presenti nella bibioteca;
 	\end{itemize}
-	Queste gruopbox vengono generate dalle funzioni
+	Ho scelto di usare le groupboxes per la possibilita` di inserire un frame ed un titolo attorno alle tabelle.
+	La creazione di una \textbf{MyWidget} provoca la creazione delle 5 groupboxes mediante le funzioni \textit{}
 	}
 }
