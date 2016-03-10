@@ -8,7 +8,7 @@
 			\caption{Gerarchia delle classi}
 		\end{figure} 
 		
-		La classe \textbf{LibraryItem} rappresenta un oggetto generico inserito nella libreria, per questo motivo ho scelto di renderla polimorfa ed astratta: non è possibile dichiarare oggetti di questa classe. All'interno di questa classe sono memorizzati gli attributi comuni a tutti gli oggetti della gerarchia: \textit{titolo,genere}, entrambi di tipo QString. \\
+		La classe \textbf{LibraryItem} rappresenta un oggetto generico inserito nella libreria; per questo motivo ho scelto di renderla polimorfa ed astratta: non è possibile dichiarare oggetti di questa classe. All'interno di questa classe sono memorizzati gli attributi comuni a tutti gli oggetti della gerarchia: \textit{titolo,genere}, entrambi di tipo string. \\
 		Per questa classe e per le altre classi nella gerarchia verranno resi disponibili:
 		\begin{itemize}\itemsep=0.5pt
 			\item Un costruttore di defalut ed un costruttore per i campi dati della classe;
@@ -16,6 +16,7 @@
 			\item Un metodo \textit{clone} che restituisce il puntatore ad un copia all'oggetto su cui viene invocato;
 			\item Un operatore di uguaglianza ed uno di disuguaglianza;
 			\item Metodi \textbf{get} che restituiscono una copia dei campi dati, per ogni campo dati richiesto.
+%			\item Un metodo \texit{search} per effettuare la ricerca di un termine.
 		\end{itemize}
 			Le classi  \textbf{Libro, CD, Film} sono classi derivate direttamente dalla classe base \textbf{Utente}; sono tutte concrete, a differenza di \textbf{Film},  polimorfa ed astratta come \textbf{LibraryItem}. \\
 			Le classi \textbf{DVD, VHS} sono classi concrete derivate da \textbf{Film}. \\
@@ -23,30 +24,33 @@
 			\begin{itemize}\itemsep=0.5pt
 				\item La classe \textbf{Libro} contiene:
 				\begin{itemize}\itemsep=0.5pt
-					\item Un \textit{autore}, memorizzato tramite un QString;
+					\item Un \textit{autore}, memorizzato tramite uno string;
 					\item Un \textit{anno di uscita}, memorizzato tramite un intero;
-					\item Un \textit{editore}, memorizzato tramite un QString.
+					\item Un \textit{editore}, memorizzato tramite uno string;
+					\item La definizione dei metodi viruali definiti nella classe  \textbf{LibraryItem}.
 				\end{itemize}
 				\item La classe \textbf{Film} contiene:
 				\begin{itemize}\itemsep=0.5pt
-					\item Un \textit{regista}, memorizzato tramite un QString;
+					\item Un \textit{regista}, memorizzato tramite uno string;
 					\item Una \textit{durata} in minuti, memorizzata tramite un intero;
-					\item Una \textit{data d'uscita}, memorizzata tramite un QDate.
+					\item Una \textit{data d'uscita}, memorizzata tramite un QDate;
+					\item La definizione dei metodi viruali definiti nella classe  \textbf{LibraryItem}.
 					%\item Un insieme di attori \textit{attori}, memorizzato tramite un QVector di QString.
 				\end{itemize}
 				\item La classe \textbf{CD}  contiene:
 				\begin{itemize}\itemsep=0.5pt
-					\item Un \textit{artista}, memorizzato tramite un QString;
+					\item Un \textit{artista}, memorizzato tramite uno string;
 					\item Un \textit{anno di uscita}, memorizzato tramite un intero;
-					\item Un \textit{numero di dischi}, memorizzato tramite un intero.
+					\item Un \textit{numero di dischi}, memorizzato tramite un intero;
+					\item La definizione dei metodi viruali definiti nella classe  \textbf{LibraryItem}.
 					%\item Un insieme di \textit{tracce}, memorizzato tramite un QVector di QString;
 				\end{itemize}
-				\item Le classi \textbf{CD, DVD} sono implementazioni di \textbf{Film}; non contengono ulteriori campi dati. Per ognuna sono resi disponibili i costruttori, un distruttore, il metodo clone, operator == e !=.
+				\item Le classi \textbf{CD, DVD} sono implementazioni di \textbf{Film}; non contengono ulteriori campi dati. Rendono disponibili costruttori, un distruttore, il metodo clone, operator == e != che richiamano quelli della superclasse \textbf{Film}.
 			\end{itemize}
 		}
 		\subsection{Classe contenitore}{
 			Per memorizzare gli oggetti della biblioteca è stato creato il template di classe \textbf{Contenitore}. \\
-			La classe è amica di \textit{operator<<}, della classe \textbf{iterator} e della classe \textit{const\_iterator}; all'interno di \textbf{Contenitore} è dichiarata \underline{privata} la classe \textbf{ContainerItem}; sono invece \underline{pubbliche} le classi \textbf{Iterator}, \textbf{const\_Iterator}.\\
+			La classe è dichiarata amica di \textit{operator<<}, delle classi \textbf{iterator} e  \textit{const\_iterator}; all'interno è dichiarata \underline{privata} la classe \textbf{ContainerItem}; sono invece \underline{pubbliche} le classi \textbf{Iterator}, \textbf{const\_Iterator}.\\
 			\subsubsection{ContainerItem}{
 				La classe è caratterizzata da:
 				\begin{itemize}\itemsep=0.5pt
@@ -54,9 +58,9 @@
 					\item puntatore all'oggetto \textbf{ContainerItem} successivo;
 					\item il costruttore di default ed il costruttore a 2 parametri;
 					\item operatore d'uguaglianza e disuguaglianza;
-					\item il distruttore di default.
+%					\item il distruttore di default.
 				\end{itemize}
-				Essendo la classe racchiusa nella parte privata, tutti i campi dati ed i metodi sono stati dichiarati pubblici.
+				Essendo la classe racchiusa nella parte privata,  metodi e campi dati sono stati dichiarati pubblici.
 			}
 			\subsubsection{Iterator}{
 				La classe è caratterizzata da:
@@ -65,9 +69,9 @@
 					\item un puntatore a \textbf{ContainerItem}, dichiarato \underline{privato};
 					\item costruttore di default;
 					\item operatore d'uguaglianza e disuguaglianza;
-					\item operatori d'indirezione ed indicizzazione;
+					\item operatori d'indirezione ed indicizzazione; %solo indirezione/dereferenziazione
 					\item operator ++ prefisso, postfisso;
-					\item operator* per ottenere il riferimento all'oggetto puntato.
+					\item operator* che restituisce copia dell'oggetto puntato.
 					%\item metodo \textit{getPunt} per ottenere il puntatore all'oggetto \textbf{ContainerItem}.
 				\end{itemize}
 			}
@@ -75,21 +79,19 @@
 				La classe è caratterizzata da:
 				\begin{itemize}\itemsep=0.5pt
 					\item la dichiarazione di amicizia con la classe \textbf{Container}
-					\item un puntatore a \textbf{ContainerItem}, dichiarato \underline{privato};
+					\item un puntatore a \textbf{const ContainerItem}, dichiarato \underline{privato};
 					\item costruttore di default;
+					\item convertitore di tipo da \textbf{Iterator};
 					\item operatore d'uguaglianza e disuguaglianza;
 					\item operator ++ prefisso, postfisso;
-					\item operatori d'indirezione ed indicizzazione;
-					\item convertitore a \textbf{Iterator};
-					\item operator* per ottenere un riferimento costante all'oggetto puntato.
-					%\item metodo \textit{getPunt} per ottenere il puntatore all'oggetto \textbf{ContainerItem}.
+					\item operatore di dereferenziazione per ottenere un riferimento costante all'oggetto puntato, marcato costante.
 				\end{itemize}
 			}
 			\subsubsection*{Metodi di Container}{
 		Sono dichiarati privati:
 			\begin{itemize}\itemsep=0.3pt
-				\item un metodo \textit{getInfo} per ottenere copia dell'oggetto \textit{info};
-				\item puntatore al primo \textbf{ContainerItem};
+%				\item un metodo \textit{getInfo} per ottenere copia dell'oggetto \textit{info};
+				\item puntatore al primo elemento \textbf{ContainerItem};
 				\item un metodo dichiarato statico \textit{deepcopy} che fa una copia profonda della lista;
 				\item un metodo dichiarato statico \textit{deepremove} che esegue la distruzione profonda della lista;
 				\item un metodo dichiarato statico \textit{equals} che, dati due puntatori a \textbf{ContainerItem}, l'uguaglianza delle liste puntate.
@@ -97,8 +99,6 @@
 			\end{itemize}
 			Sono pubblici:
 			\begin{itemize}\itemsep=0.3pt
-				\item metodi \textit{begin}, \textit{end}, che rispettivamente ritornano l'iteratore al primo nodo della lista ed un iteratore che punta ad un nodo vuoto (come quando si sta scorrendo la lista e non si è ancora arrivati al past-the-end); sono disponibili metodi equivalenti per ritornare gli equivalenti iteratori costanti;
-				\item l'operatore di dereferenziazione che restituisce un riferimento all'oggetto puntato da un iteratore o iteratore costante;
 				\item un costruttore di default;
 				\item il costruttore di copia (profonda);
 				\item l'operatore d'assegnazione (profonda);
@@ -110,27 +110,30 @@
 				\item metodo \textit{replace} per sostituire un elemento con un altro;
 				\item operatori d'uguaglianza, disuguaglianza;
 				\item metodo \textit{search} che restituisce un nuovo contenitore dove sono memorizzati gli elementi che corrispondono alla ricerca;
-				\item i metodi \textit{load, save} per salvare su file e caricare da file il contenuto della libreria.
+%				\item i metodi \textit{load, save} per salvare su file e caricare da file il contenuto della libreria.
+				\item metodi \textit{begin}, \textit{end}, che rispettivamente ritornano l'iteratore al primo nodo della lista ed un iteratore che punta ad un nodo vuoto (come quando si sta scorrendo la lista e non si è ancora arrivati al past-the-end); sono disponibili metodi equivalenti per ritornare gli equivalenti iteratori costanti;
+				\item l'operatore di dereferenziazione che restituisce l'oggetto puntato da un iteratore; disponibile anche per l'iteratore costante, viene restituito un riferimento costante;
 			\end{itemize}
 			}
 		}
 		\subsection{Classe SmartPtr}{
 			È stata definita una classe di puntatori smart, \textbf{SmartPtr}, che ha come campo dati \underline{privato} un puntatore ad un oggetto della superclasse \textbf{LibraryItem}. \\
 			I metodi che sono stati resi disponibili per questa classe sono i metodi d'utilità per una classe di puntatori:
-			\textit{costruttore di default e ad un argomento, costruttore di copia}, overloading degli operatori di: \textit{assegnazione, uguaglianza, disuguaglianza, indicizzazione, indirezione; distruttore} di default. Si è infine definito un metodo \textit{getItem} che restituisce copia dell'oggetto puntato.
+			\textit{costruttore di default e ad un argomento, costruttore di copia}, overloading degli operatori di: \textit{assegnazione, uguaglianza, disuguaglianza, indicizzazione, indirezione; distruttore} di default. Si è infine definito un metodo \textit{getItem} che restituisce copia dell'oggetto puntato; ne viene definito anche uno segnato costante.
 		}
 		\subsection{Classe Biblio}{
-			Questa classe serve a concretizzare la classe templetizzata \textbf{Container} con le classi della gerarchia radicata in \textbf{LibaryItem}, rendendo disponibili metodi di utilità che serviranno all'applicazione. Contiene:
+			Questa classe serve a concretizzare la classe templetizzata \textbf{Container} con le classi della gerarchia radicata in \textbf{LibaryItem} utilizzando \textbf{SmartPtr}, rendendo disponibili metodi di utilità che serviranno all'applicazione. Contiene:
 			\begin{itemize}\itemsep=0.5pt
-				\item Un \textbf{Container} di puntatori a \textbf{LibraryItem};
-				\item Un \textit{distruttore} ed un metodo \textit{isEmpty} che dice se non sono presenti elementi nella biblioteca;
+				\item Un \textbf{Container} di puntatori a \textbf{SmartPtr};
+				\item Un \textit{distruttore};
+				\item Un metodo \textit{isEmpty} che dice se non sono presenti elementi nella biblioteca;
 				\item Un  metodo \textit{addItem}, che aggiunge un nuovo elemento alla biblioteca. Restituisce un booleano che indica la presenza di un'uguale opera all'interno della libreria. Sono permesse più copie d'uno stesso elemento.
 				\item Un metodo \textit{removeItem} per togliere un elemento dalla biblioteca;
-				\item Un metodo \textit{getItem} che data una posizione \textit{i}, restituisce l'i-esimo elemento nel \textbf{Container};
-				\item Un metodo \textit{findItem} che data una \textbf{QString}, restituisce tutti gli elementi all'interno della biblioteca che ..
-				\item Il metodo \textit{load} che carica da file il contenuto della biblioteca.
-				\item Il metodo \textit{save} che su file il contenuto della biblioteca, in formato \textbf{XML}.
-				
+				\item Un metodo \textit{getItem} che data una posizione \textit{i}, restituisce un puntatore all'i-esimo elemento nel \textbf{Container};
+				%\item Un metodo \textit{findItem} che data una \textbf{QString}, restituisce tutti gli elementi all'interno della biblioteca che ..
+				\item Il metodo \textit{save} che su file il contenuto della biblioteca, in formato \textbf{XML};
+				\item Il metodo \textit{load} che carica dal file XML il contenuto della biblioteca.
+					Entrambi i metodi segnalano con un messaggio d'errore se non e` stato possibile aprire il file.
 			\end{itemize}
 		}
 	}

@@ -12,7 +12,6 @@ private:
     string regista;
     int durata; //minuti
     QDate dataUscita;
-    //QVector<string> attori;
 public:
     // Film();
     Film(string ="", string ="", string ="", int =0, QDate = QDate::currentDate() );

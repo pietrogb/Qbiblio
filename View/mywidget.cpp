@@ -172,7 +172,8 @@ void MyWidget::createCdGroupBox(){
   tableWidget_CD = new QTableWidget;
   int w_border = (QApplication::desktop()->width())*0.95 - 100;
   tableWidget_CD->setColumnCount(5);
-  tableWidget_CD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+//  tableWidget_CD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+  tableWidget_CD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
   tableWidget_CD->setColumnWidth(1,w_border/100*20);
   tableWidget_CD->setColumnWidth(2,w_border/100*20);
   tableWidget_CD->setColumnWidth(3,w_border/100*20);
@@ -247,7 +248,8 @@ void MyWidget::createDvdGroupBox(){
     tableWidget_DVD = new QTableWidget(this);
     int w_border = (QApplication::desktop()->width())*0.95 - 100;
     tableWidget_DVD->setColumnCount(5);
-    tableWidget_DVD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+//    tableWidget_DVD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
     tableWidget_DVD->setColumnWidth(1,w_border/100*20);
     tableWidget_DVD->setColumnWidth(2,w_border/100*20);
     tableWidget_DVD->setColumnWidth(3,w_border/100*20);
@@ -322,7 +324,8 @@ void MyWidget::createVhsGroupBox(){
 
       int w_border = (QApplication::desktop()->width())*0.95 - 100;
       tableWidget_VHS->setColumnCount(5);
-      tableWidget_VHS->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+//      tableWidget_VHS->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+      tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
       tableWidget_VHS->setColumnWidth(1,w_border/100*20);
       tableWidget_VHS->setColumnWidth(2,w_border/100*20);
       tableWidget_VHS->setColumnWidth(3,w_border/100*20);
@@ -398,7 +401,8 @@ void MyWidget::createLibriGroupBox(){
 
     int w_border = (QApplication::desktop()->width())*0.95 - 100;
     tableWidget_Libri->setColumnCount(5);
-    tableWidget_Libri->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+//    tableWidget_Libri->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
     tableWidget_Libri->setColumnWidth(1,w_border/100*20);
     tableWidget_Libri->setColumnWidth(2,w_border/100*20);
     tableWidget_Libri->setColumnWidth(3,w_border/100*20);

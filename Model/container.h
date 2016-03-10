@@ -61,7 +61,7 @@ public:
     //operator ++ postfisso
     Iterator operator++(int);
     //metodo per ottenere il puntatore
-    T& operator*() const;
+    T& operator*() const; //non dovrebbe essere costante!
   };
   //Classe iteratore_costante
   class const_Iterator {
@@ -85,17 +85,6 @@ public:
     //metodo per ottenere il puntatore
     const T& operator*() const;
   };
-  //metodi di Iterator
-  Iterator begin();
-  Iterator end();
-  //operatore di dereferenziazione/indicizzazione
-  T& operator[](const Iterator &);
-
-  //metodi di const_iterator:
-  const_Iterator begin() const;
-  const_Iterator end() const;
-  const T& operator[](const const_Iterator &) const;
-
   //metodi propri di Container:
   //costruttore di default di Container
   Container();
@@ -118,6 +107,17 @@ public:
   bool replace(const T&, const T&);
   bool operator==(const Container&) const;
   bool operator!=(const Container&) const;
+
+  //metodi di Iterator
+  Iterator begin();
+  Iterator end();
+  //operatore di dereferenziazione/indicizzazione
+  T& operator[](const Iterator &);
+
+  //metodi di const_iterator:
+  const_Iterator begin() const;
+  const_Iterator end() const;
+  const T& operator[](const const_Iterator &) const;
 };
 
 /*

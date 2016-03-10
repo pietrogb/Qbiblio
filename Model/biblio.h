@@ -26,33 +26,19 @@ class Biblio
 {
 public:
     Biblio(const Container<SmartPtr>& = Container<SmartPtr>());
-
     ~Biblio();
-
     bool IsEmpty() const;
-
     int size() const;
-
 //    bool addItem(SmartPtr); //SmartPtr?
-
 //    void removeItem(const string &);
-
     void Insert(const SmartPtr &);
-
     bool Remove(const SmartPtr&);
-
     bool Replace(const SmartPtr&, const SmartPtr&);
-
     LibraryItem* getItem(int) const;
-
     Container<SmartPtr> findItem(const string&) const;
-
     void save() const;
-
     void load();
-
     Container<SmartPtr> getLibrary() const;
-
 private:
     Container<SmartPtr> b;
 };
