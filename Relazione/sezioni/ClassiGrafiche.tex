@@ -8,7 +8,7 @@
 			\end{center}
 	\end{figure}
 	
-	Per questo motivo, è stata creata una classe \textbf{QWidget},
+	Per questo motivo, è stata creata una classe \textbf{QWidget}.
 	\subsection{MainWindow}{
 		Questa è la classe invocata direttamente dal \textbf{main}. L'obiettivo di questa classe è mostrare le operazioni che è possibile eseguire, raggruppandole in base agli oggetti della libreria in modo da semplificare l'utilizzo dell'applicazione.\\
 		Al suo interno è presente:
@@ -32,6 +32,12 @@
 	
 	\subsection{QWidget}{
 		Un oggetto di \textbf{QWidget} viene creato dal main senza parent, costruendo così un'\textit{indipendent window}. \\
-		Questa classe funge da layout manager, contiene un 
+		Questa classe funge da layout manager, contiene 5 groupbox al cui interno sono contenute le principali operazioni e funzionalita` disponibili, divise nel modo seguente:
+	\begin{itemize}\itemsep=0.5pt
+		\item \textit{qgb_menu} rappresenta la groupbox in cui sono racchiusi i pulsanti:
+			\textit{Gestione CD, Gestione DVD, Gestione Libri, Gestione VHS, Trova Elemento, Chiudi}; viene generata dalla funzione \textit{createMenuGroupBox()}
+		\item \textit{qgb_CD}
+	\end{itemize}
+	Queste gruopbox vengono generate dalle funzioni
 	}
 }
