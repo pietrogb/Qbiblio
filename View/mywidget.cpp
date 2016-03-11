@@ -11,44 +11,6 @@
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
   setWidget();
 
-  /*
-  qpb_gestisci_CD = new QPushButton("Gestione CD");
-  qpb_gestisci_DVD = new QPushButton("Gestione DVD");
-  qpb_gestisci_VHS = new QPushButton("Gestione VHS");
-  qpb_gestisci_Libro = new QPushButton("Gestione Libro");
-  qpb_find_e = new QPushButton("Cerca Elemento");
-  qpb_quit = new QPushButton("Chiudi");
-
-  qpb_gestisci_CD->setStyleSheet("text-align: center; padding-left: 10px; padding-right: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_DVD->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_VHS->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_gestisci_Libro->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-  qpb_find_e->setStyleSheet("text-align: center; padding-left: 10px; width: 140px; height: 25px;");
-  qpb_quit->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-
-
-  gridLayout = new QGridLayout();
-  gridLayout->setSpacing(5);
-  gridLayout->addWidget(qpb_gestisci_CD, 0, 0, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_DVD,0, 1, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_VHS,0, 2, 1, 1);
-  gridLayout->addWidget(qpb_gestisci_Libro,0, 3, 1, 1);
-  gridLayout->addWidget(qpb_find_e, 0, 4, 1, 1);
-
-  horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum); //Spacer pulsante Trova
-//  horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-  gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
-
-  gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
-
-  connect(qpb_quit, SIGNAL(clicked()), qApp, SLOT(quit()));
-  connect(qpb_gestisci_CD, SIGNAL(clicked()), this, SLOT(slotGestioneCdQDialog()));
-  connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
-  connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
-  connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
-  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));*/
-
   //Creazione tabelle
   createMenuGroupBox();
   createCdGroupBox();
@@ -70,56 +32,55 @@ MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
 }
 
 void MyWidget::setWidget(){
-    setWindowTitle("Programmazione ad Oggetti - Progetto qBiblio - 2016");
-    monitorWidth = QApplication::desktop()->width();
-    monitorHeight = QApplication::desktop()->height();
+  setWindowTitle("Programmazione ad Oggetti - Progetto qBiblio - 2016");
+  monitorWidth = QApplication::desktop()->width();
+  monitorHeight = QApplication::desktop()->height();
 
-    resize(monitorWidth*0.97, monitorHeight*0.95);
+  resize(monitorWidth*0.97, monitorHeight*0.95);
 
-    adjustSize();
-    this->move(QApplication::desktop()->screen()->rect().center() - this->rect().center());
+  adjustSize();
+  this->move(QApplication::desktop()->screen()->rect().center() - this->rect().center());
 }
 
 /////////////Menu
 void MyWidget::createMenuGroupBox(){
-    qgb_Menu = new QGroupBox(tr("Operazioni"));
+  qgb_Menu = new QGroupBox(tr("Operazioni"));
 
+  qpb_gestisci_CD = new QPushButton("Gestisci CD");
+  qpb_gestisci_DVD = new QPushButton("Gestisci DVD");
+  qpb_gestisci_VHS = new QPushButton("Gestisci VHS");
+  qpb_gestisci_Libro = new QPushButton("Gestisci Libro");
+  qpb_find_e = new QPushButton("Cerca Elemento");
+  qpb_quit = new QPushButton("Chiudi");
 
-    qpb_gestisci_CD = new QPushButton("Gestisci CD");
-    qpb_gestisci_DVD = new QPushButton("Gestisci DVD");
-    qpb_gestisci_VHS = new QPushButton("Gestisci VHS");
-    qpb_gestisci_Libro = new QPushButton("Gestisci Libro");
-    qpb_find_e = new QPushButton("Cerca Elemento");
-    qpb_quit = new QPushButton("Chiudi");
+  qpb_gestisci_CD->setStyleSheet("text-align: center; padding-left: 10px; padding-right: 10px; width: 70px; height: 25px;");
+  qpb_gestisci_DVD->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
+  qpb_gestisci_VHS->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
+  qpb_gestisci_Libro->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
+  qpb_find_e->setStyleSheet("text-align: center; padding-left: 10px; width: 140px; height: 25px;");
+  qpb_quit->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
+  gridLayout = new QGridLayout();
+  gridLayout->setSpacing(5);
+  gridLayout->addWidget(qpb_gestisci_CD, 0, 0, 1, 1);
+  gridLayout->addWidget(qpb_gestisci_DVD,0, 1, 1, 1);
+  gridLayout->addWidget(qpb_gestisci_VHS,0, 2, 1, 1);
+  gridLayout->addWidget(qpb_gestisci_Libro,0, 3, 1, 1);
+  gridLayout->addWidget(qpb_find_e, 0, 4, 1, 1);
 
-    qpb_gestisci_CD->setStyleSheet("text-align: center; padding-left: 10px; padding-right: 10px; width: 70px; height: 25px;");
-    qpb_gestisci_DVD->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-    qpb_gestisci_VHS->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-    qpb_gestisci_Libro->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-    qpb_find_e->setStyleSheet("text-align: center; padding-left: 10px; width: 140px; height: 25px;");
-    qpb_quit->setStyleSheet("text-align: center; padding-left: 10px; width: 70px; height: 25px;");
-    gridLayout = new QGridLayout();
-    gridLayout->setSpacing(5);
-    gridLayout->addWidget(qpb_gestisci_CD, 0, 0, 1, 1);
-    gridLayout->addWidget(qpb_gestisci_DVD,0, 1, 1, 1);
-    gridLayout->addWidget(qpb_gestisci_VHS,0, 2, 1, 1);
-    gridLayout->addWidget(qpb_gestisci_Libro,0, 3, 1, 1);
-    gridLayout->addWidget(qpb_find_e, 0, 4, 1, 1);
+  horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum); //Spacer pulsante Trova
 
-    horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum); //Spacer pulsante Trova
+  gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
 
-    gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
+  gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
 
-    gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
+  connect(qpb_quit, SIGNAL(clicked()), qApp, SLOT(quit()));
+  connect(qpb_gestisci_CD, SIGNAL(clicked()), this, SLOT(slotGestioneCdQDialog()));
+  connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
+  connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
+  connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
+  connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
 
-    connect(qpb_quit, SIGNAL(clicked()), qApp, SLOT(quit()));
-    connect(qpb_gestisci_CD, SIGNAL(clicked()), this, SLOT(slotGestioneCdQDialog()));
-    connect(qpb_gestisci_DVD, SIGNAL(clicked()), this, SLOT(slotGestioneDvdQDialog()));
-    connect(qpb_gestisci_VHS, SIGNAL(clicked()), this, SLOT(slotGestioneVhsQDialog()));
-    connect(qpb_gestisci_Libro, SIGNAL(clicked()), this, SLOT(slotGestioneLibroQDialog()));
-    connect(qpb_find_e, SIGNAL(clicked()), this, SLOT(slotFindItemQDialog()));
-
-    qgb_Menu->setLayout(gridLayout);
+  qgb_Menu->setLayout(gridLayout);
 }
 
 /////////////CD
@@ -143,9 +104,9 @@ void MyWidget::slotRemoveCD(){
   SmartPtr del = mCd->slotNewCD();
   bool pres = bib.Remove(del);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il CD richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il CD richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -157,9 +118,9 @@ void MyWidget::slotReplaceCD(){
   SmartPtr newer = mCd->slotReplaceCompactDisk();
   bool pres = bib.Replace(older, newer);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il CD richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il CD richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -219,9 +180,9 @@ void MyWidget::slotRemoveDVD(){
   SmartPtr del = mDvd->slotNewDVD();
   bool pres=bib.Remove(del);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il DVD richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il DVD richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -233,9 +194,9 @@ void MyWidget::slotReplaceDVD(){
   LibraryItem* newer = mDvd->slotReplaceDigitalVersatileDisk();
   bool pres = bib.Replace(older, newer);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il DVD richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il DVD richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -243,34 +204,34 @@ void MyWidget::slotReplaceDVD(){
 }
 
 void MyWidget::createDvdGroupBox(){
-    qgb_DVD = new QGroupBox(tr("Catalogo DVD"));
-    //Catalogo DVD
-    tableWidget_DVD = new QTableWidget(this);
-    int w_border = (QApplication::desktop()->width())*0.95 - 100;
-    tableWidget_DVD->setColumnCount(5);
-//    tableWidget_DVD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-    tableWidget_DVD->setColumnWidth(1,w_border/100*20);
-    tableWidget_DVD->setColumnWidth(2,w_border/100*20);
-    tableWidget_DVD->setColumnWidth(3,w_border/100*20);
-    tableWidget_DVD->setColumnWidth(4,w_border/100*20);
-    tableWidget_DVD->setColumnWidth(5,w_border/100*20);
+  qgb_DVD = new QGroupBox(tr("Catalogo DVD"));
+  //Catalogo DVD
+  tableWidget_DVD = new QTableWidget(this);
+  int w_border = (QApplication::desktop()->width())*0.95 - 100;
+  tableWidget_DVD->setColumnCount(5);
+//  tableWidget_DVD->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+  tableWidget_DVD->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+  tableWidget_DVD->setColumnWidth(1,w_border/100*20);
+  tableWidget_DVD->setColumnWidth(2,w_border/100*20);
+  tableWidget_DVD->setColumnWidth(3,w_border/100*20);
+  tableWidget_DVD->setColumnWidth(4,w_border/100*20);
+  tableWidget_DVD->setColumnWidth(5,w_border/100*20);
 
-    tableWidget_DVD->verticalHeader()->setDefaultSectionSize(30);
+  tableWidget_DVD->verticalHeader()->setDefaultSectionSize(30);
 
-    tableWidget_DVD->setAlternatingRowColors(true);
+  tableWidget_DVD->setAlternatingRowColors(true);
 
-    tableWidgetDvdHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
-    tableWidget_DVD->setHorizontalHeaderLabels(tableWidgetDvdHeader);
+  tableWidgetDvdHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+  tableWidget_DVD->setHorizontalHeaderLabels(tableWidgetDvdHeader);
 
-    tableWidget_DVD->verticalHeader()->setVisible(false);
+  tableWidget_DVD->verticalHeader()->setVisible(false);
 
-    tableWidget_DVD->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableWidget_DVD->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tableWidget_DVD->setSelectionMode(QAbstractItemView::SingleSelection);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(tableWidget_DVD);
-    qgb_DVD->setLayout(layout);
+  tableWidget_DVD->setEditTriggers(QAbstractItemView::NoEditTriggers);
+  tableWidget_DVD->setSelectionBehavior(QAbstractItemView::SelectRows);
+  tableWidget_DVD->setSelectionMode(QAbstractItemView::SingleSelection);
+  QVBoxLayout *layout = new QVBoxLayout;
+  layout->addWidget(tableWidget_DVD);
+  qgb_DVD->setLayout(layout);
 }
 
 /////////////////VHS
@@ -294,9 +255,9 @@ void MyWidget::slotRemoveVHS(){
   SmartPtr del = mVHS->slotNewVHS();
   bool pres = bib.Remove(del);
   if(!pres){
-      QMessageBox err;
-      err.setText("La VHS richiesta non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("La VHS richiesta non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -308,9 +269,9 @@ void MyWidget::slotReplaceVHS(){
   SmartPtr newer = mVHS->slotReplaceVideoCassetta();
   bool pres = bib.Replace(older, newer);
   if(!pres){
-      QMessageBox err;
-      err.setText("La VHS richiesta non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("La VHS richiesta non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -318,36 +279,35 @@ void MyWidget::slotReplaceVHS(){
 }
 
 void MyWidget::createVhsGroupBox(){
-    qgb_VHS = new QGroupBox(tr("Catalogo VHS"));
-    //Catalogo VHS
-      tableWidget_VHS = new QTableWidget(this);
+  qgb_VHS = new QGroupBox(tr("Catalogo VHS"));
+  //Catalogo VHS
+  tableWidget_VHS = new QTableWidget(this);
 
-      int w_border = (QApplication::desktop()->width())*0.95 - 100;
-      tableWidget_VHS->setColumnCount(5);
-//      tableWidget_VHS->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-      tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-      tableWidget_VHS->setColumnWidth(1,w_border/100*20);
-      tableWidget_VHS->setColumnWidth(2,w_border/100*20);
-      tableWidget_VHS->setColumnWidth(3,w_border/100*20);
-      tableWidget_VHS->setColumnWidth(4,w_border/100*20);
-      tableWidget_VHS->setColumnWidth(5,w_border/100*20);
+  int w_border = (QApplication::desktop()->width())*0.95 - 100;
+  tableWidget_VHS->setColumnCount(5);
+//  tableWidget_VHS->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+  tableWidget_VHS->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+  tableWidget_VHS->setColumnWidth(1,w_border/100*20);
+  tableWidget_VHS->setColumnWidth(2,w_border/100*20);
+  tableWidget_VHS->setColumnWidth(3,w_border/100*20);
+  tableWidget_VHS->setColumnWidth(4,w_border/100*20);
+  tableWidget_VHS->setColumnWidth(5,w_border/100*20);
 
-      tableWidget_VHS->verticalHeader()->setDefaultSectionSize(30);
+  tableWidget_VHS->verticalHeader()->setDefaultSectionSize(30);
 
-      tableWidget_VHS->setAlternatingRowColors(true);
+  tableWidget_VHS->setAlternatingRowColors(true);
 
-      tableWidgetVhsHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
-      tableWidget_VHS->setHorizontalHeaderLabels(tableWidgetVhsHeader);
+  tableWidgetVhsHeader<<"Titolo"<<"Genere"<<"Regista"<<"Data Uscita"<<"Durata";
+  tableWidget_VHS->setHorizontalHeaderLabels(tableWidgetVhsHeader);
 
-      tableWidget_VHS->verticalHeader()->setVisible(false);
+  tableWidget_VHS->verticalHeader()->setVisible(false);
 
-      tableWidget_VHS->setEditTriggers(QAbstractItemView::NoEditTriggers);
-      tableWidget_VHS->setSelectionBehavior(QAbstractItemView::SelectRows);
-      tableWidget_VHS->setSelectionMode(QAbstractItemView::SingleSelection);
-      QVBoxLayout *layout = new QVBoxLayout;
-      layout->addWidget(tableWidget_VHS);
-      qgb_VHS->setLayout(layout);
-
+  tableWidget_VHS->setEditTriggers(QAbstractItemView::NoEditTriggers);
+  tableWidget_VHS->setSelectionBehavior(QAbstractItemView::SelectRows);
+  tableWidget_VHS->setSelectionMode(QAbstractItemView::SingleSelection);
+  QVBoxLayout *layout = new QVBoxLayout;
+  layout->addWidget(tableWidget_VHS);
+  qgb_VHS->setLayout(layout);
 }
 
 ////////////////Libro
@@ -371,9 +331,9 @@ void MyWidget::slotRemoveLibro(){
   SmartPtr del = mLibro->slotNewLibro();
   bool pres = bib.Remove(del);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il libro richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il libro richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -385,9 +345,9 @@ void MyWidget::slotReplaceLibro(){
   SmartPtr newer = mLibro->slotReplaceLibro();
   bool pres = bib.Replace(older, newer);
   if(!pres){
-      QMessageBox err;
-      err.setText("Il libro richiesto non è presente");
-      err.exec();
+    QMessageBox err;
+    err.setText("Il libro richiesto non è presente");
+    err.exec();
   }
   bib.save();
   updateTableResult();
@@ -397,33 +357,33 @@ void MyWidget::slotReplaceLibro(){
 void MyWidget::createLibriGroupBox(){
   qgb_Libri = new QGroupBox(tr("Catalogo Libri"));
   //Catalogo Libri
-    tableWidget_Libri = new QTableWidget(this);
+  tableWidget_Libri = new QTableWidget(this);
 
-    int w_border = (QApplication::desktop()->width())*0.95 - 100;
-    tableWidget_Libri->setColumnCount(5);
-//    tableWidget_Libri->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-    tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
-    tableWidget_Libri->setColumnWidth(1,w_border/100*20);
-    tableWidget_Libri->setColumnWidth(2,w_border/100*20);
-    tableWidget_Libri->setColumnWidth(3,w_border/100*20);
-    tableWidget_Libri->setColumnWidth(4,w_border/100*20);
-    tableWidget_Libri->setColumnWidth(5,w_border/100*20);
+  int w_border = (QApplication::desktop()->width())*0.95 - 100;
+  tableWidget_Libri->setColumnCount(5);
+//  tableWidget_Libri->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+  tableWidget_Libri->horizontalHeader()->setResizeMode(0, QHeaderView::Stretch);
+  tableWidget_Libri->setColumnWidth(1,w_border/100*20);
+  tableWidget_Libri->setColumnWidth(2,w_border/100*20);
+  tableWidget_Libri->setColumnWidth(3,w_border/100*20);
+  tableWidget_Libri->setColumnWidth(4,w_border/100*20);
+  tableWidget_Libri->setColumnWidth(5,w_border/100*20);
 
-    tableWidget_Libri->verticalHeader()->setDefaultSectionSize(30);
+  tableWidget_Libri->verticalHeader()->setDefaultSectionSize(30);
 
-    tableWidget_Libri->setAlternatingRowColors(true);
+  tableWidget_Libri->setAlternatingRowColors(true);
 
-    tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
-    tableWidget_Libri->setHorizontalHeaderLabels(tableWidgetLibriHeader);
+  tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
+  tableWidget_Libri->setHorizontalHeaderLabels(tableWidgetLibriHeader);
 
-    tableWidget_Libri->verticalHeader()->setVisible(false);
+  tableWidget_Libri->verticalHeader()->setVisible(false);
 
-    tableWidget_Libri->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableWidget_Libri->setSelectionBehavior(QAbstractItemView::SelectRows);
-    tableWidget_Libri->setSelectionMode(QAbstractItemView::SingleSelection);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(tableWidget_Libri);
-    qgb_Libri->setLayout(layout);
+  tableWidget_Libri->setEditTriggers(QAbstractItemView::NoEditTriggers);
+  tableWidget_Libri->setSelectionBehavior(QAbstractItemView::SelectRows);
+  tableWidget_Libri->setSelectionMode(QAbstractItemView::SingleSelection);
+  QVBoxLayout *layout = new QVBoxLayout;
+  layout->addWidget(tableWidget_Libri);
+  qgb_Libri->setLayout(layout);
 }
 
 
@@ -450,7 +410,7 @@ void MyWidget::updateTableResult(){
     //Catalogo Libri
     Libro* l = dynamic_cast<Libro*>(bib.getItem(i));
     if(l){
-        //tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
+      //tableWidgetLibriHeader<<"Titolo"<<"Genere"<<"Autore"<<"Anno d'Uscita"<<"Editore";
       tableWidget_Libri->insertRow(ultm_riga_Libro);
       tableWidget_Libri->setItem(ultm_riga_Libro, 0, new QTableWidgetItem(QString::fromStdString(l->getTitolo())));
       tableWidget_Libri->setItem(ultm_riga_Libro, 1, new QTableWidgetItem(QString::fromStdString(l->getGenere())));

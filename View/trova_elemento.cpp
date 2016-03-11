@@ -126,103 +126,103 @@ void Trova_Elemento::slot_pushButton_search() {
     QString genere(QString::fromStdString((*it).getItem()->getGenere()));
     const CD* cd=dynamic_cast<const CD*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_CD->isChecked()) && cd){
-        if(checkBox_titolo->isChecked()){
-            QString titolo_f=lineEdit_titolo->text();
-            toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_autore->isChecked()){
-            QString artista(QString::fromStdString(cd->getArtista()));
-            QString autore_f=lineEdit_autore->text();
-            toPrint = artista.contains(autore_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_genere->isChecked()){
-            QString genere_f=lineEdit_genere->text();
-            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
-        }
-        if(toPrint){
-            type="CD";
-            strRisultato.prepend(QString::number(cd->getAnnoUscita()));
-            strRisultato.prepend(" | AnnoUscita: ");
-            strRisultato.prepend(QString::number(cd->getDischi()));
-            strRisultato.prepend(" | Dischi: ");
-            strRisultato.prepend(QString::fromStdString(cd->getArtista()));
-            strRisultato.prepend(" | Artista: ");
-        }
+      if(checkBox_titolo->isChecked()){
+        QString titolo_f=lineEdit_titolo->text();
+        toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_autore->isChecked()){
+        QString artista(QString::fromStdString(cd->getArtista()));
+        QString autore_f=lineEdit_autore->text();
+        toPrint = artista.contains(autore_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_genere->isChecked()){
+        QString genere_f=lineEdit_genere->text();
+        toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
+      }
+      if(toPrint){
+        type="CD";
+        strRisultato.prepend(QString::number(cd->getAnnoUscita()));
+        strRisultato.prepend(" | AnnoUscita: ");
+        strRisultato.prepend(QString::number(cd->getDischi()));
+        strRisultato.prepend(" | Dischi: ");
+        strRisultato.prepend(QString::fromStdString(cd->getArtista()));
+        strRisultato.prepend(" | Artista: ");
+      }
     }
     const Libro* lib=dynamic_cast<const Libro*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_Libri->isChecked()) && lib){
-        if(checkBox_titolo->isChecked()){
-            QString titolo_f=lineEdit_titolo->text();
-            toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_autore->isChecked()){
-            QString autore(QString::fromStdString(lib->getAutore()));
-            QString autore_f=lineEdit_autore->text();
-            toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_genere->isChecked()){
-            QString genere_f=lineEdit_genere->text();
-            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
-        }
-        if(toPrint){ //in ordine inverso
-            type="Libro";
-            strRisultato.prepend(QString::fromStdString(lib->getEditore()));
-            strRisultato.prepend(" | Editore: ");
-            strRisultato.prepend(QString::number(lib->getAnnoUscita()));
-            strRisultato.prepend(" | AnnoUscita: ");
-            strRisultato.prepend(QString::fromStdString(lib->getAutore()));
-            strRisultato.prepend(" | Autore: ");
-        }
+      if(checkBox_titolo->isChecked()){
+        QString titolo_f=lineEdit_titolo->text();
+        toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_autore->isChecked()){
+        QString autore(QString::fromStdString(lib->getAutore()));
+        QString autore_f=lineEdit_autore->text();
+        toPrint = autore.contains(autore_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_genere->isChecked()){
+        QString genere_f=lineEdit_genere->text();
+        toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
+      }
+      if(toPrint){ //in ordine inverso
+        type="Libro";
+        strRisultato.prepend(QString::fromStdString(lib->getEditore()));
+        strRisultato.prepend(" | Editore: ");
+        strRisultato.prepend(QString::number(lib->getAnnoUscita()));
+        strRisultato.prepend(" | AnnoUscita: ");
+        strRisultato.prepend(QString::fromStdString(lib->getAutore()));
+        strRisultato.prepend(" | Autore: ");
+      }
     }
     const DVD* dvd=dynamic_cast<const DVD*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_DVD->isChecked()) && dvd){
-        if(checkBox_titolo->isChecked()){
-            QString titolo_f=lineEdit_titolo->text();
-            toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_autore->isChecked()){
-            QString regista(QString::fromStdString(dvd->getRegista()));
-            QString autore_f=lineEdit_autore->text();
-            toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_genere->isChecked()){
-            QString genere_f=lineEdit_genere->text();
-            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
-        }
-        if(toPrint){ //in ordine inverso
-            type="DVD";
-            strRisultato.prepend((dvd->getDataUscita()).toString("dd.MM.yyyy"));
-            strRisultato.prepend(" | DataUscita: ");
-            strRisultato.prepend(QString::number(dvd->getDurata()));
-            strRisultato.prepend(" | Durata: ");
-            strRisultato.prepend(QString::fromStdString(dvd->getRegista()));
-            strRisultato.prepend(" | Regista: ");
-        }
+      if(checkBox_titolo->isChecked()){
+        QString titolo_f=lineEdit_titolo->text();
+        toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_autore->isChecked()){
+        QString regista(QString::fromStdString(dvd->getRegista()));
+        QString autore_f=lineEdit_autore->text();
+        toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_genere->isChecked()){
+        QString genere_f=lineEdit_genere->text();
+        toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
+      }
+      if(toPrint){ //in ordine inverso
+        type="DVD";
+        strRisultato.prepend((dvd->getDataUscita()).toString("dd.MM.yyyy"));
+        strRisultato.prepend(" | DataUscita: ");
+        strRisultato.prepend(QString::number(dvd->getDurata()));
+        strRisultato.prepend(" | Durata: ");
+        strRisultato.prepend(QString::fromStdString(dvd->getRegista()));
+        strRisultato.prepend(" | Regista: ");
+      }
     }
     const VHS* vhs=dynamic_cast<const VHS*>((*it).getItem());
     if((radioButton_all->isChecked() || radioButton_VHS->isChecked()) && vhs){
-        if(checkBox_titolo->isChecked()){
-            QString titolo_f=lineEdit_titolo->text();
-            toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_autore->isChecked()){
-            QString regista(QString::fromStdString(vhs->getRegista()));
-            QString autore_f=lineEdit_autore->text();
-            toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
-        }
-        if(checkBox_genere->isChecked()){
-            QString genere_f=lineEdit_genere->text();
-            toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
-        }
-        if(toPrint){ //in ordine inverso
-            type="VHS";
-            strRisultato.prepend((vhs->getDataUscita()).toString("dd.MM.yyyy"));
-            strRisultato.prepend(" | DataUscita: ");
-            strRisultato.prepend(QString::number(vhs->getDurata()));
-            strRisultato.prepend(" | Durata: ");
-            strRisultato.prepend(QString::fromStdString(vhs->getRegista()));
-            strRisultato.prepend(" | Regista: ");
-        }
+      if(checkBox_titolo->isChecked()){
+        QString titolo_f=lineEdit_titolo->text();
+        toPrint=titolo.contains(titolo_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_autore->isChecked()){
+        QString regista(QString::fromStdString(vhs->getRegista()));
+        QString autore_f=lineEdit_autore->text();
+        toPrint = regista.contains(autore_f, Qt::CaseInsensitive);
+      }
+      if(checkBox_genere->isChecked()){
+        QString genere_f=lineEdit_genere->text();
+        toPrint=genere.contains(genere_f, Qt::CaseInsensitive);
+      }
+      if(toPrint){ //in ordine inverso
+        type="VHS";
+        strRisultato.prepend((vhs->getDataUscita()).toString("dd.MM.yyyy"));
+        strRisultato.prepend(" | DataUscita: ");
+        strRisultato.prepend(QString::number(vhs->getDurata()));
+        strRisultato.prepend(" | Durata: ");
+        strRisultato.prepend(QString::fromStdString(vhs->getRegista()));
+        strRisultato.prepend(" | Regista: ");
+      }
     }
     if(toPrint){ //solo Titolo e Genere (in ordine inverso)
       strRisultato.prepend(genere.toUpper());

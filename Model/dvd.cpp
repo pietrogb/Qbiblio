@@ -9,13 +9,13 @@ DVD::~DVD() {}
 DVD* DVD::clone() const {return new DVD(*this);}
 
 bool DVD::operator==(const DVD& f) const{
-    return Film::operator ==(f);
+  return Film::operator ==(f);
 }
 
 bool DVD::operator!=(const DVD& f) const{
-    return !(Film::operator ==(f));
+  return !(Film::operator ==(f));
 }
 
 bool DVD::search(const string & str) const{
-    return Film::search(str);
+  return Film::search(str);
 }

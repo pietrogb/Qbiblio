@@ -13,20 +13,20 @@ using std::string;
 class Libro : public LibraryItem
 {
 private:
-    string autore;
-    int annoUscita;
-    string editore;
+  string autore;
+  int annoUscita;
+  string editore;
 public:
-    // Libro();
-    Libro(string ="", string ="", string ="", int =0, string ="");
-    ~Libro();
-    virtual Libro* clone() const;
-    virtual bool operator==(const Libro&) const;
-    virtual bool operator!=(const Libro&) const;
-    string getAutore() const;
-    int getAnnoUscita() const;
-    string getEditore() const;
-    bool search(const string &) const;
+  // Libro();
+  Libro(string ="", string ="", string ="", int =0, string ="");
+  ~Libro();
+  virtual Libro* clone() const;
+  virtual bool operator==(const Libro&) const;
+  virtual bool operator!=(const Libro&) const;
+  string getAutore() const;
+  int getAnnoUscita() const;
+  string getEditore() const;
+  bool search(const string &) const;
 };
 
 #endif // LIBRO_H

@@ -69,24 +69,24 @@ private:
   void setWidget();
 
 public slots:
-    void slotGestioneCdQDialog();
-    void slotGestioneDvdQDialog();
-    void slotGestioneVhsQDialog();
-    void slotGestioneLibroQDialog();
-    void slotFindItemQDialog();
-    void slotInsertCD();
-    void slotInsertDVD();
-    void slotInsertVHS();
-    void slotInsertLibro();
-    void slotRemoveCD();
-    void slotRemoveDVD();
-    void slotRemoveVHS();
-    void slotRemoveLibro();
-    void slotReplaceCD();
-    void slotReplaceDVD();
-    void slotReplaceVHS();
-    void slotReplaceLibro();
-    void updateTableResult();
+  void slotGestioneCdQDialog();
+  void slotGestioneDvdQDialog();
+  void slotGestioneVhsQDialog();
+  void slotGestioneLibroQDialog();
+  void slotFindItemQDialog();
+  void slotInsertCD();
+  void slotInsertDVD();
+  void slotInsertVHS();
+  void slotInsertLibro();
+  void slotRemoveCD();
+  void slotRemoveDVD();
+  void slotRemoveVHS();
+  void slotRemoveLibro();
+  void slotReplaceCD();
+  void slotReplaceDVD();
+  void slotReplaceVHS();
+  void slotReplaceLibro();
+  void updateTableResult();
 };
 
 #endif

@@ -9,11 +9,11 @@ Libro::~Libro() {}
 Libro* Libro::clone() const {return new Libro(*this);}
 
 bool Libro::operator==(const Libro& l) const {
-    return ( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
+  return ( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
 }
 
 bool Libro::operator!=(const Libro& l) const {
-    return !( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
+  return !( LibraryItem::operator ==(l) && autore == l.autore && annoUscita == l.annoUscita && editore == l.editore);
 }
 
 string Libro::getAutore() const {return autore;}
@@ -23,5 +23,5 @@ int Libro::getAnnoUscita() const {return annoUscita;}
 string Libro::getEditore() const {return editore;}
 
 bool Libro::search(const string & str) const{
-    return (LibraryItem::search(str) || autore == str);
+  return (LibraryItem::search(str) || autore == str);
 }

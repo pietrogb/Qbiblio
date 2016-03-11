@@ -9,13 +9,13 @@ VHS::~VHS() {}
 VHS* VHS::clone() const {return new VHS(*this);}
 
 bool VHS::operator==(const VHS& f) const{
-    return Film::operator ==(f);
+  return Film::operator ==(f);
 }
 
 bool VHS::operator!=(const VHS& f) const{
-    return !(Film::operator ==(f));
+  return !(Film::operator ==(f));
 }
 
 bool VHS::search(const string & str) const{
-    return Film::search(str);
+  return Film::search(str);
 }

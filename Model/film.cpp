@@ -9,11 +9,11 @@ Film::~Film() {}
 Film* Film::clone() const {return new Film(*this);};
 
 bool Film::operator==(const Film& f) const{
-    return (LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
+  return (LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
 }
 
 bool Film::operator!=(const Film& f) const{
-    return !(LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
+  return !(LibraryItem::operator ==(f) && regista==f.regista && durata == f.durata && dataUscita==f.dataUscita);
 }
 
 string Film::getRegista() const{ return regista;}
@@ -22,11 +22,6 @@ int Film::getDurata() const {return durata;}
 
 QDate Film::getDataUscita() const {return dataUscita;}
 
-
-//Film::Film(): LibraryItem(), regista(""), durata(0), dataUscita(), attori() {}
-//Film::Film(string t, string g, string r, int d, QDate u, QVector<string> a): LibraryItem(t, g), regista(r), durata(d), dataUscita(u), attori(a) {}
-//Film::QVector<string> getAttori() const;
-
 bool Film::search(const string & str) const{
-    return (LibraryItem::search(str) || regista == str);
+  return (LibraryItem::search(str) || regista == str);
 }
