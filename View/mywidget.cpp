@@ -69,7 +69,7 @@ void MyWidget::createMenuGroupBox(){
 
   horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum); //Spacer pulsante Trova
 
-  gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1);
+  gridLayout->addItem(horizontalSpacer, 0, 4, 1, 1); //si può cancellare?
 
   gridLayout->addWidget(qpb_quit, 0, 5, 1, 1);
 
@@ -386,14 +386,12 @@ void MyWidget::createLibriGroupBox(){
   qgb_Libri->setLayout(layout);
 }
 
-
 void MyWidget::slotFindItemQDialog(){
   t_el = new Trova_Elemento(this, &bib);
   t_el->resize(monitorWidth*0.6, monitorHeight*0.5);
   t_el->setGeometry(QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, t_el->size(), qApp->desktop()->availableGeometry()));
   t_el->exec();
 }
-
 
 void MyWidget::updateTableResult(){
   tableWidget_Libri->setRowCount(0);

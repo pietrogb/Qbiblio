@@ -1,16 +1,15 @@
-\BOOKMARK [1][-]{section.1}{Introduzione}{}
-\BOOKMARK [2][-]{subsection.1.1}{Scopo del documento}{section.1}
-\BOOKMARK [2][-]{subsection.1.2}{Scopo del progetto}{section.1}
-\BOOKMARK [2][-]{subsection.1.3}{Specifiche progettuali}{section.1}
-\BOOKMARK [1][-]{section.2}{Classi logiche}{}
-\BOOKMARK [2][-]{subsection.2.1}{Gerarchia oggetti memorizzati}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Classe contenitore}{section.2}
-\BOOKMARK [3][-]{subsubsection.2.2.1}{ContainerItem}{subsection.2.2}
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Iterator}{subsection.2.2}
-\BOOKMARK [3][-]{subsubsection.2.2.3}{const\137Iterator}{subsection.2.2}
-\BOOKMARK [2][-]{subsection.2.3}{Classe SmartPtr}{section.2}
-\BOOKMARK [2][-]{subsection.2.4}{Classe Biblio}{section.2}
-\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}
-\BOOKMARK [2][-]{subsection.3.1}{MainWindow}{section.3}
-\BOOKMARK [2][-]{subsection.3.2}{QWidget}{section.3}
-\BOOKMARK [1][-]{section.4}{Gestione della memoria}{}
+\BOOKMARK [1][-]{section.1}{Introduzione}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Scopo del documento}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Scopo del progetto}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Specifiche progettuali}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Classi logiche}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Gerarchia oggetti memorizzati}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Classe contenitore}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.1}{ContainerItem}{subsection.2.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Iterator}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.3}{const\137Iterator}{subsection.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.3}{Classe SmartPtr}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.4}{Classe Biblio}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Classi Grafiche}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{QWidget}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Gestione della memoria}{}% 15

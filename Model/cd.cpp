@@ -9,11 +9,11 @@ CD::~CD() {}
 CD* CD::clone() const {return new CD(*this);}
 
 bool CD::operator==(const CD& c) const {
-    return (LibraryItem::operator ==(c) && artista == c.artista && annoUscita==c.annoUscita && nDischi == c.nDischi);
+  return (LibraryItem::operator ==(c) && artista == c.artista && annoUscita==c.annoUscita && nDischi == c.nDischi);
 }
 
 bool CD::operator!=(const CD& c) const{
-    return !(LibraryItem::operator ==(c) && artista == c.artista && annoUscita==c.annoUscita && nDischi == c.nDischi);
+  return !(LibraryItem::operator ==(c) && artista == c.artista && annoUscita==c.annoUscita && nDischi == c.nDischi);
 }
 
 string CD::getArtista() const {return artista;}
@@ -23,5 +23,5 @@ int CD::getAnnoUscita() const {return annoUscita;}
 int CD::getDischi() const {return nDischi;}
 
 bool CD::search(const string& str)const{
-    return (LibraryItem::search(str) || artista == str);
+  return (LibraryItem::search(str) || artista == str);
 }

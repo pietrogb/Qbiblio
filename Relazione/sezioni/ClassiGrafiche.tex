@@ -9,36 +9,36 @@
 	\end{figure}
 	
 	Per questo motivo, è stata creata una classe \textbf{QWidget}.
-	\subsection{MainWindow}{
-		Questa è la classe invocata direttamente dal \textbf{main}. L'obiettivo di questa classe è mostrare le operazioni che è possibile eseguire, raggruppandole in base agli oggetti della libreria in modo da semplificare l'utilizzo dell'applicazione.\\
-		Al suo interno è presente:
-		\begin{itemize}\itemsep=0.5pt
-			\item Un oggetto \textbf{Contenitore<SmartPtr>}, contenente puntatori agli elementi della libreria, dichiarato \underline{privato};
-			\item Il costruttore della \textbf{MainWindow}, che crea l'oggetto \textbf{Contenitore} nello heap, fa il setup della finestra e istanzia 
-			\item Un metodo \textit{setupView()} che s'occupa di
-			\item I seguenti slot:
-			\begin{itemize}\itemsep=0.5pt
-				\item slotAddItem() per l'inserimento d'un nuovo elemento nella libreria;
-				\item slotMostraCatalogoQDialog()  per vedere il contenuto della libreria;
-				\item slotTrovaQDialog() per effettuare la ricerca d'un elemento all'interno della libreria
-			    \item slotReplaceDVD() per sostituire un film in DVD;
-			    \item slotReplaceVHS() per sostituire un film in videocassetta;
-			    \item slotReplaceCD()
-			    \item slotReplaceLibro()
-			    \item slotAggiornaRisultati() 
-			\end{itemize}
-		\end{itemize}
-	}
-	
 	\subsection{QWidget}{
 		Un oggetto di \textbf{QWidget} viene creato dal main senza parent, costruendo così un'\textit{indipendent window}. \\
-		Questa classe funge da layout manager, contiene 5 groupbox al cui interno sono contenute le principali operazioni e funzionalita` disponibili, divise nel modo seguente:
+		Questa classe funge da layout manager, contiene 5 groupbox al cui interno sono contenute le principali operazioni e funzionalità disponibili, divise nel modo seguente:
 	\begin{itemize}\itemsep=0.5pt
-		\item \textit{qgb\_menu} rappresenta la groupbox in cui sono racchiusi i pulsanti:
-			\textit{Gestione CD, Gestione DVD, Gestione Libri, Gestione VHS, Trova Elemento, Chiudi}.
+		\item \textit{qgb\_menu} rappresenta la groupbox in cui sono racchiusi i pulsanti delle operazioni sulla base di dati della biblioteca;
 		\item \textit{qgb\_CD, qgb\_Libri, qgb\_DVD, qgb\_VHS}, in cui sono racchiuse le tabelle che rappresentano - rispettivamente - i CD, Libri, DVD e VHS presenti nella bibioteca;
 	\end{itemize}
-	Ho scelto di usare le groupboxes per la possibilita` di inserire un frame ed un titolo attorno alle tabelle.
-	La creazione di una \textbf{MyWidget} provoca la creazione delle 5 groupboxes mediante le funzioni \textit{}
+	Ho scelto di usare le groupboxes per la possibilità di inserire un frame ed un titolo attorno alle tabelle.
+	La creazione di una \textbf{MyWidget} provoca l'esecuzione de:
+	\begin{itemize}\itemsep=0.5pt
+		\item L'impostazione del titolo della finestra, il ridimensionamento della stessa a seconda delle dimensioni dello schermo, lo spostamento al centro dello schermo; il tutto ad opera della funzione \textit{setWidget()}; 
+		\item La creazione della \textbf{QGroupBox} \textit{Qgb\_Menu} ad opera della funzione \textit{createMenuGroupBox()}, che connette anche i segnali dei pulsanti ai relativi slot.
+		\item La creazione della \textbf{QGroupBox} \textit{Qgb\_CD} ad opera della funzione \textit{createCdGroupBox()};
+		\item La creazione della \textbf{QGroupBox} \textit{Qgb\_Libri} ad opera della funzione \textit{createLibriGroupBox()};
+		\item La creazione della \textbf{QGroupBox} \textit{Qgb\_DVD}ad opera della funzione \textit{createDvdGroupBox()};
+		\item La creazione della \textbf{QGroupBox} \textit{Qgb\_VHS}ad opera della funzione \textit{createVhsGroupBox()}.\\
+		Le quattro funzioni che creano le tabelle sono strutturate allo stesso modo, per semplicità verrà illustrata solamente \textit{createCdGroupBox()}: 
+		\begin{enumerate}
+			\item Il puntatore \textit{qgb_CD} viene asssociato ad una nuova QGroupBox cui è stato assegnato il titolo: "Catalogo CD";
+			\item Viene creata la tabella \textit{tableWidget_CD} ed impostato il relativo header, composto dai nomi degli attributi che la compongono;
+			\item Viene creato un nuovo QVBoxLayout, cui viene aggiunta la widget associata alla tabella creata al punto 2;
+			\item Il layout della QGroupBox viene impostato a quello creato in precedenza.
+		\end{enumerate}
+		La funzione \textit{createMenuGroupBox()} provoca le seguenti azioni:
+		\begin{enumerate}
+			\item Il puntatore \textit{qgb_Menu} viene asssociato ad una nuova QGroupBox cui è stato assegnato il titolo: "Operazioni";
+			\item Vengono creati i pulsanti \textit{Gestione CD, Gestione DVD, Gestione Libri, Gestione VHS, Trova Elemento, Chiudi} che servono ad aprire le finestre di gestione dei contenuti della libreria e permettono di chiudere il programma.
+			\item Viene creato \textit{greidLayout}, dove verranno inseriti i pulsanti che compongono il menù; a questo vengono aggiunti i pulsanti creati in precedenza.
+			\item Vengono associati ai pulsanti i relativi slot.
+		\end{enumerate}
+	\end{itemize}
 	}
 }
