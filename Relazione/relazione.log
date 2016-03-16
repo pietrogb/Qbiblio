@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  16 MAR 2016 11:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.13)  16 MAR 2016 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -854,24 +854,24 @@ e 36.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) [2] (./sezioni/ClassiLogiche.tex
-<./sezioni/img/gerarchia.jpg, id=120, 594.0594pt x 420.6114pt>
+<./sezioni/img/gerarchia.jpg, id=120, 254.9525pt x 189.70876pt>
 File: ./sezioni/img/gerarchia.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/gerarchia.jpg>
 Package pdftex.def Info: ./sezioni/img/gerarchia.jpg used on input line 7.
-(pdftex.def)             Requested size: 263.188pt x 186.34677pt.
+(pdftex.def)             Requested size: 263.188pt x 195.84508pt.
  [3 <./sezioni/img/modelview-overview.jpg> <./sezioni/img/gerarchia.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
 [4] [5]) [6] (./sezioni/ClassiGrafiche.tex
-<./sezioni/img/Operazioni.jpg, id=149, 465.74pt x 242.9075pt>
+<./sezioni/img/Operazioni.jpg, id=149, 494.84875pt x 208.78pt>
 File: ./sezioni/img/Operazioni.jpg Graphic file (type jpg)
 
 <use ./sezioni/img/Operazioni.jpg>
 Package pdftex.def Info: ./sezioni/img/Operazioni.jpg used on input line 6.
-(pdftex.def)             Requested size: 372.5925pt x 194.32625pt.
+(pdftex.def)             Requested size: 395.87955pt x 167.0242pt.
  [7 <./sezioni/img/Operazioni.jpg>])
 (./sezioni/GestioneMemoria.tex
 Underfull \hbox (badness 10000) in paragraph at lines 43--1
@@ -905,7 +905,7 @@ our/jknappen/ec/ectt1000.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknapp
 en/ec/ecbx1728.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
 1000.600pk> </home/pietro/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on relazione.pdf (9 pages, 973639 bytes).
+Output written on relazione.pdf (9 pages, 902641 bytes).
 PDF statistics:
  489 PDF objects out of 1000 (max. 8388607)
  194 compressed objects within 2 object streams
