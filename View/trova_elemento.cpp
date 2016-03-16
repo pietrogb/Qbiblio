@@ -99,7 +99,7 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
 
   pushButton_search = new QPushButton("Trova");
   horizontalLayout_bottom->addWidget(pushButton_search);
-  connect(pushButton_search,SIGNAL(clicked()),this,SLOT(slot_pushButton_search()));
+  connect(pushButton_search,SIGNAL(clicked()),this,SLOT(slot_start_search()));
 
   pushButton_close = new QPushButton("Chiudi");
   horizontalLayout_bottom->addWidget(pushButton_close);
@@ -111,7 +111,7 @@ Trova_Elemento::Trova_Elemento(QWidget* parent, Biblio* b) : QDialog(parent) {
 }
 
   
-void Trova_Elemento::slot_pushButton_search() {
+void Trova_Elemento::slot_start_search() {
   textEdit_resultFilter->clear();
 
   textEdit_resultFilter->setStyleSheet("font-size: 10px");

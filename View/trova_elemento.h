@@ -61,7 +61,7 @@ private:
   QPushButton* pushButton_search;
   QPushButton* pushButton_close;
 public slots:
-  void slot_pushButton_search();
+  void slot_start_search();
 };
 
 #endif

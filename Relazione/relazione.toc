@@ -8,10 +8,10 @@
 \contentsline {subsection}{\numberline {2.1}Gerarchia oggetti memorizzati}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Classe contenitore}{4}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}ContainerItem}{4}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Iterator}{5}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2}Iterator}{4}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}const\_Iterator}{5}{subsubsection.2.2.3}
-\contentsline {subsection}{\numberline {2.3}Classe SmartPtr}{6}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}Classe SmartPtr}{5}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Classe Biblio}{6}{subsection.2.4}
 \contentsline {section}{\numberline {3}Classi Grafiche}{7}{section.3}
 \contentsline {subsection}{\numberline {3.1}QWidget}{7}{subsection.3.1}
-\contentsline {section}{\numberline {4}Gestione della memoria}{9}{section.4}
+\contentsline {section}{\numberline {4}Gestione della memoria}{8}{section.4}
